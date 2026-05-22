@@ -13,9 +13,18 @@ from pages_main import (  # noqa: E402
     cs_hub_faq_jsonld,
 )
 from pages_cs import (  # noqa: E402
-    CS_COST_BODY, cs_cost_faq_jsonld,
     CS_TESTING_BODY,
     CS_FAILED_BODY, cs_failed_faq_jsonld,
+)
+from pages_cost import (  # noqa: E402
+    COST_CO_BODY, cost_co_faq_jsonld,
+    CS_COST_BODY_V2, cs_cost_faq_jsonld_v2,
+    COST_VARIATION_BODY, cost_variation_faq_jsonld,
+    COST_TOO_HIGH_BODY, cost_too_high_faq_jsonld,
+    COST_INCLUDES_BODY, cost_includes_faq_jsonld,
+    COST_CRAWLSPACE_BODY, cost_crawlspace_faq_jsonld,
+    COST_FINISHED_BODY, cost_finished_faq_jsonld,
+    COST_REAL_ESTATE_BODY, cost_real_estate_faq_jsonld,
 )
 from pages_misc import (  # noqa: E402
     QUOTE_BODY, QUOTE_THANKYOU_BODY,
@@ -95,28 +104,202 @@ write("colorado-springs/index.html", render_page(
     ],
 ))
 
-# 3. CS COST
+# 3. CS COST (refreshed Phase 2 — uses four-scenario framework)
 write("colorado-springs/radon-mitigation-cost/index.html", render_page(
     url_path="/colorado-springs/radon-mitigation-cost/",
-    title="Radon Mitigation Cost in Colorado Springs (2026 Guide)",
-    description="What radon mitigation typically costs in Colorado Springs. CDPHE baseline ranges, scenario-by-scenario pricing, what moves the price, and why two quotes differ.",
+    title="Radon Mitigation Cost in Colorado Springs (2026): Quote Ranges by Scenario",
+    description="Colorado Springs radon mitigation typically runs $900–$4,800 depending on foundation type. Local cost drivers, El Paso County context, and what to expect by scenario.",
     h1="Radon Mitigation Cost in Colorado Springs",
-    hero_eyebrow="Cost guide",
-    hero_lede="The short answer: $1,000–$2,000 for a typical Colorado mitigation system. The longer answer depends on your foundation, layout, and what's in the written scope.",
-    body_html=CS_COST_BODY,
+    hero_eyebrow="Cost guide · Colorado Springs",
+    hero_lede="A basic basement mitigation in Colorado Springs runs $900–$1,900. Crawlspaces, finished basements, and multi-zone homes cost more — but the spread has reasons. Here's what's actually driving the price on your home.",
+    body_html=CS_COST_BODY_V2,
     breadcrumbs=[
         ("Home", "/"),
         ("Colorado Springs", "/colorado-springs/"),
         ("Mitigation Cost", "/colorado-springs/radon-mitigation-cost/"),
     ],
     extra_jsonld=[
-        cs_cost_faq_jsonld(),
-        article_schema("/colorado-springs/radon-mitigation-cost/", "Radon Mitigation Cost in Colorado Springs", "Typical Colorado Springs radon mitigation cost ranges, what moves the price, and how to evaluate a written quote."),
+        cs_cost_faq_jsonld_v2(),
+        article_schema("/colorado-springs/radon-mitigation-cost/", "Radon Mitigation Cost in Colorado Springs", "Typical Colorado Springs radon mitigation cost ranges by foundation scenario, what moves the price, and how to evaluate a written quote."),
     ],
     related=[
-        ("Radon Testing", "DIY kits, professional tests, action level", "/colorado-springs/radon-testing/"),
-        ("Failed Test", "Step-by-step for homeowners and buyers", "/colorado-springs/failed-radon-test/"),
-        ("Colorado Springs Hub", "Local prevalence, systems, real estate", "/colorado-springs/"),
+        ("Cost Hub", "Statewide Colorado cost overview and quote help", "/radon-mitigation-cost/"),
+        ("Why Quotes Vary", "Five real cost drivers (including Colorado altitude)", "/radon-mitigation-cost/quote-variation/"),
+        ("Real Estate Deadlines", "Mitigation under closing pressure in Colorado", "/radon-mitigation-cost/real-estate-deadlines/"),
+    ],
+))
+
+# 3a. COST HUB — statewide Colorado cost anchor (NEW Phase 2)
+write("radon-mitigation-cost/index.html", render_page(
+    url_path="/radon-mitigation-cost/",
+    title="Radon Mitigation Cost in Colorado (2026): Real Quote Ranges by Scenario",
+    description="What radon mitigation actually costs in Colorado in 2026. CDPHE estimates, four-scenario Colorado Springs market data, and the cost drivers behind every quote.",
+    h1="Radon Mitigation Cost in Colorado",
+    hero_eyebrow="Cost guide · Colorado",
+    hero_lede="The short answer: $1,000–$2,000 per CDPHE for a typical Colorado install. The longer answer depends on your foundation type. Four scenarios cover almost every home — here's what they actually cost.",
+    body_html=COST_CO_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Mitigation Cost", "/radon-mitigation-cost/"),
+    ],
+    extra_jsonld=[
+        cost_co_faq_jsonld(),
+        article_schema("/radon-mitigation-cost/", "Radon Mitigation Cost in Colorado", "What radon mitigation actually costs in Colorado: CDPHE baseline plus the four-scenario quote framework with Colorado Springs market data."),
+    ],
+    related=[
+        ("Colorado Springs Cost", "Local quote ranges and scenario breakdown", "/colorado-springs/radon-mitigation-cost/"),
+        ("What's in a Quote", "14-item checklist for a complete Colorado mitigation quote", "/radon-mitigation-cost/whats-in-a-quote/"),
+        ("Is My Quote Too High?", "Sanity-check any Colorado mitigation quote", "/radon-mitigation-cost/quote-too-high/"),
+    ],
+))
+
+# 3b. WHY QUOTES VARY (NEW Phase 2)
+write("radon-mitigation-cost/quote-variation/index.html", render_page(
+    url_path="/radon-mitigation-cost/quote-variation/",
+    title="Why Radon Mitigation Quotes Vary So Much in Colorado",
+    description="Quotes for the same home can range $1,500–$4,500 in Colorado. Here's why — and which differences are real cost drivers vs. inflated markups. Includes Colorado altitude correction.",
+    h1="Why Radon Mitigation Quotes Vary So Much",
+    hero_eyebrow="Cost guide · Quote variation",
+    hero_lede="Two Colorado contractors look at the same house and quote $1,500 and $4,200. That spread is usually scope, not greed. Here's how to read the difference.",
+    body_html=COST_VARIATION_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Mitigation Cost", "/radon-mitigation-cost/"),
+        ("Why Quotes Vary", "/radon-mitigation-cost/quote-variation/"),
+    ],
+    extra_jsonld=[
+        cost_variation_faq_jsonld(),
+        article_schema("/radon-mitigation-cost/quote-variation/", "Why Radon Mitigation Quotes Vary in Colorado", "Five real cost drivers behind Colorado radon mitigation quote variation — including the Colorado altitude correction that affects fan sizing."),
+    ],
+    related=[
+        ("Is My Quote Too High?", "Sanity-check tree by scenario", "/radon-mitigation-cost/quote-too-high/"),
+        ("What's in a Quote", "14-item checklist for what a quote should include", "/radon-mitigation-cost/whats-in-a-quote/"),
+        ("Cost Hub", "Statewide Colorado cost overview", "/radon-mitigation-cost/"),
+    ],
+))
+
+# 3c. IS MY QUOTE TOO HIGH (NEW Phase 2)
+write("radon-mitigation-cost/quote-too-high/index.html", render_page(
+    url_path="/radon-mitigation-cost/quote-too-high/",
+    title="Is My Radon Mitigation Quote Too High? A Colorado Reality Check",
+    description="Got a $4,500 radon quote and not sure if it's fair? Use this checklist to sanity-check any Colorado mitigation quote against current market and CDPHE norms.",
+    h1="Is My Radon Mitigation Quote Too High?",
+    hero_eyebrow="Cost guide · Quote check",
+    hero_lede="Most 'too high' Colorado quotes turn out to be fair when you check what's actually in them. Match your home to the right scenario, then ask the right questions.",
+    body_html=COST_TOO_HIGH_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Mitigation Cost", "/radon-mitigation-cost/"),
+        ("Is My Quote Too High?", "/radon-mitigation-cost/quote-too-high/"),
+    ],
+    extra_jsonld=[
+        cost_too_high_faq_jsonld(),
+        article_schema("/radon-mitigation-cost/quote-too-high/", "Is My Radon Mitigation Quote Too High in Colorado", "Sanity-check any Colorado radon mitigation quote against the four-scenario market framework and CDPHE baselines."),
+    ],
+    related=[
+        ("Why Quotes Vary", "Five real cost drivers behind quote spreads", "/radon-mitigation-cost/quote-variation/"),
+        ("What's in a Quote", "14-item checklist for what should be included", "/radon-mitigation-cost/whats-in-a-quote/"),
+        ("Cost Hub", "Statewide Colorado cost overview", "/radon-mitigation-cost/"),
+    ],
+))
+
+# 3d. WHAT'S IN A QUOTE (NEW Phase 2)
+write("radon-mitigation-cost/whats-in-a-quote/index.html", render_page(
+    url_path="/radon-mitigation-cost/whats-in-a-quote/",
+    title="What Should Be in a Radon Mitigation Quote: Colorado Checklist",
+    description="A complete Colorado radon mitigation quote includes DORA license, NRPP or NRSB certification, suction points, fan, pipe routing, sealing, manometer, permits, post-mitigation test, and warranty.",
+    h1="What Should Be in a Radon Mitigation Quote",
+    hero_eyebrow="Cost guide · Quote checklist",
+    hero_lede="A radon quote should read like a contract, not a sticky note. Here's the 14-item line-by-line checklist for a complete Colorado mitigation quote.",
+    body_html=COST_INCLUDES_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Mitigation Cost", "/radon-mitigation-cost/"),
+        ("What's in a Quote", "/radon-mitigation-cost/whats-in-a-quote/"),
+    ],
+    extra_jsonld=[
+        cost_includes_faq_jsonld(),
+        article_schema("/radon-mitigation-cost/whats-in-a-quote/", "What Should Be in a Radon Mitigation Quote in Colorado", "14-item checklist for a complete Colorado radon mitigation quote, including DORA license, NRPP/NRSB certification, scope, warranty, and post-mitigation test."),
+    ],
+    related=[
+        ("Is My Quote Too High?", "Sanity-check tree by scenario", "/radon-mitigation-cost/quote-too-high/"),
+        ("Why Quotes Vary", "Five real cost drivers", "/radon-mitigation-cost/quote-variation/"),
+        ("Cost Hub", "Statewide Colorado cost overview", "/radon-mitigation-cost/"),
+    ],
+))
+
+# 3e. CRAWLSPACE COST (NEW Phase 2)
+write("radon-mitigation-cost/crawlspaces/index.html", render_page(
+    url_path="/radon-mitigation-cost/crawlspaces/",
+    title="Radon Mitigation Cost for Crawlspaces in Colorado",
+    description="Crawlspace radon mitigation in Colorado typically runs $1,800–$4,000 because of the heavy vapor barrier and labor. Here's what drives the cost and what a fair quote looks like.",
+    h1="Radon Mitigation Cost for Crawlspaces",
+    hero_eyebrow="Cost guide · Crawlspaces",
+    hero_lede="Crawlspaces are the foundation type homeowners worry about most. The honest answer: $1,800–$4,000 in Colorado Springs, with real reasons for the spread.",
+    body_html=COST_CRAWLSPACE_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Mitigation Cost", "/radon-mitigation-cost/"),
+        ("Crawlspaces", "/radon-mitigation-cost/crawlspaces/"),
+    ],
+    extra_jsonld=[
+        cost_crawlspace_faq_jsonld(),
+        article_schema("/radon-mitigation-cost/crawlspaces/", "Radon Mitigation Cost for Crawlspaces in Colorado", "Why crawlspace radon mitigation costs more than basement work, what a sub-membrane system involves, and what a fair Colorado crawlspace quote looks like."),
+    ],
+    related=[
+        ("Finished Basements", "Interior routing cost and aesthetic options", "/radon-mitigation-cost/finished-basements/"),
+        ("Why Quotes Vary", "Five real cost drivers", "/radon-mitigation-cost/quote-variation/"),
+        ("Cost Hub", "Statewide Colorado cost overview", "/radon-mitigation-cost/"),
+    ],
+))
+
+# 3f. FINISHED BASEMENT COST (NEW Phase 2)
+write("radon-mitigation-cost/finished-basements/index.html", render_page(
+    url_path="/radon-mitigation-cost/finished-basements/",
+    title="Radon Mitigation Cost for Finished Basements in Colorado",
+    description="Finished basements add $300–$900 to a radon mitigation quote in Colorado due to drywall, finish protection, and routing complexity. Here's what to expect.",
+    h1="Radon Mitigation Cost for Finished Basements",
+    hero_eyebrow="Cost guide · Finished basements",
+    hero_lede="Worried mitigation will tear up your finished basement? In practice, most installs are clean. Here's what the added cost actually buys you.",
+    body_html=COST_FINISHED_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Mitigation Cost", "/radon-mitigation-cost/"),
+        ("Finished Basements", "/radon-mitigation-cost/finished-basements/"),
+    ],
+    extra_jsonld=[
+        cost_finished_faq_jsonld(),
+        article_schema("/radon-mitigation-cost/finished-basements/", "Radon Mitigation Cost for Finished Basements in Colorado", "Why finished basement mitigation costs more, where the pipe can route, drywall touch-up reality, and aesthetic options worth paying for."),
+    ],
+    related=[
+        ("Crawlspaces", "Sub-membrane mitigation cost and drivers", "/radon-mitigation-cost/crawlspaces/"),
+        ("What's in a Quote", "14-item checklist for what should be included", "/radon-mitigation-cost/whats-in-a-quote/"),
+        ("Cost Hub", "Statewide Colorado cost overview", "/radon-mitigation-cost/"),
+    ],
+))
+
+# 3g. REAL ESTATE DEADLINES (NEW Phase 2)
+write("radon-mitigation-cost/real-estate-deadlines/index.html", render_page(
+    url_path="/radon-mitigation-cost/real-estate-deadlines/",
+    title="Radon Mitigation Cost During a Real Estate Transaction (Colorado)",
+    description="Under contract with high radon in Colorado? Mitigation can be done in 7–10 days for $1,000–$3,500. SB23-206 context, your three buyer options, and realistic timelines.",
+    h1="Radon Mitigation Cost During a Real Estate Transaction",
+    hero_eyebrow="Cost guide · Real estate",
+    hero_lede="Inspection report shows high radon and you're on a closing deadline. Here's the SB23-206 context, your three buyer options, realistic timelines, and the credit-vs-mitigate tradeoff.",
+    body_html=COST_REAL_ESTATE_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Mitigation Cost", "/radon-mitigation-cost/"),
+        ("Real Estate Deadlines", "/radon-mitigation-cost/real-estate-deadlines/"),
+    ],
+    extra_jsonld=[
+        cost_real_estate_faq_jsonld(),
+        article_schema("/radon-mitigation-cost/real-estate-deadlines/", "Radon Mitigation Cost During Real Estate Transactions in Colorado", "How Colorado SB23-206 affects radon disclosure, three buyer options under inspection objections, realistic timelines, and what to do at closing."),
+    ],
+    related=[
+        ("Failed Radon Test", "Step-by-step playbook by situation", "/colorado-springs/failed-radon-test/"),
+        ("Colorado Springs Cost", "Local quote ranges and scenario breakdown", "/colorado-springs/radon-mitigation-cost/"),
+        ("Cost Hub", "Statewide Colorado cost overview", "/radon-mitigation-cost/"),
     ],
 ))
 
@@ -265,6 +448,14 @@ SITEMAP_URLS = [
     ("/colorado-springs/radon-mitigation-cost/", "0.9"),
     ("/colorado-springs/radon-testing/", "0.9"),
     ("/colorado-springs/failed-radon-test/", "0.9"),
+    # Cost & Quote pillar (Phase 2)
+    ("/radon-mitigation-cost/", "0.9"),
+    ("/radon-mitigation-cost/quote-variation/", "0.8"),
+    ("/radon-mitigation-cost/quote-too-high/", "0.8"),
+    ("/radon-mitigation-cost/whats-in-a-quote/", "0.8"),
+    ("/radon-mitigation-cost/crawlspaces/", "0.8"),
+    ("/radon-mitigation-cost/finished-basements/", "0.8"),
+    ("/radon-mitigation-cost/real-estate-deadlines/", "0.8"),
     ("/request-quote/", "0.8"),
     ("/about/", "0.4"),
     ("/disclosure/", "0.4"),
@@ -277,7 +468,7 @@ sitemap += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
 for path, priority in SITEMAP_URLS:
     sitemap += f"  <url>\n"
     sitemap += f"    <loc>{SITE_URL}{path}</loc>\n"
-    sitemap += f"    <lastmod>2026-05-21</lastmod>\n"
+    sitemap += f"    <lastmod>2026-05-22</lastmod>\n"
     sitemap += f"    <changefreq>monthly</changefreq>\n"
     sitemap += f"    <priority>{priority}</priority>\n"
     sitemap += f"  </url>\n"
@@ -306,13 +497,15 @@ Plain HTML + CSS. No build step is required to deploy. The HTML in this repo is 
 
 The Python files under `_build/` are the source-of-truth templates that produced the HTML. If you change content, edit `_build/` and re-run `python3 _build/build.py`. If you only want to tweak copy on a single page, you can edit the HTML directly — just keep the change in `_build/` too if you plan to rebuild later.
 
-## V1 page inventory
+## Page inventory
+
+### V1 pages
 
 | URL | File |
 |---|---|
 | `/` | `index.html` |
 | `/colorado-springs/` | `colorado-springs/index.html` |
-| `/colorado-springs/radon-mitigation-cost/` | `colorado-springs/radon-mitigation-cost/index.html` |
+| `/colorado-springs/radon-mitigation-cost/` | `colorado-springs/radon-mitigation-cost/index.html` (refreshed in Phase 2) |
 | `/colorado-springs/radon-testing/` | `colorado-springs/radon-testing/index.html` |
 | `/colorado-springs/failed-radon-test/` | `colorado-springs/failed-radon-test/index.html` |
 | `/request-quote/` | `request-quote/index.html` |
@@ -323,6 +516,18 @@ The Python files under `_build/` are the source-of-truth templates that produced
 | `/contact/` | `contact/index.html` |
 | `/sitemap.xml` | `sitemap.xml` |
 | `/robots.txt` | `robots.txt` |
+
+### Phase 2: Cost & Quote pillar (May 2026)
+
+| URL | File |
+|---|---|
+| `/radon-mitigation-cost/` | `radon-mitigation-cost/index.html` (statewide cost anchor) |
+| `/radon-mitigation-cost/quote-variation/` | `radon-mitigation-cost/quote-variation/index.html` |
+| `/radon-mitigation-cost/quote-too-high/` | `radon-mitigation-cost/quote-too-high/index.html` |
+| `/radon-mitigation-cost/whats-in-a-quote/` | `radon-mitigation-cost/whats-in-a-quote/index.html` |
+| `/radon-mitigation-cost/crawlspaces/` | `radon-mitigation-cost/crawlspaces/index.html` |
+| `/radon-mitigation-cost/finished-basements/` | `radon-mitigation-cost/finished-basements/index.html` |
+| `/radon-mitigation-cost/real-estate-deadlines/` | `radon-mitigation-cost/real-estate-deadlines/index.html` |
 
 ## Before you launch
 
@@ -339,8 +544,9 @@ The Python files under `_build/` are the source-of-truth templates that produced
 The HTML pages are generated from Python templates under `_build/`:
 
 - `template.py` — shared HTML shell, CSS, header/footer, schema helpers, page renderer
-- `pages_main.py` — homepage + Colorado Springs hub content
-- `pages_cs.py` — cost, testing, failed-test page content
+- `pages_main.py` — homepage + Colorado Springs hub content + shared `SOURCES` dict
+- `pages_cs.py` — Colorado Springs testing and failed-test page content
+- `pages_cost.py` — Phase 2 Cost & Quote pillar (8 pages including refreshed CS cost)
 - `pages_misc.py` — quote form, thank-you, about, disclosure, privacy, contact
 - `build.py` — orchestrator that calls `render_page()` for each URL
 

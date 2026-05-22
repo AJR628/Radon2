@@ -8,13 +8,15 @@ Plain HTML + CSS. No build step is required to deploy. The HTML in this repo is 
 
 The Python files under `_build/` are the source-of-truth templates that produced the HTML. If you change content, edit `_build/` and re-run `python3 _build/build.py`. If you only want to tweak copy on a single page, you can edit the HTML directly — just keep the change in `_build/` too if you plan to rebuild later.
 
-## V1 page inventory
+## Page inventory
+
+### V1 pages
 
 | URL | File |
 |---|---|
 | `/` | `index.html` |
 | `/colorado-springs/` | `colorado-springs/index.html` |
-| `/colorado-springs/radon-mitigation-cost/` | `colorado-springs/radon-mitigation-cost/index.html` |
+| `/colorado-springs/radon-mitigation-cost/` | `colorado-springs/radon-mitigation-cost/index.html` (refreshed in Phase 2) |
 | `/colorado-springs/radon-testing/` | `colorado-springs/radon-testing/index.html` |
 | `/colorado-springs/failed-radon-test/` | `colorado-springs/failed-radon-test/index.html` |
 | `/request-quote/` | `request-quote/index.html` |
@@ -25,6 +27,18 @@ The Python files under `_build/` are the source-of-truth templates that produced
 | `/contact/` | `contact/index.html` |
 | `/sitemap.xml` | `sitemap.xml` |
 | `/robots.txt` | `robots.txt` |
+
+### Phase 2: Cost & Quote pillar (May 2026)
+
+| URL | File |
+|---|---|
+| `/radon-mitigation-cost/` | `radon-mitigation-cost/index.html` (statewide cost anchor) |
+| `/radon-mitigation-cost/quote-variation/` | `radon-mitigation-cost/quote-variation/index.html` |
+| `/radon-mitigation-cost/quote-too-high/` | `radon-mitigation-cost/quote-too-high/index.html` |
+| `/radon-mitigation-cost/whats-in-a-quote/` | `radon-mitigation-cost/whats-in-a-quote/index.html` |
+| `/radon-mitigation-cost/crawlspaces/` | `radon-mitigation-cost/crawlspaces/index.html` |
+| `/radon-mitigation-cost/finished-basements/` | `radon-mitigation-cost/finished-basements/index.html` |
+| `/radon-mitigation-cost/real-estate-deadlines/` | `radon-mitigation-cost/real-estate-deadlines/index.html` |
 
 ## Before you launch
 
@@ -41,8 +55,9 @@ The Python files under `_build/` are the source-of-truth templates that produced
 The HTML pages are generated from Python templates under `_build/`:
 
 - `template.py` — shared HTML shell, CSS, header/footer, schema helpers, page renderer
-- `pages_main.py` — homepage + Colorado Springs hub content
-- `pages_cs.py` — cost, testing, failed-test page content
+- `pages_main.py` — homepage + Colorado Springs hub content + shared `SOURCES` dict
+- `pages_cs.py` — Colorado Springs testing and failed-test page content
+- `pages_cost.py` — Phase 2 Cost & Quote pillar (8 pages including refreshed CS cost)
 - `pages_misc.py` — quote form, thank-you, about, disclosure, privacy, contact
 - `build.py` — orchestrator that calls `render_page()` for each URL
 
