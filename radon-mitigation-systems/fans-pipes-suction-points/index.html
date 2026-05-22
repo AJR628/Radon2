@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Radon Fans, Pipes, Suction Points & Manometers (Colorado Equipment Guide)</title>
+  <meta name="description" content="The equipment deep dive: radon fan models, pipe specs, suction point design, manometer reading, and the Colorado altitude correction (4% airflow loss per 1,000 feet) most national guides miss.">
+  <link rel="canonical" href="https://coloradoradonguide.com/radon-mitigation-systems/fans-pipes-suction-points/">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <meta name="theme-color" content="#1c4a6e">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Radon Fans, Pipes, Suction Points & Manometers (Colorado Equipment Guide)">
+  <meta property="og:description" content="The equipment deep dive: radon fan models, pipe specs, suction point design, manometer reading, and the Colorado altitude correction (4% airflow loss per 1,000 feet) most national guides miss.">
+  <meta property="og:url" content="https://coloradoradonguide.com/radon-mitigation-systems/fans-pipes-suction-points/">
+  <meta property="og:site_name" content="Colorado Radon Guide">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Radon Fans, Pipes, Suction Points & Manometers (Colorado Equipment Guide)">
+  <meta name="twitter:description" content="The equipment deep dive: radon fan models, pipe specs, suction point design, manometer reading, and the Colorado altitude correction (4% airflow loss per 1,000 feet) most national guides miss.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+:root {
+  --bg: #ffffff;
+  --bg-cream: #f7f3ec;
+  --bg-cream-deep: #efe9dc;
+  --border: #e3dccc;
+  --border-strong: #cfc6b1;
+  --text: #14181c;
+  --text-muted: #5a6470;
+  --text-dim: #828a94;
+  --primary: #1c4a6e;
+  --primary-deep: #14385a;
+  --accent: #b35333;
+  --accent-deep: #8e3d22;
+  --success: #156845;
+  --warn: #8a6d1a;
+  --warn-bg: #fbf3dc;
+  --max: 72rem;
+  --prose: 38rem;
+  --radius: 6px;
+  --radius-lg: 10px;
+  --shadow-sm: 0 1px 2px rgba(20,24,28,.04), 0 1px 4px rgba(20,24,28,.04);
+  --shadow-md: 0 6px 18px rgba(20,24,28,.06), 0 2px 6px rgba(20,24,28,.04);
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+h1 { font-size: clamp(2rem, 4vw + 1rem, 3rem); margin: 0 0 1rem; }
+h2 { font-size: clamp(1.5rem, 2vw + 0.75rem, 2rem); margin: 2.5rem 0 1rem; }
+h3 { font-size: 1.25rem; margin: 2rem 0 0.75rem; }
+h4 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; font-family: 'Inter', sans-serif; font-weight: 600; }
+
+p { margin: 0 0 1.25rem; }
+a { color: var(--primary); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: var(--primary-deep); }
+
+ul, ol { margin: 0 0 1.25rem; padding-left: 1.5rem; }
+li { margin: 0.4rem 0; }
+
+strong { font-weight: 600; color: var(--text); }
+
+hr {
+  border: 0;
+  height: 1px;
+  background: var(--border);
+  margin: 2.5rem 0;
+}
+
+/* Layout */
+.container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
+.prose { max-width: var(--prose); }
+.prose-wide { max-width: 54rem; }
+
+/* Skip link */
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  padding: 0.5rem 1rem;
+  background: var(--primary);
+  color: #fff;
+  z-index: 100;
+  text-decoration: none;
+}
+.skip:focus { left: 0; }
+
+/* Header */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.92);
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+  gap: 1rem;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.brand-mark {
+  width: 26px; height: 26px;
+  background: var(--primary);
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+.nav { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+.nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+.nav a:hover { color: var(--text); }
+.nav .nav-cta {
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.95rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+}
+.nav .nav-cta:hover { background: var(--accent-deep); color: #fff; }
+
+/* Breadcrumbs */
+.crumbs {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding: 1rem 0 0;
+}
+.crumbs a { color: var(--text-muted); text-decoration: none; }
+.crumbs a:hover { color: var(--primary); text-decoration: underline; }
+.crumbs span[aria-current] { color: var(--text); }
+.crumbs .sep { margin: 0 0.4rem; color: var(--text-dim); }
+
+/* Hero */
+.hero {
+  padding: 3rem 0 2rem;
+  border-bottom: 1px solid var(--border);
+}
+.hero .lede {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 40rem;
+  margin: 0.5rem 0 1.5rem;
+}
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin-top: 1rem;
+}
+.hero-meta span { display: inline-flex; align-items: center; gap: 0.4rem; }
+
+/* Photo hero - editorial two-column on desktop, stacked on mobile */
+.hero-photo {
+  padding: 3rem 0 3rem;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-cream) 100%);
+}
+.hero-photo .hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.hero-photo .hero-text h1 {
+  font-size: clamp(2rem, 3.5vw + 0.5rem, 2.85rem);
+  margin: 0.75rem 0 1rem;
+}
+.hero-photo .hero-text .lede {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 1.75rem;
+  max-width: none;
+}
+.hero-photo .hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+.hero-photo .hero-meta {
+  margin-top: 1.5rem;
+  font-size: 0.82rem;
+}
+.hero-photo .hero-image {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  box-shadow: var(--shadow-md);
+  background: var(--bg-cream-deep);
+}
+.hero-photo .hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero-photo .img-credit {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.6rem;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.85);
+  background: rgba(20,24,28,0.45);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.hero-photo .img-credit:hover { color: #fff; background: rgba(20,24,28,0.65); }
+
+/* Inline illustration figure (e.g. radon entry diagram) */
+.figure {
+  margin: 2rem 0 2.5rem;
+  background: var(--bg-cream);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+}
+.figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+}
+.figure figcaption {
+  margin-top: 0.85rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.figure figcaption strong { color: var(--text); }
+
+/* Two-column explainer (text + diagram side by side) */
+.explainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  margin: 2rem 0;
+}
+.explainer .figure { margin: 0; }
+.explainer-text p:last-child { margin-bottom: 0; }
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+/* Main content */
+main { padding: 2rem 0 4rem; }
+main .container > section { margin-bottom: 2.5rem; }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.85rem 1.4rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  line-height: 1.2;
+  transition: background 0.15s ease;
+}
+.btn:hover { background: var(--accent-deep); color: #fff; }
+.btn-secondary {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--border-strong);
+}
+.btn-secondary:hover { background: var(--bg-cream); color: var(--primary-deep); }
+.btn-row { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+
+/* Cards & callouts */
+.card {
+  background: var(--bg-cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+.card-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  margin: 1.5rem 0;
+}
+.card h3 { margin-top: 0; }
+.card p:last-child { margin-bottom: 0; }
+
+.callout {
+  background: var(--warn-bg);
+  border-left: 3px solid var(--warn);
+  padding: 1.1rem 1.25rem;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin: 1.5rem 0;
+  font-size: 0.96rem;
+}
+.callout strong { display: block; margin-bottom: 0.3rem; }
+.callout p:last-child { margin-bottom: 0; }
+
+.factbox {
+  background: var(--bg-cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+}
+.factbox .label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 0.4rem;
+}
+.factbox .stat {
+  font-family: 'Fraunces', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+.factbox .source {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* CTA banner */
+.cta-banner {
+  background: var(--primary);
+  color: #fff;
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  margin: 3rem 0;
+  text-align: left;
+}
+.cta-banner h2 { color: #fff; margin-top: 0; }
+.cta-banner p { color: rgba(255,255,255,0.85); max-width: 36rem; }
+.cta-banner .btn {
+  background: #fff;
+  color: var(--primary-deep);
+  margin-top: 0.5rem;
+}
+.cta-banner .btn:hover { background: var(--bg-cream); color: var(--primary-deep); }
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+th, td {
+  text-align: left;
+  padding: 0.75rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+th {
+  font-weight: 600;
+  background: var(--bg-cream);
+  font-size: 0.88rem;
+  letter-spacing: 0.01em;
+}
+table.compact { font-size: 0.88rem; }
+table.compact th, table.compact td { padding: 0.5rem 0.75rem; }
+
+/* FAQ details */
+details {
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 0;
+}
+details:first-of-type { border-top: 1px solid var(--border); }
+details summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.02rem;
+  list-style: none;
+  position: relative;
+  padding-right: 2rem;
+  color: var(--text);
+}
+details summary::-webkit-details-marker { display: none; }
+details summary::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 1.4rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  transition: transform 0.15s ease;
+}
+details[open] summary::after { content: '–'; }
+details > p, details > ul { margin-top: 0.75rem; }
+
+/* Source citations */
+.sources {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.sources h2 { font-size: 1.1rem; margin-top: 0; font-family: 'Inter', sans-serif; }
+.sources ol { padding-left: 1.2rem; }
+.sources li { margin: 0.5rem 0; }
+
+/* Internal link block */
+.related {
+  background: var(--bg-cream);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem 0;
+  margin: 3rem 0;
+}
+.related h2 { margin-top: 0; font-size: 1.3rem; }
+.related-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+.related-grid a {
+  display: block;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.related-grid a:hover {
+  border-color: var(--primary);
+  color: var(--primary-deep);
+}
+.related-grid .related-label {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.related-grid .related-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--bg-cream-deep);
+  border-top: 1px solid var(--border);
+  padding: 3rem 0 2rem;
+  margin-top: 4rem;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+.site-footer .footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+.site-footer h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  margin: 0 0 0.75rem;
+}
+.site-footer ul { list-style: none; padding: 0; margin: 0; }
+.site-footer ul li { margin: 0.4rem 0; }
+.site-footer ul a { color: var(--text-muted); text-decoration: none; }
+.site-footer ul a:hover { color: var(--primary); text-decoration: underline; }
+.site-footer .footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+.site-footer .disclaimer { max-width: 50rem; }
+
+/* Forms */
+.form { background: var(--bg-cream); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--border); }
+.field { margin-bottom: 1.25rem; }
+.field label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+  color: var(--text);
+}
+.field .hint {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-family: inherit;
+  background: #fff;
+  color: var(--text);
+}
+.field textarea { resize: vertical; min-height: 5rem; }
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+  border-color: var(--primary);
+}
+.field-row { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); }
+.required { color: var(--accent-deep); }
+.consent {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+.consent input { width: auto; margin-top: 0.25rem; }
+
+/* Lists */
+.checklist { list-style: none; padding: 0; }
+.checklist li {
+  padding-left: 1.75rem;
+  position: relative;
+}
+.checklist li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--success);
+  font-weight: 700;
+}
+
+/* Tag pills */
+.pill {
+  display: inline-block;
+  background: var(--bg-cream);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.2rem 0.75rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-right: 0.4rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-photo .hero-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+  .hero-photo .hero-image { aspect-ratio: 16/10; max-width: 100%; }
+  .explainer { grid-template-columns: 1fr; gap: 1.75rem; }
+}
+@media (max-width: 720px) {
+  .hero { padding: 2rem 0 1.5rem; }
+  .hero-photo { padding: 1.75rem 0 2rem; }
+  .nav { gap: 0.85rem; }
+  .nav a:not(.nav-cta) { display: none; }
+  .nav .nav-cta { padding: 0.4rem 0.8rem; font-size: 0.88rem; }
+  .cta-banner { padding: 1.75rem; }
+  body { font-size: 16px; }
+  .factbox .stat { font-size: 1.5rem; }
+  table { font-size: 0.85rem; }
+  th, td { padding: 0.5rem 0.6rem; }
+}
+</style>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Colorado Radon Guide", "url": "https://coloradoradonguide.com", "description": "Independent Colorado radon information and quote-connection resource.", "areaServed": {"@type": "AdministrativeArea", "name": "Colorado, USA"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Colorado Radon Guide", "url": "https://coloradoradonguide.com"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://coloradoradonguide.com/"}, {"@type": "ListItem", "position": 2, "name": "Mitigation Systems", "item": "https://coloradoradonguide.com/radon-mitigation-systems/"}, {"@type": "ListItem", "position": 3, "name": "Fans, Pipes & Suction Points", "item": "https://coloradoradonguide.com/radon-mitigation-systems/fans-pipes-suction-points/"}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How does Colorado altitude affect radon fan selection?", "acceptedAnswer": {"@type": "Answer", "text": "Radon fans lose roughly 4% of their airflow capacity per 1,000 feet of elevation. At Colorado Springs altitude (about 6,000 feet), a typical fan loses roughly 24% of its sea-level performance. Colorado systems often require a larger fan model (GP500 instead of RP145) or an additional suction point to compensate."}}, {"@type": "Question", "name": "How long does a radon fan last?", "acceptedAnswer": {"@type": "Answer", "text": "Most manufacturer warranties are 5 years. In practice, many radon fans run 7\u201310 years before replacement is needed. Replacement runs $150\u2013$400 in parts plus 1\u20132 hours of labor. Signs a fan needs replacement include audible humming or rattling, dropping manometer readings, and visible vibration."}}, {"@type": "Question", "name": "How do I read a radon system manometer?", "acceptedAnswer": {"@type": "Answer", "text": "A working manometer shows two fluid columns at different levels \u2014 typically 0.5 to 2.0 inches of water column offset. If the columns are at the same level, the fan isn't running. A sudden change in reading warrants a service call. A steady, offset reading means the system is working."}}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Radon Mitigation Equipment Deep Dive", "description": "RadonAway fan model comparison, pipe specifications, suction point design, manometer reading, and the Colorado altitude correction that affects fan sizing.", "url": "https://coloradoradonguide.com/radon-mitigation-systems/fans-pipes-suction-points/", "publisher": {"@type": "Organization", "name": "Colorado Radon Guide"}, "dateModified": "2026-05-21", "author": {"@type": "Organization", "name": "Colorado Radon Guide"}}</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/" aria-label="Colorado Radon Guide home">
+      <span class="brand-mark" aria-hidden="true">CR</span>
+      <span>Colorado Radon Guide</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/colorado-springs/">Colorado Springs</a>
+      <a href="/colorado-springs/radon-mitigation-cost/">Mitigation Cost</a>
+      <a href="/colorado-springs/radon-testing/">Testing</a>
+      <a href="/colorado-springs/failed-radon-test/">Failed Test</a>
+      <a href="/about/">About</a>
+      <a href="/request-quote/" class="nav-cta">Get a Quote</a>
+    </nav>
+  </div>
+</header>
+  <section class="hero">
+    <div class="container">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/radon-mitigation-systems/">Mitigation Systems</a><span class="sep">›</span><span aria-current="page">Fans, Pipes & Suction Points</span></nav>
+      <span class="eyebrow">Systems · Equipment</span>
+      <h1>Radon Fans, Pipes, Suction Points, and Manometers</h1>
+      <p class="lede">The equipment deep dive. What fan models do what, what pipe specs are correct, what manometers should read — and how Colorado altitude changes the design.</p>
+      
+    </div>
+  </section>
+  <main id="main">
+    <div class="container">
+      
+<section>
+  <div class="prose-wide">
+    <p>The pipe is white PVC. The fan looks like a coffee can in the attic. The manometer is a small plastic U-tube with colored fluid in it. Together they make up a working radon mitigation system, and the right combination matters more in Colorado than almost anywhere else — because altitude changes what those parts need to do.</p>
+    <p>This page is the equipment deep dive: what fan models do what, what pipe specs are correct, what manometers should read, and how Colorado's altitude changes all of it.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Radon fans — the heart of the system</h2>
+  <div class="prose-wide">
+    <p>A radon fan looks like a small inline duct fan. It runs continuously, drawing 50–90 watts of electricity, and creates suction in the suction point beneath the slab or membrane. The right fan depends on three variables:</p>
+    <ul>
+      <li><strong>Soil type</strong> under the slab — porous gravel needs less suction; tight clay needs more.</li>
+      <li><strong>Foundation area</strong> — bigger slabs require more airflow.</li>
+      <li><strong>Altitude</strong> — Colorado fans need more power than national catalogs suggest.</li>
+    </ul>
+
+    <h3>Common fan models</h3>
+    <table>
+      <thead>
+        <tr><th>Model</th><th>Best for</th><th>Typical retail</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>RadonAway RP140</strong><br>4-inch inline, 15–21 watts, max 0.8" WC</td>
+          <td>Very porous gravel, small home</td>
+          <td>$120–$160</td>
+        </tr>
+        <tr>
+          <td><strong>RadonAway RP145</strong><br>4-inch inline, 37–71 watts, max 2.1" WC</td>
+          <td>Standard porous-gravel basement install</td>
+          <td>$150–$200</td>
+        </tr>
+        <tr>
+          <td><strong>RadonAway GP500</strong><br>3-inch high-performance, 85–153 watts, max 4.0" WC</td>
+          <td>Moderate-to-tight soils, multi-suction systems</td>
+          <td>$250–$350</td>
+        </tr>
+        <tr>
+          <td><strong>RadonAway HS-series</strong><br>3-inch in / 2-inch out, 120–381 watts</td>
+          <td>Very tight clay or sand, extreme soil conditions</td>
+          <td>$400–$600</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:.88rem;color:var(--text-muted);">All major fan brands (RadonAway, Festa AMG, Fantech) carry typical 5-year manufacturer warranties.<sup><a href="#src-1">[1]</a></sup></p>
+  </div>
+</section>
+
+<section>
+  <h2>Colorado's altitude correction — the part most national guides miss</h2>
+  <div class="prose-wide">
+    <p>This is where Colorado mitigation design genuinely differs from a national average. Radon fans are rated at sea level. Their performance drops with altitude:</p>
+    <ul>
+      <li><strong>~4% airflow loss per 1,000 feet of elevation.</strong><sup><a href="#src-2">[2]</a></sup></li>
+      <li><strong>Denver</strong> (5,280 ft): a RadonAway RP145's maximum water column rating drops from 2.1" to roughly 1.6".</li>
+      <li><strong>Colorado Springs</strong> (about 6,000 ft): roughly 24% drop. The RP145 maxes out at about 1.6" WC.</li>
+      <li><strong>Mountain towns</strong> (7,000–9,000 ft): the drop is significant enough that fans must often be upsized.</li>
+    </ul>
+    <p>What this means in practice:</p>
+    <ul>
+      <li>A fan that's perfectly sized for a sea-level install may be <strong>underpowered</strong> in Colorado.</li>
+      <li>Where a sea-level home could use a single suction point with an RP145, a Colorado home with the same soil might need either a <strong>larger fan</strong> (GP500 instead) or a <strong>second suction point</strong>.</li>
+      <li>Contractors working only off national catalog specs are the contractors most likely to under-fan a Colorado system. The result shows up in the post-mitigation test — radon levels still above 4.0 pCi/L.</li>
+    </ul>
+    <p>Ask your contractor which fan model they're specifying, and ask why. A good answer references your altitude, your soil type, and your slab size. "We always use an RP145" is not a good answer for a multi-point or tight-soil install at 6,000 feet.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Pipe — the simple part that still has specs</h2>
+  <div class="prose-wide">
+    <p>The pipe is Schedule 40 PVC, either 3-inch or 4-inch diameter. Specs:<sup><a href="#src-3">[3]</a></sup></p>
+    <ul>
+      <li><strong>3-inch minimum, 4-inch preferred</strong> for most residential installs.</li>
+      <li>All joints are sealed with PVC primer and cement.</li>
+      <li>Horizontal runs <strong>slope 3/8 to 1/2 inch per foot</strong> back toward the suction point so condensation drains where it can't pool.</li>
+      <li>Vertical runs are supported every 4–6 feet to prevent sagging.</li>
+      <li>The pipe between the fan and the exhaust is under <strong>positive pressure</strong>, so any leak in that section would release radon into the surrounding space. That section must be entirely in unconditioned space (attic, exterior).</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Suction points — how the system pulls air from beneath the slab</h2>
+  <div class="prose-wide">
+    <p>A suction point starts as a 4-inch hole cored through the slab. The contractor excavates a small pit beneath — typically 12–18 inches deep and roughly 12 inches in diameter — to give the system a place to draw soil gas from. The pipe is connected to the pit with a sealed fitting, and the slab around the pit is sealed.</p>
+    <p>How many suction points do you need? It depends on:</p>
+    <ul>
+      <li><strong>Sub-slab soil communication</strong> — measured by a PFE diagnostic test.</li>
+      <li><strong>Slab area and footprint</strong> — bigger slabs may need more points.</li>
+      <li><strong>Foundation zones</strong> — split-level, tri-level, and addition slabs are separate zones.</li>
+      <li><strong>Soil type</strong> — tight clay reduces the radius of influence of each suction point.</li>
+    </ul>
+    <p>A single suction point handles most Colorado basements with porous gravel under the slab. A multi-zone home (tri-level, split-level, basement plus crawlspace) typically needs two or more.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Manometers — how you know the system is working</h2>
+  <div class="prose-wide">
+    <p>The manometer is a small U-tube gauge (or digital pressure sensor) mounted at the suction point. It measures the pressure differential between the air outside the system and the air inside the system. The standard analog manometer has two clear tubes connected at the bottom, each filled with a colored fluid (typically red mineral oil).</p>
+    <p>What a working manometer shows:</p>
+    <ul>
+      <li>The two fluid columns are <strong>at different levels</strong>. The pressure under the slab is lower than the indoor air pressure, which pushes fluid down on the system side and up on the outside.</li>
+      <li>A typical reading is <strong>0.5 to 2.0 inches of water column</strong> offset.</li>
+      <li>When the fan is off (power failure or fan failure), the columns equalize.</li>
+    </ul>
+    <p>What to do when you check the manometer monthly:</p>
+    <ul>
+      <li>If both columns are at the same level → the fan isn't running. Call the original installer.</li>
+      <li>If the columns show a sudden change in reading → the system condition has changed. Worth a service call.</li>
+      <li>If the reading is steady and offset → the system is doing its job.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Operating cost and fan lifespan</h2>
+  <div class="prose-wide">
+    <p>A radon fan draws 50–90 watts continuously. At Colorado Springs electricity rates, that works out to <strong>$5–$10 per month</strong> in electricity. EPA pegs the typical cost at under $10/month.<sup><a href="#src-4">[4]</a></sup></p>
+    <p>Fan lifespan: most manufacturers warranty for <strong>5 years</strong>; many fans run 7–10 years before replacement is needed.<sup><a href="#src-1">[1]</a></sup> Replacement runs $150–$400 in parts plus 1–2 hours of labor.</p>
+    <p>Signs a fan needs replacement:</p>
+    <ul>
+      <li>Audible humming, rattling, or grinding from the fan housing.</li>
+      <li>Manometer reading dropping over time.</li>
+      <li>Visible vibration or movement of the fan housing.</li>
+    </ul>
+  </div>
+</section>
+
+<aside class="sources" aria-label="Sources">
+  <h2>Sources</h2>
+  <ol>
+    <li id="src-1">U.S. EPA. <em>Consumer's Guide to Radon Reduction</em>: typical fan lifespan and warranty. <a href="https://www.epa.gov/radon/consumers-guide-radon-reduction" rel="noopener" target="_blank">epa.gov/radon/consumers-guide-radon-reduction</a></li>
+    <li id="src-2">RadonAway. <em>Fan Specifications &amp; Altitude Correction</em>. <a href="https://www.radonaway.com/" rel="noopener" target="_blank">radonaway.com</a></li>
+    <li id="src-3">ANSI/AARST SGM-SF-2023 Soil Gas Mitigation Standards. <a href="https://aarst.org/product/sgm-sf-2023-pdf/" rel="noopener" target="_blank">aarst.org</a></li>
+    <li id="src-4">National Radon Proficiency Program. <a href="https://nrpp.info/" rel="noopener" target="_blank">nrpp.info</a></li>
+  </ol>
+</aside>
+
+    </div>
+    <section class="container">
+      <div class="cta-banner">
+        <h2>Get a Colorado Springs Radon Quote</h2>
+        <p>Tell us about your home and test result and we'll connect you with a licensed Colorado mitigation partner. No high-pressure sales calls, no contracts to start.</p>
+        <a href="/request-quote/" class="btn">Request a Quote</a>
+      </div>
+    </section>
+  </main>
+  <section class="related">
+    <div class="container">
+      <h2>Keep reading</h2>
+      <div class="related-grid"><a href="/radon-mitigation-systems/passive-vs-active/"><span class="related-label">Passive vs Active</span><span class="related-title">When passive becomes active and what activation costs</span></a><a href="/radon-mitigation-systems/what-happens-after-mitigation/"><span class="related-label">After Mitigation</span><span class="related-title">Post-mit test, manometer routine, fan lifespan</span></a><a href="/radon-mitigation-cost/quote-variation/"><span class="related-label">Why Quotes Vary</span><span class="related-title">How equipment choices affect quotes</span></a></div>
+    </div>
+  </section>
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Colorado Radon Guide</h4>
+        <p>An independent Colorado radon information and quote-connection resource. We do not install mitigation systems.</p>
+      </div>
+      <div>
+        <h4>Colorado Springs</h4>
+        <ul>
+          <li><a href="/colorado-springs/">Colorado Springs Hub</a></li>
+          <li><a href="/colorado-springs/radon-mitigation-cost/">Mitigation Cost</a></li>
+          <li><a href="/colorado-springs/radon-testing/">Radon Testing</a></li>
+          <li><a href="/colorado-springs/failed-radon-test/">After a Failed Test</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About the Site</h4>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/disclosure/">Editorial &amp; Lead Disclosure</a></li>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Authoritative Sources</h4>
+        <ul>
+          <li><a href="https://cdphe.colorado.gov/radon" rel="noopener" target="_blank">CDPHE Radon Program</a></li>
+          <li><a href="https://www.epa.gov/radon" rel="noopener" target="_blank">EPA Radon</a></li>
+          <li><a href="https://www.elpasocountyhealth.org/radon" rel="noopener" target="_blank">El Paso County Public Health</a></li>
+          <li><a href="https://dpo.colorado.gov/Radon" rel="noopener" target="_blank">Colorado DORA Office of Radon Professionals</a></li>
+          <li><a href="https://leg.colorado.gov/bills/sb23-206" rel="noopener" target="_blank">Colorado SB23-206</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="disclaimer">
+        <strong>Disclaimer.</strong> Colorado Radon Guide is an independent educational resource. We are not a radon mitigation contractor, do not perform radon testing or installation, and do not provide medical advice. Information is drawn from public Colorado and federal health sources and may change. Cost ranges are estimates only and do not represent a contractor quote. Quote requests submitted through this site are routed to a licensed Colorado mitigation partner. See our <a href="/disclosure/">disclosure</a> and <a href="/privacy/">privacy</a> pages.
+      </p>
+      <p>&copy; 2026 Colorado Radon Guide. Page last updated May 2026.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -40,6 +40,18 @@ The Python files under `_build/` are the source-of-truth templates that produced
 | `/radon-mitigation-cost/finished-basements/` | `radon-mitigation-cost/finished-basements/index.html` |
 | `/radon-mitigation-cost/real-estate-deadlines/` | `radon-mitigation-cost/real-estate-deadlines/index.html` |
 
+### Phase 3: Mitigation Systems pillar (May 2026)
+
+| URL | File |
+|---|---|
+| `/radon-mitigation-systems/` | `radon-mitigation-systems/index.html` (How Radon Mitigation Works hub) |
+| `/radon-mitigation-systems/sub-slab-depressurization/` | `radon-mitigation-systems/sub-slab-depressurization/index.html` |
+| `/radon-mitigation-systems/crawlspace-sub-membrane/` | `radon-mitigation-systems/crawlspace-sub-membrane/index.html` |
+| `/radon-mitigation-systems/passive-vs-active/` | `radon-mitigation-systems/passive-vs-active/index.html` |
+| `/radon-mitigation-systems/fans-pipes-suction-points/` | `radon-mitigation-systems/fans-pipes-suction-points/index.html` |
+| `/radon-mitigation-systems/why-sealing-isnt-enough/` | `radon-mitigation-systems/why-sealing-isnt-enough/index.html` |
+| `/radon-mitigation-systems/what-happens-after-mitigation/` | `radon-mitigation-systems/what-happens-after-mitigation/index.html` |
+
 ## Before you launch
 
 1. **Quote form back end (Netlify Forms).** `request-quote/index.html` uses Netlify Forms (`data-netlify="true"`, `name="quote-request"`). On deploy, Netlify auto-detects the form; submissions appear in the Netlify dashboard under **Forms → quote-request**. Email and Slack notifications can be added under **Forms → Notifications**. The form POSTs hidden `city` and `source_page` fields for lead attribution, plus a honeypot `bot-field` for spam protection.
@@ -58,6 +70,7 @@ The HTML pages are generated from Python templates under `_build/`:
 - `pages_main.py` — homepage + Colorado Springs hub content + shared `SOURCES` dict
 - `pages_cs.py` — Colorado Springs testing and failed-test page content
 - `pages_cost.py` — Phase 2 Cost & Quote pillar (8 pages including refreshed CS cost)
+- `pages_systems.py` — Phase 3 Mitigation Systems pillar (7 pages)
 - `pages_misc.py` — quote form, thank-you, about, disclosure, privacy, contact
 - `build.py` — orchestrator that calls `render_page()` for each URL
 

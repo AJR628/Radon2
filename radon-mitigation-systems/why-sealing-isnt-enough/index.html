@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why Sealing Cracks Isn't Enough to Fix Radon (Colorado Reality)</title>
+  <meta name="description" content="Sealing alone almost never works to fix radon — and CDPHE warns it can make levels worse. Here's why depressurization is required and what sealing IS good for as part of a working system.">
+  <link rel="canonical" href="https://coloradoradonguide.com/radon-mitigation-systems/why-sealing-isnt-enough/">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <meta name="theme-color" content="#1c4a6e">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Why Sealing Cracks Isn't Enough to Fix Radon (Colorado Reality)">
+  <meta property="og:description" content="Sealing alone almost never works to fix radon — and CDPHE warns it can make levels worse. Here's why depressurization is required and what sealing IS good for as part of a working system.">
+  <meta property="og:url" content="https://coloradoradonguide.com/radon-mitigation-systems/why-sealing-isnt-enough/">
+  <meta property="og:site_name" content="Colorado Radon Guide">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Why Sealing Cracks Isn't Enough to Fix Radon (Colorado Reality)">
+  <meta name="twitter:description" content="Sealing alone almost never works to fix radon — and CDPHE warns it can make levels worse. Here's why depressurization is required and what sealing IS good for as part of a working system.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+:root {
+  --bg: #ffffff;
+  --bg-cream: #f7f3ec;
+  --bg-cream-deep: #efe9dc;
+  --border: #e3dccc;
+  --border-strong: #cfc6b1;
+  --text: #14181c;
+  --text-muted: #5a6470;
+  --text-dim: #828a94;
+  --primary: #1c4a6e;
+  --primary-deep: #14385a;
+  --accent: #b35333;
+  --accent-deep: #8e3d22;
+  --success: #156845;
+  --warn: #8a6d1a;
+  --warn-bg: #fbf3dc;
+  --max: 72rem;
+  --prose: 38rem;
+  --radius: 6px;
+  --radius-lg: 10px;
+  --shadow-sm: 0 1px 2px rgba(20,24,28,.04), 0 1px 4px rgba(20,24,28,.04);
+  --shadow-md: 0 6px 18px rgba(20,24,28,.06), 0 2px 6px rgba(20,24,28,.04);
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+h1 { font-size: clamp(2rem, 4vw + 1rem, 3rem); margin: 0 0 1rem; }
+h2 { font-size: clamp(1.5rem, 2vw + 0.75rem, 2rem); margin: 2.5rem 0 1rem; }
+h3 { font-size: 1.25rem; margin: 2rem 0 0.75rem; }
+h4 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; font-family: 'Inter', sans-serif; font-weight: 600; }
+
+p { margin: 0 0 1.25rem; }
+a { color: var(--primary); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: var(--primary-deep); }
+
+ul, ol { margin: 0 0 1.25rem; padding-left: 1.5rem; }
+li { margin: 0.4rem 0; }
+
+strong { font-weight: 600; color: var(--text); }
+
+hr {
+  border: 0;
+  height: 1px;
+  background: var(--border);
+  margin: 2.5rem 0;
+}
+
+/* Layout */
+.container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
+.prose { max-width: var(--prose); }
+.prose-wide { max-width: 54rem; }
+
+/* Skip link */
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  padding: 0.5rem 1rem;
+  background: var(--primary);
+  color: #fff;
+  z-index: 100;
+  text-decoration: none;
+}
+.skip:focus { left: 0; }
+
+/* Header */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.92);
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+  gap: 1rem;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.brand-mark {
+  width: 26px; height: 26px;
+  background: var(--primary);
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+.nav { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+.nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+.nav a:hover { color: var(--text); }
+.nav .nav-cta {
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.95rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+}
+.nav .nav-cta:hover { background: var(--accent-deep); color: #fff; }
+
+/* Breadcrumbs */
+.crumbs {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding: 1rem 0 0;
+}
+.crumbs a { color: var(--text-muted); text-decoration: none; }
+.crumbs a:hover { color: var(--primary); text-decoration: underline; }
+.crumbs span[aria-current] { color: var(--text); }
+.crumbs .sep { margin: 0 0.4rem; color: var(--text-dim); }
+
+/* Hero */
+.hero {
+  padding: 3rem 0 2rem;
+  border-bottom: 1px solid var(--border);
+}
+.hero .lede {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 40rem;
+  margin: 0.5rem 0 1.5rem;
+}
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin-top: 1rem;
+}
+.hero-meta span { display: inline-flex; align-items: center; gap: 0.4rem; }
+
+/* Photo hero - editorial two-column on desktop, stacked on mobile */
+.hero-photo {
+  padding: 3rem 0 3rem;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-cream) 100%);
+}
+.hero-photo .hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.hero-photo .hero-text h1 {
+  font-size: clamp(2rem, 3.5vw + 0.5rem, 2.85rem);
+  margin: 0.75rem 0 1rem;
+}
+.hero-photo .hero-text .lede {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 1.75rem;
+  max-width: none;
+}
+.hero-photo .hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+.hero-photo .hero-meta {
+  margin-top: 1.5rem;
+  font-size: 0.82rem;
+}
+.hero-photo .hero-image {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  box-shadow: var(--shadow-md);
+  background: var(--bg-cream-deep);
+}
+.hero-photo .hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero-photo .img-credit {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.6rem;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.85);
+  background: rgba(20,24,28,0.45);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.hero-photo .img-credit:hover { color: #fff; background: rgba(20,24,28,0.65); }
+
+/* Inline illustration figure (e.g. radon entry diagram) */
+.figure {
+  margin: 2rem 0 2.5rem;
+  background: var(--bg-cream);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+}
+.figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+}
+.figure figcaption {
+  margin-top: 0.85rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.figure figcaption strong { color: var(--text); }
+
+/* Two-column explainer (text + diagram side by side) */
+.explainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  margin: 2rem 0;
+}
+.explainer .figure { margin: 0; }
+.explainer-text p:last-child { margin-bottom: 0; }
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+/* Main content */
+main { padding: 2rem 0 4rem; }
+main .container > section { margin-bottom: 2.5rem; }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.85rem 1.4rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  line-height: 1.2;
+  transition: background 0.15s ease;
+}
+.btn:hover { background: var(--accent-deep); color: #fff; }
+.btn-secondary {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--border-strong);
+}
+.btn-secondary:hover { background: var(--bg-cream); color: var(--primary-deep); }
+.btn-row { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+
+/* Cards & callouts */
+.card {
+  background: var(--bg-cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+.card-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  margin: 1.5rem 0;
+}
+.card h3 { margin-top: 0; }
+.card p:last-child { margin-bottom: 0; }
+
+.callout {
+  background: var(--warn-bg);
+  border-left: 3px solid var(--warn);
+  padding: 1.1rem 1.25rem;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin: 1.5rem 0;
+  font-size: 0.96rem;
+}
+.callout strong { display: block; margin-bottom: 0.3rem; }
+.callout p:last-child { margin-bottom: 0; }
+
+.factbox {
+  background: var(--bg-cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+}
+.factbox .label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 0.4rem;
+}
+.factbox .stat {
+  font-family: 'Fraunces', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+.factbox .source {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* CTA banner */
+.cta-banner {
+  background: var(--primary);
+  color: #fff;
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  margin: 3rem 0;
+  text-align: left;
+}
+.cta-banner h2 { color: #fff; margin-top: 0; }
+.cta-banner p { color: rgba(255,255,255,0.85); max-width: 36rem; }
+.cta-banner .btn {
+  background: #fff;
+  color: var(--primary-deep);
+  margin-top: 0.5rem;
+}
+.cta-banner .btn:hover { background: var(--bg-cream); color: var(--primary-deep); }
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+th, td {
+  text-align: left;
+  padding: 0.75rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+th {
+  font-weight: 600;
+  background: var(--bg-cream);
+  font-size: 0.88rem;
+  letter-spacing: 0.01em;
+}
+table.compact { font-size: 0.88rem; }
+table.compact th, table.compact td { padding: 0.5rem 0.75rem; }
+
+/* FAQ details */
+details {
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 0;
+}
+details:first-of-type { border-top: 1px solid var(--border); }
+details summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.02rem;
+  list-style: none;
+  position: relative;
+  padding-right: 2rem;
+  color: var(--text);
+}
+details summary::-webkit-details-marker { display: none; }
+details summary::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 1.4rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  transition: transform 0.15s ease;
+}
+details[open] summary::after { content: '–'; }
+details > p, details > ul { margin-top: 0.75rem; }
+
+/* Source citations */
+.sources {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.sources h2 { font-size: 1.1rem; margin-top: 0; font-family: 'Inter', sans-serif; }
+.sources ol { padding-left: 1.2rem; }
+.sources li { margin: 0.5rem 0; }
+
+/* Internal link block */
+.related {
+  background: var(--bg-cream);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem 0;
+  margin: 3rem 0;
+}
+.related h2 { margin-top: 0; font-size: 1.3rem; }
+.related-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+.related-grid a {
+  display: block;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.related-grid a:hover {
+  border-color: var(--primary);
+  color: var(--primary-deep);
+}
+.related-grid .related-label {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.related-grid .related-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--bg-cream-deep);
+  border-top: 1px solid var(--border);
+  padding: 3rem 0 2rem;
+  margin-top: 4rem;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+.site-footer .footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+.site-footer h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  margin: 0 0 0.75rem;
+}
+.site-footer ul { list-style: none; padding: 0; margin: 0; }
+.site-footer ul li { margin: 0.4rem 0; }
+.site-footer ul a { color: var(--text-muted); text-decoration: none; }
+.site-footer ul a:hover { color: var(--primary); text-decoration: underline; }
+.site-footer .footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+.site-footer .disclaimer { max-width: 50rem; }
+
+/* Forms */
+.form { background: var(--bg-cream); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--border); }
+.field { margin-bottom: 1.25rem; }
+.field label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+  color: var(--text);
+}
+.field .hint {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-family: inherit;
+  background: #fff;
+  color: var(--text);
+}
+.field textarea { resize: vertical; min-height: 5rem; }
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+  border-color: var(--primary);
+}
+.field-row { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); }
+.required { color: var(--accent-deep); }
+.consent {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+.consent input { width: auto; margin-top: 0.25rem; }
+
+/* Lists */
+.checklist { list-style: none; padding: 0; }
+.checklist li {
+  padding-left: 1.75rem;
+  position: relative;
+}
+.checklist li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--success);
+  font-weight: 700;
+}
+
+/* Tag pills */
+.pill {
+  display: inline-block;
+  background: var(--bg-cream);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.2rem 0.75rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-right: 0.4rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-photo .hero-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+  .hero-photo .hero-image { aspect-ratio: 16/10; max-width: 100%; }
+  .explainer { grid-template-columns: 1fr; gap: 1.75rem; }
+}
+@media (max-width: 720px) {
+  .hero { padding: 2rem 0 1.5rem; }
+  .hero-photo { padding: 1.75rem 0 2rem; }
+  .nav { gap: 0.85rem; }
+  .nav a:not(.nav-cta) { display: none; }
+  .nav .nav-cta { padding: 0.4rem 0.8rem; font-size: 0.88rem; }
+  .cta-banner { padding: 1.75rem; }
+  body { font-size: 16px; }
+  .factbox .stat { font-size: 1.5rem; }
+  table { font-size: 0.85rem; }
+  th, td { padding: 0.5rem 0.6rem; }
+}
+</style>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Colorado Radon Guide", "url": "https://coloradoradonguide.com", "description": "Independent Colorado radon information and quote-connection resource.", "areaServed": {"@type": "AdministrativeArea", "name": "Colorado, USA"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Colorado Radon Guide", "url": "https://coloradoradonguide.com"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://coloradoradonguide.com/"}, {"@type": "ListItem", "position": 2, "name": "Mitigation Systems", "item": "https://coloradoradonguide.com/radon-mitigation-systems/"}, {"@type": "ListItem", "position": 3, "name": "Why Sealing Isn't Enough", "item": "https://coloradoradonguide.com/radon-mitigation-systems/why-sealing-isnt-enough/"}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I fix my radon problem by sealing cracks?", "acceptedAnswer": {"@type": "Answer", "text": "No. Radon enters because of a pressure difference between the soil and your home's interior, not because of opening size. Sealing alone doesn't change that pressure difference and almost never reduces radon below the EPA action level. CDPHE specifically warns that sealing alone can sometimes concentrate radon at remaining openings and make the problem worse."}}, {"@type": "Question", "name": "Why is sealing part of a working radon system if it doesn't work alone?", "acceptedAnswer": {"@type": "Answer", "text": "Sealing is essential alongside active depressurization. It prevents the fan from pulling conditioned indoor air into the system, allows a smaller fan to maintain pressure across the slab, and prevents short-circuiting. Both depressurization and sealing are required for an efficient mitigation system."}}, {"@type": "Question", "name": "Do radon-blocking paints work?", "acceptedAnswer": {"@type": "Answer", "text": "Not as a standalone solution. Marketed radon-blocking paints and coatings don't change the pressure differential driving radon entry. They may have value as part of a sealed vapor barrier in a crawlspace, but EPA, CDPHE, and AARST all recommend active depressurization as the verified mitigation method."}}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Why Sealing Cracks Isn't Enough for Radon", "description": "Why pressure (not opening size) drives radon entry, what CDPHE says about sealing alone, why sealing is essential alongside depressurization, and why radon-blocking paints aren't a standalone solution.", "url": "https://coloradoradonguide.com/radon-mitigation-systems/why-sealing-isnt-enough/", "publisher": {"@type": "Organization", "name": "Colorado Radon Guide"}, "dateModified": "2026-05-21", "author": {"@type": "Organization", "name": "Colorado Radon Guide"}}</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/" aria-label="Colorado Radon Guide home">
+      <span class="brand-mark" aria-hidden="true">CR</span>
+      <span>Colorado Radon Guide</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/colorado-springs/">Colorado Springs</a>
+      <a href="/colorado-springs/radon-mitigation-cost/">Mitigation Cost</a>
+      <a href="/colorado-springs/radon-testing/">Testing</a>
+      <a href="/colorado-springs/failed-radon-test/">Failed Test</a>
+      <a href="/about/">About</a>
+      <a href="/request-quote/" class="nav-cta">Get a Quote</a>
+    </nav>
+  </div>
+</header>
+  <section class="hero">
+    <div class="container">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/radon-mitigation-systems/">Mitigation Systems</a><span class="sep">›</span><span aria-current="page">Why Sealing Isn't Enough</span></nav>
+      <span class="eyebrow">Systems · Sealing myth</span>
+      <h1>Why Sealing Cracks Alone Isn't Enough</h1>
+      <p class="lede">Sealing the obvious cracks feels intuitive but almost never works. Here's why pressure — not opening size — drives radon entry, and what sealing is actually good for as part of a working mitigation system.</p>
+      
+    </div>
+  </section>
+  <main id="main">
+    <div class="container">
+      
+<section>
+  <div class="prose-wide">
+    <p>One of the most common things Colorado homeowners try first is sealing. Seal the basement floor cracks, seal the sump pit, seal the wall-floor joint, and hope the radon stops getting in. It feels intuitive: less openings, less radon.</p>
+    <p>The problem is that radon is driven by a pressure difference, not by opening size. Without changing the pressure, sealing alone almost never reduces radon below the action level — and in some cases makes the problem worse by concentrating the gas at the openings you missed.<sup><a href="#src-1">[1]</a></sup></p>
+    <p>This page explains why, what sealing IS good for (it's part of every working mitigation system), and what the right path forward looks like.</p>
+  </div>
+</section>
+
+<section>
+  <h2>What CDPHE says</h2>
+  <div class="prose-wide">
+    <div class="callout">
+      <strong>CDPHE on sealing alone:</strong>
+      <p>The Colorado Department of Public Health and Environment specifically warns that sealing cracks alone is unreliable as a mitigation method and can sometimes make radon levels worse.<sup><a href="#src-1">[1]</a></sup> The recommended approach is sub-slab depressurization for basements and slab homes, or sub-membrane depressurization for crawlspaces.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Why sealing alone doesn't work</h2>
+  <div class="prose-wide">
+    <p>Radon enters a home for one reason: the air pressure inside is slightly lower than the pressure in the soil. That pressure difference — driven largely by the <strong>stack effect</strong> in winter, when warm indoor air rises and creates suction at lower levels — pulls soil gas up through whatever openings it can find.</p>
+    <p>Three reasons sealing without depressurization fails:</p>
+    <ol>
+      <li><strong>You can't seal everything.</strong> Visible slab cracks are the obvious targets. The microscopic porosity of concrete itself is not. Plumbing penetrations, slab expansion joints, and the floor-wall joint can all be sealed, but small gaps remain. Soil gas finds the smallest unsealed path and flows through it.</li>
+      <li><strong>Sealing changes which openings the gas uses.</strong> If you seal 90% of the obvious openings, the 10% you missed now carry the full pressure-driven flow. Sometimes radon concentration at remaining points goes <em>up</em> rather than down, depending on where the unsealed gaps are.</li>
+      <li><strong>The pressure difference is unchanged.</strong> Sealing doesn't change the stack effect or the soil-gas pressure beneath your foundation. The driving force for radon entry is exactly the same as before.</li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <h2>What sealing IS good for</h2>
+  <div class="prose-wide">
+    <p>Sealing is essential — as part of a working mitigation system. Once an SSD or SMD fan is running and creating negative pressure beneath the foundation, sealing the major openings makes the system efficient. Why:</p>
+    <ul>
+      <li>Sealed openings mean the fan doesn't have to pull more air than necessary, so a smaller fan can do the job.</li>
+      <li>Sealing prevents conditioned indoor air from being pulled into the system (which would be a waste of heating or cooling energy).</li>
+      <li>Sealing prevents short-circuiting — where the system pulls air down through an obvious opening and creates only a local pressure drop instead of an even pressure field across the whole slab.</li>
+    </ul>
+    <p>So a correct SSD or SMD install includes both depressurization AND sealing. Neither one alone is enough.<sup><a href="#src-2">[2]</a></sup></p>
+  </div>
+</section>
+
+<section>
+  <h2>The temptation — and why it's expensive in the long run</h2>
+  <div class="prose-wide">
+    <p>Sealing kits are sold at hardware stores for $50–$200. The temptation is to seal the obvious cracks, retest, and hope the number comes down enough to skip a $1,000–$2,000 mitigation system. Two reasons this usually backfires:</p>
+    <ul>
+      <li>The retest typically comes back at the same level or close to it. You've spent $100 on sealant and a weekend on labor and learned what CDPHE already said: sealing alone doesn't work.</li>
+      <li>Some sealed homes show <em>worse</em> radon readings after sealing, because the gas has been concentrated at fewer entry points. If you missed one of the bigger gaps, that gap now carries the full soil-gas flow.</li>
+    </ul>
+    <p>The cheaper path is to test once, mitigate once, and retest. The $1,000–$2,000 you spend on a working SSD system is less than the $100 sealing kit plus a second test plus the eventual mitigation install. <a href="/radon-mitigation-cost/">More on cost &rarr;</a></p>
+  </div>
+</section>
+
+<section>
+  <h2>What about radon paints and barriers?</h2>
+  <div class="prose-wide">
+    <p>Various products are sold as "radon-blocking" paints, sealants, or floor coatings. The reality is similar to crack sealing:</p>
+    <ul>
+      <li>None of them changes the pressure differential driving radon entry.</li>
+      <li>Concrete itself is mildly porous; coatings don't fully eliminate this pathway.</li>
+      <li>Marketing claims of "blocks radon" are not the same as "reduces radon levels below 4.0 pCi/L verified by post-treatment testing."</li>
+    </ul>
+    <p>These products may have value as part of a larger sealed-vapor-barrier system in a crawlspace, but they aren't a standalone solution for elevated radon. The EPA, CDPHE, and AARST all recommend active depressurization as the verified method.<sup><a href="#src-1">[1]</a></sup><sup><a href="#src-2">[2]</a></sup></p>
+  </div>
+</section>
+
+<section>
+  <div class="callout">
+    <strong>Common scenario — a Colorado homeowner who tried sealing first</strong>
+    <p>A Colorado Springs homeowner tested at 5.8 pCi/L. Hoping to avoid mitigation, they spent a weekend sealing visible slab cracks, the sump pit lid, and the floor-wall joint with $130 of polyurethane sealant. Two weeks later they retested. The result: 5.4 pCi/L. The 0.4 pCi/L reduction wasn't enough to bring the home below the action level. The homeowner then hired a DORA-licensed contractor for a $1,450 sub-slab depressurization install. The post-mitigation test came back at 1.2 pCi/L. The sealing work wasn't wasted — the contractor used the same sealed openings as part of the system — but the sealing alone was never going to do the job.</p>
+  </div>
+</section>
+
+<aside class="sources" aria-label="Sources">
+  <h2>Sources</h2>
+  <ol>
+    <li id="src-1">CDPHE. <em>Radon</em>. <a href="https://cdphe.colorado.gov/radon" rel="noopener" target="_blank">cdphe.colorado.gov/radon</a></li>
+    <li id="src-2">U.S. EPA. <em>Consumer's Guide to Radon Reduction</em>. <a href="https://www.epa.gov/radon/consumers-guide-radon-reduction" rel="noopener" target="_blank">epa.gov/radon/consumers-guide-radon-reduction</a></li>
+  </ol>
+</aside>
+
+    </div>
+    <section class="container">
+      <div class="cta-banner">
+        <h2>Get a Colorado Springs Radon Quote</h2>
+        <p>Tell us about your home and test result and we'll connect you with a licensed Colorado mitigation partner. No high-pressure sales calls, no contracts to start.</p>
+        <a href="/request-quote/" class="btn">Request a Quote</a>
+      </div>
+    </section>
+  </main>
+  <section class="related">
+    <div class="container">
+      <h2>Keep reading</h2>
+      <div class="related-grid"><a href="/radon-mitigation-systems/sub-slab-depressurization/"><span class="related-label">Sub-Slab Depressurization</span><span class="related-title">The depressurization method sealing is part of</span></a><a href="/radon-mitigation-systems/"><span class="related-label">Systems Hub</span><span class="related-title">How radon mitigation actually works</span></a><a href="/radon-mitigation-cost/"><span class="related-label">Mitigation Cost</span><span class="related-title">What a working system actually costs</span></a></div>
+    </div>
+  </section>
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Colorado Radon Guide</h4>
+        <p>An independent Colorado radon information and quote-connection resource. We do not install mitigation systems.</p>
+      </div>
+      <div>
+        <h4>Colorado Springs</h4>
+        <ul>
+          <li><a href="/colorado-springs/">Colorado Springs Hub</a></li>
+          <li><a href="/colorado-springs/radon-mitigation-cost/">Mitigation Cost</a></li>
+          <li><a href="/colorado-springs/radon-testing/">Radon Testing</a></li>
+          <li><a href="/colorado-springs/failed-radon-test/">After a Failed Test</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About the Site</h4>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/disclosure/">Editorial &amp; Lead Disclosure</a></li>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Authoritative Sources</h4>
+        <ul>
+          <li><a href="https://cdphe.colorado.gov/radon" rel="noopener" target="_blank">CDPHE Radon Program</a></li>
+          <li><a href="https://www.epa.gov/radon" rel="noopener" target="_blank">EPA Radon</a></li>
+          <li><a href="https://www.elpasocountyhealth.org/radon" rel="noopener" target="_blank">El Paso County Public Health</a></li>
+          <li><a href="https://dpo.colorado.gov/Radon" rel="noopener" target="_blank">Colorado DORA Office of Radon Professionals</a></li>
+          <li><a href="https://leg.colorado.gov/bills/sb23-206" rel="noopener" target="_blank">Colorado SB23-206</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="disclaimer">
+        <strong>Disclaimer.</strong> Colorado Radon Guide is an independent educational resource. We are not a radon mitigation contractor, do not perform radon testing or installation, and do not provide medical advice. Information is drawn from public Colorado and federal health sources and may change. Cost ranges are estimates only and do not represent a contractor quote. Quote requests submitted through this site are routed to a licensed Colorado mitigation partner. See our <a href="/disclosure/">disclosure</a> and <a href="/privacy/">privacy</a> pages.
+      </p>
+      <p>&copy; 2026 Colorado Radon Guide. Page last updated May 2026.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -26,6 +26,15 @@ from pages_cost import (  # noqa: E402
     COST_FINISHED_BODY, cost_finished_faq_jsonld,
     COST_REAL_ESTATE_BODY, cost_real_estate_faq_jsonld,
 )
+from pages_systems import (  # noqa: E402
+    SYSTEMS_HUB_BODY, systems_hub_faq_jsonld,
+    SSD_BODY, ssd_faq_jsonld,
+    SMD_BODY, smd_faq_jsonld,
+    PASSIVE_ACTIVE_BODY, passive_active_faq_jsonld,
+    EQUIPMENT_BODY, equipment_faq_jsonld,
+    SEALING_BODY, sealing_faq_jsonld,
+    AFTER_MITIGATION_BODY, after_mitigation_faq_jsonld,
+)
 from pages_misc import (  # noqa: E402
     QUOTE_BODY, QUOTE_THANKYOU_BODY,
     ABOUT_BODY, DISCLOSURE_BODY,
@@ -303,6 +312,184 @@ write("radon-mitigation-cost/real-estate-deadlines/index.html", render_page(
     ],
 ))
 
+# =========================================================================
+# PHASE 3 — MITIGATION SYSTEMS PILLAR (7 pages)
+# =========================================================================
+
+# 4. SYSTEMS HUB — How Radon Mitigation Works (NEW Phase 3)
+write("radon-mitigation-systems/index.html", render_page(
+    url_path="/radon-mitigation-systems/",
+    title="How Radon Mitigation Works: The Plain-Language Guide (Colorado)",
+    description="How a radon mitigation system actually works — depressurization, sub-slab vs sub-membrane, passive vs active, the parts of a working system, and what's different about Colorado.",
+    h1="How Radon Mitigation Works",
+    hero_eyebrow="Systems guide · Colorado",
+    hero_lede="Mitigation looks like a fan and a pipe. It isn't. Here's how the system actually works, the parts that matter, and what's different about systems built for Colorado.",
+    body_html=SYSTEMS_HUB_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Mitigation Systems", "/radon-mitigation-systems/"),
+    ],
+    extra_jsonld=[
+        systems_hub_faq_jsonld(),
+        article_schema("/radon-mitigation-systems/", "How Radon Mitigation Works", "Plain-language guide to how radon mitigation works in Colorado: depressurization mechanics, sub-slab vs sub-membrane, passive vs active, system components, and altitude correction."),
+    ],
+    related=[
+        ("Sub-Slab Depressurization", "The most common Colorado mitigation method", "/radon-mitigation-systems/sub-slab-depressurization/"),
+        ("Sub-Membrane Crawlspace", "Crawlspace mitigation with sealed vapor barrier", "/radon-mitigation-systems/crawlspace-sub-membrane/"),
+        ("Fans, Pipes & Equipment", "Equipment deep dive with Colorado altitude correction", "/radon-mitigation-systems/fans-pipes-suction-points/"),
+    ],
+))
+
+# 5. SUB-SLAB DEPRESSURIZATION
+write("radon-mitigation-systems/sub-slab-depressurization/index.html", render_page(
+    url_path="/radon-mitigation-systems/sub-slab-depressurization/",
+    title="Sub-Slab Depressurization Explained (Colorado Radon Mitigation)",
+    description="Sub-slab depressurization (SSD) is the most common Colorado radon mitigation method. How it works, single vs multiple suction points, pressure field extension testing, and Colorado altitude considerations.",
+    h1="Sub-Slab Depressurization Explained",
+    hero_eyebrow="Systems · SSD",
+    hero_lede="The workhorse method for Colorado basements and slab-on-grade homes. Here's how it works, the diagnostic step that should happen first, and what to verify in a written quote.",
+    body_html=SSD_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Mitigation Systems", "/radon-mitigation-systems/"),
+        ("Sub-Slab Depressurization", "/radon-mitigation-systems/sub-slab-depressurization/"),
+    ],
+    extra_jsonld=[
+        ssd_faq_jsonld(),
+        article_schema("/radon-mitigation-systems/sub-slab-depressurization/", "Sub-Slab Depressurization Explained", "How sub-slab depressurization works in Colorado homes, the pressure field extension diagnostic test, suction point design, fan placement, sealing scope, and altitude correction."),
+    ],
+    related=[
+        ("Sub-Membrane Crawlspace", "Crawlspace equivalent with sealed vapor barrier", "/radon-mitigation-systems/crawlspace-sub-membrane/"),
+        ("Why Sealing Isn't Enough", "Why depressurization is the working principle", "/radon-mitigation-systems/why-sealing-isnt-enough/"),
+        ("Systems Hub", "How radon mitigation works overall", "/radon-mitigation-systems/"),
+    ],
+))
+
+# 6. SUB-MEMBRANE / CRAWLSPACE
+write("radon-mitigation-systems/crawlspace-sub-membrane/index.html", render_page(
+    url_path="/radon-mitigation-systems/crawlspace-sub-membrane/",
+    title="Sub-Membrane Crawlspace Radon Systems Explained",
+    description="Sub-membrane depressurization (SMD) is the radon mitigation method for crawlspaces in Colorado. How it works, vapor barrier thickness requirements, sealing scope, and why crawlspace mitigation costs more.",
+    h1="Sub-Membrane Crawlspace Systems",
+    hero_eyebrow="Systems · SMD",
+    hero_lede="The crawlspace equivalent of sub-slab depressurization. Here's how a sealed vapor barrier system works, what current AARST standards require for membrane thickness, and how SMD differs from crawlspace encapsulation.",
+    body_html=SMD_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Mitigation Systems", "/radon-mitigation-systems/"),
+        ("Crawlspace Sub-Membrane", "/radon-mitigation-systems/crawlspace-sub-membrane/"),
+    ],
+    extra_jsonld=[
+        smd_faq_jsonld(),
+        article_schema("/radon-mitigation-systems/crawlspace-sub-membrane/", "Sub-Membrane Crawlspace Radon Mitigation", "How sub-membrane depressurization works in Colorado crawlspaces, vapor barrier requirements, sealing scope, and the difference between encapsulation and active mitigation."),
+    ],
+    related=[
+        ("Crawlspace Cost", "Why crawlspace systems cost more — and what drives the spread", "/radon-mitigation-cost/crawlspaces/"),
+        ("Sub-Slab Depressurization", "The basement and slab equivalent", "/radon-mitigation-systems/sub-slab-depressurization/"),
+        ("Systems Hub", "How radon mitigation works overall", "/radon-mitigation-systems/"),
+    ],
+))
+
+# 7. PASSIVE VS ACTIVE
+write("radon-mitigation-systems/passive-vs-active/index.html", render_page(
+    url_path="/radon-mitigation-systems/passive-vs-active/",
+    title="Passive vs Active Radon Systems (and What to Check in Newer Colorado Homes)",
+    description="Active radon systems have a fan and reduce radon up to 99%. Passive systems rely on natural updraft and reduce up to 50%. Newer Colorado homes often have passive rough-ins — here's how to check and when to activate.",
+    h1="Passive vs Active Radon Systems",
+    hero_eyebrow="Systems · Passive & Active",
+    hero_lede="If you bought a newer Colorado home, there's a good chance it has a passive radon rough-in. Here's the difference between passive and active, IRC Appendix BE context, and what to check on a newer build.",
+    body_html=PASSIVE_ACTIVE_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Mitigation Systems", "/radon-mitigation-systems/"),
+        ("Passive vs Active", "/radon-mitigation-systems/passive-vs-active/"),
+    ],
+    extra_jsonld=[
+        passive_active_faq_jsonld(),
+        article_schema("/radon-mitigation-systems/passive-vs-active/", "Passive vs Active Radon Systems", "Comparison of passive (fan-less) and active (fan-driven) radon systems in Colorado, IRC Appendix BE new construction requirements, and what to check if your home has a passive rough-in."),
+    ],
+    related=[
+        ("Fans, Pipes & Equipment", "Equipment deep dive including altitude correction", "/radon-mitigation-systems/fans-pipes-suction-points/"),
+        ("Sub-Slab Depressurization", "Active SSD systems explained", "/radon-mitigation-systems/sub-slab-depressurization/"),
+        ("Systems Hub", "How radon mitigation works overall", "/radon-mitigation-systems/"),
+    ],
+))
+
+# 8. FANS, PIPES, SUCTION POINTS, MANOMETERS (equipment deep dive)
+write("radon-mitigation-systems/fans-pipes-suction-points/index.html", render_page(
+    url_path="/radon-mitigation-systems/fans-pipes-suction-points/",
+    title="Radon Fans, Pipes, Suction Points & Manometers (Colorado Equipment Guide)",
+    description="The equipment deep dive: radon fan models, pipe specs, suction point design, manometer reading, and the Colorado altitude correction (4% airflow loss per 1,000 feet) most national guides miss.",
+    h1="Radon Fans, Pipes, Suction Points, and Manometers",
+    hero_eyebrow="Systems · Equipment",
+    hero_lede="The equipment deep dive. What fan models do what, what pipe specs are correct, what manometers should read — and how Colorado altitude changes the design.",
+    body_html=EQUIPMENT_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Mitigation Systems", "/radon-mitigation-systems/"),
+        ("Fans, Pipes & Suction Points", "/radon-mitigation-systems/fans-pipes-suction-points/"),
+    ],
+    extra_jsonld=[
+        equipment_faq_jsonld(),
+        article_schema("/radon-mitigation-systems/fans-pipes-suction-points/", "Radon Mitigation Equipment Deep Dive", "RadonAway fan model comparison, pipe specifications, suction point design, manometer reading, and the Colorado altitude correction that affects fan sizing."),
+    ],
+    related=[
+        ("Passive vs Active", "When passive becomes active and what activation costs", "/radon-mitigation-systems/passive-vs-active/"),
+        ("After Mitigation", "Post-mit test, manometer routine, fan lifespan", "/radon-mitigation-systems/what-happens-after-mitigation/"),
+        ("Why Quotes Vary", "How equipment choices affect quotes", "/radon-mitigation-cost/quote-variation/"),
+    ],
+))
+
+# 9. WHY SEALING ISN'T ENOUGH
+write("radon-mitigation-systems/why-sealing-isnt-enough/index.html", render_page(
+    url_path="/radon-mitigation-systems/why-sealing-isnt-enough/",
+    title="Why Sealing Cracks Isn't Enough to Fix Radon (Colorado Reality)",
+    description="Sealing alone almost never works to fix radon — and CDPHE warns it can make levels worse. Here's why depressurization is required and what sealing IS good for as part of a working system.",
+    h1="Why Sealing Cracks Alone Isn't Enough",
+    hero_eyebrow="Systems · Sealing myth",
+    hero_lede="Sealing the obvious cracks feels intuitive but almost never works. Here's why pressure — not opening size — drives radon entry, and what sealing is actually good for as part of a working mitigation system.",
+    body_html=SEALING_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Mitigation Systems", "/radon-mitigation-systems/"),
+        ("Why Sealing Isn't Enough", "/radon-mitigation-systems/why-sealing-isnt-enough/"),
+    ],
+    extra_jsonld=[
+        sealing_faq_jsonld(),
+        article_schema("/radon-mitigation-systems/why-sealing-isnt-enough/", "Why Sealing Cracks Isn't Enough for Radon", "Why pressure (not opening size) drives radon entry, what CDPHE says about sealing alone, why sealing is essential alongside depressurization, and why radon-blocking paints aren't a standalone solution."),
+    ],
+    related=[
+        ("Sub-Slab Depressurization", "The depressurization method sealing is part of", "/radon-mitigation-systems/sub-slab-depressurization/"),
+        ("Systems Hub", "How radon mitigation actually works", "/radon-mitigation-systems/"),
+        ("Mitigation Cost", "What a working system actually costs", "/radon-mitigation-cost/"),
+    ],
+))
+
+# 10. WHAT HAPPENS AFTER MITIGATION
+write("radon-mitigation-systems/what-happens-after-mitigation/index.html", render_page(
+    url_path="/radon-mitigation-systems/what-happens-after-mitigation/",
+    title="What Happens After Radon Mitigation: Post-Mit Test, Manometer, Retest Cadence",
+    description="After your radon system is installed: the post-mitigation test, monthly manometer routine, retest cadence (every 2 years per EPA), fan lifespan, and documentation to keep for SB23-206 disclosure.",
+    h1="What Happens After Mitigation",
+    hero_eyebrow="Systems · After install",
+    hero_lede="The install crew left this afternoon. Now what? Here's the post-mitigation roadmap — the verification test, the monthly manometer routine, when to retest, when to replace the fan, and what to document.",
+    body_html=AFTER_MITIGATION_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Mitigation Systems", "/radon-mitigation-systems/"),
+        ("After Mitigation", "/radon-mitigation-systems/what-happens-after-mitigation/"),
+    ],
+    extra_jsonld=[
+        after_mitigation_faq_jsonld(),
+        article_schema("/radon-mitigation-systems/what-happens-after-mitigation/", "What Happens After Radon Mitigation in Colorado", "Post-mitigation test (within 30 days, 2-7 day duration), monthly manometer routine, retest cadence every 2 years, fan lifespan and replacement, and documentation for SB23-206 disclosure."),
+    ],
+    related=[
+        ("Fans, Pipes & Equipment", "Equipment deep dive including manometer interpretation", "/radon-mitigation-systems/fans-pipes-suction-points/"),
+        ("Real Estate Deadlines", "Documentation for SB23-206 disclosure", "/radon-mitigation-cost/real-estate-deadlines/"),
+        ("Systems Hub", "How radon mitigation works overall", "/radon-mitigation-systems/"),
+    ],
+))
+
 # 4. CS TESTING
 write("colorado-springs/radon-testing/index.html", render_page(
     url_path="/colorado-springs/radon-testing/",
@@ -456,6 +643,14 @@ SITEMAP_URLS = [
     ("/radon-mitigation-cost/crawlspaces/", "0.8"),
     ("/radon-mitigation-cost/finished-basements/", "0.8"),
     ("/radon-mitigation-cost/real-estate-deadlines/", "0.8"),
+    # Mitigation Systems pillar (Phase 3)
+    ("/radon-mitigation-systems/", "0.9"),
+    ("/radon-mitigation-systems/sub-slab-depressurization/", "0.8"),
+    ("/radon-mitigation-systems/crawlspace-sub-membrane/", "0.8"),
+    ("/radon-mitigation-systems/passive-vs-active/", "0.8"),
+    ("/radon-mitigation-systems/fans-pipes-suction-points/", "0.8"),
+    ("/radon-mitigation-systems/why-sealing-isnt-enough/", "0.8"),
+    ("/radon-mitigation-systems/what-happens-after-mitigation/", "0.8"),
     ("/request-quote/", "0.8"),
     ("/about/", "0.4"),
     ("/disclosure/", "0.4"),
@@ -529,6 +724,18 @@ The Python files under `_build/` are the source-of-truth templates that produced
 | `/radon-mitigation-cost/finished-basements/` | `radon-mitigation-cost/finished-basements/index.html` |
 | `/radon-mitigation-cost/real-estate-deadlines/` | `radon-mitigation-cost/real-estate-deadlines/index.html` |
 
+### Phase 3: Mitigation Systems pillar (May 2026)
+
+| URL | File |
+|---|---|
+| `/radon-mitigation-systems/` | `radon-mitigation-systems/index.html` (How Radon Mitigation Works hub) |
+| `/radon-mitigation-systems/sub-slab-depressurization/` | `radon-mitigation-systems/sub-slab-depressurization/index.html` |
+| `/radon-mitigation-systems/crawlspace-sub-membrane/` | `radon-mitigation-systems/crawlspace-sub-membrane/index.html` |
+| `/radon-mitigation-systems/passive-vs-active/` | `radon-mitigation-systems/passive-vs-active/index.html` |
+| `/radon-mitigation-systems/fans-pipes-suction-points/` | `radon-mitigation-systems/fans-pipes-suction-points/index.html` |
+| `/radon-mitigation-systems/why-sealing-isnt-enough/` | `radon-mitigation-systems/why-sealing-isnt-enough/index.html` |
+| `/radon-mitigation-systems/what-happens-after-mitigation/` | `radon-mitigation-systems/what-happens-after-mitigation/index.html` |
+
 ## Before you launch
 
 1. **Quote form back end (Netlify Forms).** `request-quote/index.html` uses Netlify Forms (`data-netlify="true"`, `name="quote-request"`). On deploy, Netlify auto-detects the form; submissions appear in the Netlify dashboard under **Forms → quote-request**. Email and Slack notifications can be added under **Forms → Notifications**. The form POSTs hidden `city` and `source_page` fields for lead attribution, plus a honeypot `bot-field` for spam protection.
@@ -547,6 +754,7 @@ The HTML pages are generated from Python templates under `_build/`:
 - `pages_main.py` — homepage + Colorado Springs hub content + shared `SOURCES` dict
 - `pages_cs.py` — Colorado Springs testing and failed-test page content
 - `pages_cost.py` — Phase 2 Cost & Quote pillar (8 pages including refreshed CS cost)
+- `pages_systems.py` — Phase 3 Mitigation Systems pillar (7 pages)
 - `pages_misc.py` — quote form, thank-you, about, disclosure, privacy, contact
 - `build.py` — orchestrator that calls `render_page()` for each URL
 
