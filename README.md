@@ -52,6 +52,17 @@ The Python files under `_build/` are the source-of-truth templates that produced
 | `/radon-mitigation-systems/why-sealing-isnt-enough/` | `radon-mitigation-systems/why-sealing-isnt-enough/index.html` |
 | `/radon-mitigation-systems/what-happens-after-mitigation/` | `radon-mitigation-systems/what-happens-after-mitigation/index.html` |
 
+### Phase 4: Testing & Real Estate pillar (May 2026)
+
+| URL | File |
+|---|---|
+| `/radon-testing/` | `radon-testing/index.html` (How to Test for Radon in Colorado hub) |
+| `/radon-testing/short-term-vs-long-term/` | `radon-testing/short-term-vs-long-term/index.html` |
+| `/radon-testing/where-to-place-a-test/` | `radon-testing/where-to-place-a-test/index.html` |
+| `/radon-testing/during-real-estate-transactions/` | `radon-testing/during-real-estate-transactions/index.html` |
+| `/radon-testing/for-rentals/` | `radon-testing/for-rentals/index.html` |
+| `/radon-testing/for-businesses/` | `radon-testing/for-businesses/index.html` |
+
 ## Before you launch
 
 1. **Quote form back end (Netlify Forms).** `request-quote/index.html` uses Netlify Forms (`data-netlify="true"`, `name="quote-request"`). On deploy, Netlify auto-detects the form; submissions appear in the Netlify dashboard under **Forms → quote-request**. Email and Slack notifications can be added under **Forms → Notifications**. The form POSTs hidden `city` and `source_page` fields for lead attribution, plus a honeypot `bot-field` for spam protection.
@@ -71,6 +82,7 @@ The HTML pages are generated from Python templates under `_build/`:
 - `pages_cs.py` — Colorado Springs testing and failed-test page content
 - `pages_cost.py` — Phase 2 Cost & Quote pillar (8 pages including refreshed CS cost)
 - `pages_systems.py` — Phase 3 Mitigation Systems pillar (7 pages)
+- `pages_testing.py` — Phase 4 Testing & Real Estate pillar (6 pages)
 - `pages_misc.py` — quote form, thank-you, about, disclosure, privacy, contact
 - `build.py` — orchestrator that calls `render_page()` for each URL
 

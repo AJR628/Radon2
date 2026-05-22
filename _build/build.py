@@ -35,6 +35,14 @@ from pages_systems import (  # noqa: E402
     SEALING_BODY, sealing_faq_jsonld,
     AFTER_MITIGATION_BODY, after_mitigation_faq_jsonld,
 )
+from pages_testing import (  # noqa: E402
+    TESTING_HUB_BODY, testing_hub_faq_jsonld,
+    SHORT_VS_LONG_BODY, short_vs_long_faq_jsonld,
+    TEST_PLACEMENT_BODY, test_placement_faq_jsonld,
+    TESTING_REAL_ESTATE_BODY, testing_real_estate_faq_jsonld,
+    TESTING_RENTALS_BODY, testing_rentals_faq_jsonld,
+    TESTING_BUSINESSES_BODY, testing_businesses_faq_jsonld,
+)
 from pages_misc import (  # noqa: E402
     QUOTE_BODY, QUOTE_THANKYOU_BODY,
     ABOUT_BODY, DISCLOSURE_BODY,
@@ -465,6 +473,159 @@ write("radon-mitigation-systems/why-sealing-isnt-enough/index.html", render_page
     ],
 ))
 
+# =========================================================================
+# PHASE 4 — TESTING & REAL ESTATE PILLAR (6 new pages + V1 cross-link updates)
+# =========================================================================
+
+# 11. TESTING HUB — How to Test for Radon in Colorado
+write("radon-testing/index.html", render_page(
+    url_path="/radon-testing/",
+    title="How to Test for Radon in Colorado: Kit Types, Placement, and What Your Result Means",
+    description="Three test types (short-term, long-term, professional), where to get a kit in Colorado, EPA placement rules, and a result decision table from <2.0 to 10+ pCi/L. The borderline-zone decision explained.",
+    h1="How to Test for Radon in Colorado",
+    hero_eyebrow="Testing guide · Colorado",
+    hero_lede="You can't smell radon. You can't see it. Testing is the only way to know your level — and roughly half of Colorado homes test above the EPA action level. Here's the plain-language guide.",
+    body_html=TESTING_HUB_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Radon Testing", "/radon-testing/"),
+    ],
+    extra_jsonld=[
+        testing_hub_faq_jsonld(),
+        article_schema("/radon-testing/", "How to Test for Radon in Colorado", "Plain-language guide to radon testing in Colorado: three test types, where to get a kit, EPA placement guidance, result interpretation, and the borderline-zone decision."),
+    ],
+    related=[
+        ("Short-Term vs Long-Term", "Which test duration to use when", "/radon-testing/short-term-vs-long-term/"),
+        ("Where to Place a Test", "EPA placement guidance and common mistakes", "/radon-testing/where-to-place-a-test/"),
+        ("Colorado Springs Testing", "Local resources and EPCPH Lab kits", "/colorado-springs/radon-testing/"),
+    ],
+))
+
+# 12. SHORT-TERM VS LONG-TERM
+write("radon-testing/short-term-vs-long-term/index.html", render_page(
+    url_path="/radon-testing/short-term-vs-long-term/",
+    title="Short-Term vs Long-Term Radon Tests (Colorado Seasonal Context)",
+    description="When to use a short-term (2-7 day) vs long-term (90+ day) radon test. Colorado seasonal swings, closed-house conditions, and how to stack the two test types for a complete picture.",
+    h1="Short-Term vs Long-Term Radon Tests",
+    hero_eyebrow="Testing · Test duration",
+    hero_lede="Same hardware-store aisle, two boxes. The right choice depends on what you're trying to learn and Colorado's seasonal radon swings.",
+    body_html=SHORT_VS_LONG_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Radon Testing", "/radon-testing/"),
+        ("Short-Term vs Long-Term", "/radon-testing/short-term-vs-long-term/"),
+    ],
+    extra_jsonld=[
+        short_vs_long_faq_jsonld(),
+        article_schema("/radon-testing/short-term-vs-long-term/", "Short-Term vs Long-Term Radon Tests", "Comparison of 2-7 day short-term tests vs 90+ day long-term tests, including Colorado's seasonal swing of 30-50% between winter and summer levels."),
+    ],
+    related=[
+        ("Where to Place a Test", "EPA placement guidance", "/radon-testing/where-to-place-a-test/"),
+        ("Testing Hub", "How to test for radon in Colorado", "/radon-testing/"),
+        ("After Mitigation", "Post-mit test methodology", "/radon-mitigation-systems/what-happens-after-mitigation/"),
+    ],
+))
+
+# 13. WHERE TO PLACE A TEST
+write("radon-testing/where-to-place-a-test/index.html", render_page(
+    url_path="/radon-testing/where-to-place-a-test/",
+    title="Where to Place a Radon Test Kit (EPA Placement Guide)",
+    description="EPA radon test placement guidance: lowest livable level, 2-6 feet above floor, away from drafts and humidity, closed-house conditions, and special cases for crawlspaces, walk-outs, and tri-levels.",
+    h1="Where to Place a Radon Test",
+    hero_eyebrow="Testing · Placement",
+    hero_lede="You ordered the kit. You opened the canister. Now where do you put it? The right answer matters — wrong placement can bias the reading 30% or more.",
+    body_html=TEST_PLACEMENT_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Radon Testing", "/radon-testing/"),
+        ("Where to Place a Test", "/radon-testing/where-to-place-a-test/"),
+    ],
+    extra_jsonld=[
+        test_placement_faq_jsonld(),
+        article_schema("/radon-testing/where-to-place-a-test/", "Radon Test Placement Guide", "EPA placement guidance for radon test kits: lowest livable level, 2-6 feet above floor, away from drafts and humidity, closed-house conditions, and special cases by home type."),
+    ],
+    related=[
+        ("Short-Term vs Long-Term", "Test duration comparison", "/radon-testing/short-term-vs-long-term/"),
+        ("Testing Hub", "How to test for radon in Colorado", "/radon-testing/"),
+        ("Failed Test Next Steps", "What to do after a high result", "/colorado-springs/failed-radon-test/"),
+    ],
+))
+
+# 14. RADON TESTING DURING REAL ESTATE TRANSACTIONS
+write("radon-testing/during-real-estate-transactions/index.html", render_page(
+    url_path="/radon-testing/during-real-estate-transactions/",
+    title="Radon Testing During Colorado Real Estate Transactions (SB23-206 Guide)",
+    description="Colorado SB23-206 disclosure law, the continuous radon monitor (CRM) standard for real estate, DORA licensing requirements, inspection objection workflow, and tampering controls.",
+    h1="Radon Testing During Real Estate Transactions",
+    hero_eyebrow="Testing · Real estate",
+    hero_lede="Real estate testing is different. The result has to be defensible. Here's the SB23-206 disclosure rules, the CRM standard, who can place a test, and how the Colorado inspection objection works.",
+    body_html=TESTING_REAL_ESTATE_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Radon Testing", "/radon-testing/"),
+        ("During Real Estate Transactions", "/radon-testing/during-real-estate-transactions/"),
+    ],
+    extra_jsonld=[
+        testing_real_estate_faq_jsonld(),
+        article_schema("/radon-testing/during-real-estate-transactions/", "Radon Testing During Colorado Real Estate Transactions", "Colorado SB23-206 (CRS § 38-35.7-112) disclosure law, the continuous radon monitor standard, DORA licensing for testers, inspection objection workflow, and tampering detection."),
+    ],
+    related=[
+        ("Real Estate Deadlines Cost", "Three buyer options and the credit-vs-mitigate tradeoff", "/radon-mitigation-cost/real-estate-deadlines/"),
+        ("Failed Test Next Steps", "Step-by-step for buyers under contract", "/colorado-springs/failed-radon-test/"),
+        ("Testing for Rentals", "Colorado landlord disclosure obligations", "/radon-testing/for-rentals/"),
+    ],
+))
+
+# 15. RADON TESTING FOR RENTALS
+write("radon-testing/for-rentals/index.html", render_page(
+    url_path="/radon-testing/for-rentals/",
+    title="Radon Testing for Colorado Rentals: Landlord Disclosure and Tenant Rights",
+    description="Colorado SB23-206 extends radon disclosure to residential leases. What landlords must disclose, what tenants can do, and where mitigation responsibility lands in Colorado rentals.",
+    h1="Radon Testing for Rentals",
+    hero_eyebrow="Testing · Rentals",
+    hero_lede="SB23-206 extends radon disclosure to Colorado leases — a change most landlords and tenants haven't fully internalized. Here's what each side needs to know.",
+    body_html=TESTING_RENTALS_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Radon Testing", "/radon-testing/"),
+        ("For Rentals", "/radon-testing/for-rentals/"),
+    ],
+    extra_jsonld=[
+        testing_rentals_faq_jsonld(),
+        article_schema("/radon-testing/for-rentals/", "Radon Testing for Colorado Rentals", "Colorado SB23-206 landlord disclosure obligations for rentals, tenant testing rights, and where mitigation responsibility lands under Colorado law."),
+    ],
+    related=[
+        ("During Real Estate Transactions", "SB23-206 in sales context", "/radon-testing/during-real-estate-transactions/"),
+        ("Testing Hub", "How to test for radon in Colorado", "/radon-testing/"),
+        ("Mitigation Cost", "Cost ranges for rental property mitigation", "/radon-mitigation-cost/"),
+    ],
+))
+
+# 16. RADON TESTING FOR BUSINESSES
+write("radon-testing/for-businesses/index.html", render_page(
+    url_path="/radon-testing/for-businesses/",
+    title="Radon Testing for Colorado Businesses: Commercial Buildings, Schools, Childcare",
+    description="Commercial radon testing in Colorado: AARST SGM-MFLB-2023 protocols, school testing recommendations, childcare facilities, multi-tenant buildings, and what commercial mitigation looks like.",
+    h1="Radon Testing for Businesses and Commercial Buildings",
+    hero_eyebrow="Testing · Commercial",
+    hero_lede="Commercial radon testing follows different protocols than home testing. Here's what applies to offices, retail, schools, childcare facilities, and multi-tenant buildings in Colorado.",
+    body_html=TESTING_BUSINESSES_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Radon Testing", "/radon-testing/"),
+        ("For Businesses", "/radon-testing/for-businesses/"),
+    ],
+    extra_jsonld=[
+        testing_businesses_faq_jsonld(),
+        article_schema("/radon-testing/for-businesses/", "Radon Testing for Colorado Businesses", "Commercial radon testing protocols, AARST SGM-MFLB-2023 standards, school and childcare testing recommendations, multi-tenant building responsibility, and commercial mitigation overview."),
+    ],
+    related=[
+        ("Testing Hub", "How to test for radon in Colorado", "/radon-testing/"),
+        ("For Rentals", "Colorado landlord disclosure under SB23-206", "/radon-testing/for-rentals/"),
+        ("Mitigation Cost", "Cost ranges that scale with building size", "/radon-mitigation-cost/"),
+    ],
+))
+
 # 10. WHAT HAPPENS AFTER MITIGATION
 write("radon-mitigation-systems/what-happens-after-mitigation/index.html", render_page(
     url_path="/radon-mitigation-systems/what-happens-after-mitigation/",
@@ -490,13 +651,13 @@ write("radon-mitigation-systems/what-happens-after-mitigation/index.html", rende
     ],
 ))
 
-# 4. CS TESTING
+# 4. CS TESTING (V1 — Phase 4 cross-links added)
 write("colorado-springs/radon-testing/index.html", render_page(
     url_path="/colorado-springs/radon-testing/",
     title="Radon Testing in Colorado Springs — DIY Kits & Pro Tests",
     description="Radon testing options for Colorado Springs homes. Short-term vs long-term kits, professional measurement, the EPA action level, and when to retest.",
     h1="Radon Testing in Colorado Springs",
-    hero_eyebrow="Testing guide",
+    hero_eyebrow="Testing guide · Colorado Springs",
     hero_lede="Three test types, where to get a kit locally, how to place it correctly, and how to read the result. Plus the rules for real estate transactions.",
     body_html=CS_TESTING_BODY,
     breadcrumbs=[
@@ -508,9 +669,9 @@ write("colorado-springs/radon-testing/index.html", render_page(
         article_schema("/colorado-springs/radon-testing/", "Radon Testing in Colorado Springs", "DIY kits, professional measurement, and how to interpret your radon result in Colorado Springs."),
     ],
     related=[
-        ("Mitigation Cost", "Typical ranges and what moves the price", "/colorado-springs/radon-mitigation-cost/"),
-        ("Failed Test", "What to do when your test comes back high", "/colorado-springs/failed-radon-test/"),
-        ("Colorado Springs Hub", "Local prevalence, systems, real estate", "/colorado-springs/"),
+        ("Testing Hub", "How to test for radon in Colorado (statewide)", "/radon-testing/"),
+        ("Short-Term vs Long-Term", "When to use each test duration", "/radon-testing/short-term-vs-long-term/"),
+        ("Failed Test Next Steps", "What to do when your test comes back high", "/colorado-springs/failed-radon-test/"),
     ],
 ))
 
@@ -533,9 +694,9 @@ write("colorado-springs/failed-radon-test/index.html", render_page(
         article_schema("/colorado-springs/failed-radon-test/", "Failed Radon Test in Colorado Springs", "What to do after a high radon test in Colorado Springs — by homeowner situation, real estate role, and closing deadline."),
     ],
     related=[
+        ("Real Estate Testing", "SB23-206 disclosure + CRM testing standard", "/radon-testing/during-real-estate-transactions/"),
+        ("Real Estate Cost Deadlines", "Three buyer options and credit vs mitigate", "/radon-mitigation-cost/real-estate-deadlines/"),
         ("Mitigation Cost", "What you should expect to pay", "/colorado-springs/radon-mitigation-cost/"),
-        ("Radon Testing", "How to confirm a result", "/colorado-springs/radon-testing/"),
-        ("Get a Quote", "Connect with a licensed Colorado contractor", "/request-quote/"),
     ],
 ))
 
@@ -651,6 +812,13 @@ SITEMAP_URLS = [
     ("/radon-mitigation-systems/fans-pipes-suction-points/", "0.8"),
     ("/radon-mitigation-systems/why-sealing-isnt-enough/", "0.8"),
     ("/radon-mitigation-systems/what-happens-after-mitigation/", "0.8"),
+    # Testing & Real Estate pillar (Phase 4)
+    ("/radon-testing/", "0.9"),
+    ("/radon-testing/short-term-vs-long-term/", "0.8"),
+    ("/radon-testing/where-to-place-a-test/", "0.8"),
+    ("/radon-testing/during-real-estate-transactions/", "0.8"),
+    ("/radon-testing/for-rentals/", "0.8"),
+    ("/radon-testing/for-businesses/", "0.8"),
     ("/request-quote/", "0.8"),
     ("/about/", "0.4"),
     ("/disclosure/", "0.4"),
@@ -736,6 +904,17 @@ The Python files under `_build/` are the source-of-truth templates that produced
 | `/radon-mitigation-systems/why-sealing-isnt-enough/` | `radon-mitigation-systems/why-sealing-isnt-enough/index.html` |
 | `/radon-mitigation-systems/what-happens-after-mitigation/` | `radon-mitigation-systems/what-happens-after-mitigation/index.html` |
 
+### Phase 4: Testing & Real Estate pillar (May 2026)
+
+| URL | File |
+|---|---|
+| `/radon-testing/` | `radon-testing/index.html` (How to Test for Radon in Colorado hub) |
+| `/radon-testing/short-term-vs-long-term/` | `radon-testing/short-term-vs-long-term/index.html` |
+| `/radon-testing/where-to-place-a-test/` | `radon-testing/where-to-place-a-test/index.html` |
+| `/radon-testing/during-real-estate-transactions/` | `radon-testing/during-real-estate-transactions/index.html` |
+| `/radon-testing/for-rentals/` | `radon-testing/for-rentals/index.html` |
+| `/radon-testing/for-businesses/` | `radon-testing/for-businesses/index.html` |
+
 ## Before you launch
 
 1. **Quote form back end (Netlify Forms).** `request-quote/index.html` uses Netlify Forms (`data-netlify="true"`, `name="quote-request"`). On deploy, Netlify auto-detects the form; submissions appear in the Netlify dashboard under **Forms → quote-request**. Email and Slack notifications can be added under **Forms → Notifications**. The form POSTs hidden `city` and `source_page` fields for lead attribution, plus a honeypot `bot-field` for spam protection.
@@ -755,6 +934,7 @@ The HTML pages are generated from Python templates under `_build/`:
 - `pages_cs.py` — Colorado Springs testing and failed-test page content
 - `pages_cost.py` — Phase 2 Cost & Quote pillar (8 pages including refreshed CS cost)
 - `pages_systems.py` — Phase 3 Mitigation Systems pillar (7 pages)
+- `pages_testing.py` — Phase 4 Testing & Real Estate pillar (6 pages)
 - `pages_misc.py` — quote form, thank-you, about, disclosure, privacy, contact
 - `build.py` — orchestrator that calls `render_page()` for each URL
 
