@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Colorado Radon Guide — Testing, Mitigation Cost & Next Steps</title>
+  <meta name="description" content="Independent Colorado radon guide. Learn radon risk in Colorado, the 4.0 pCi/L EPA action level, mitigation cost ranges, and how to find a licensed local contractor.">
+  <link rel="canonical" href="https://coloradoradonguide.com/">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <meta name="theme-color" content="#1c4a6e">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Colorado Radon Guide — Testing, Mitigation Cost & Next Steps">
+  <meta property="og:description" content="Independent Colorado radon guide. Learn radon risk in Colorado, the 4.0 pCi/L EPA action level, mitigation cost ranges, and how to find a licensed local contractor.">
+  <meta property="og:url" content="https://coloradoradonguide.com/">
+  <meta property="og:site_name" content="Colorado Radon Guide">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Colorado Radon Guide — Testing, Mitigation Cost & Next Steps">
+  <meta name="twitter:description" content="Independent Colorado radon guide. Learn radon risk in Colorado, the 4.0 pCi/L EPA action level, mitigation cost ranges, and how to find a licensed local contractor.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+:root {
+  --bg: #ffffff;
+  --bg-cream: #f7f3ec;
+  --bg-cream-deep: #efe9dc;
+  --border: #e3dccc;
+  --border-strong: #cfc6b1;
+  --text: #14181c;
+  --text-muted: #5a6470;
+  --text-dim: #828a94;
+  --primary: #1c4a6e;
+  --primary-deep: #14385a;
+  --accent: #b35333;
+  --accent-deep: #8e3d22;
+  --success: #156845;
+  --warn: #8a6d1a;
+  --warn-bg: #fbf3dc;
+  --max: 72rem;
+  --prose: 38rem;
+  --radius: 6px;
+  --radius-lg: 10px;
+  --shadow-sm: 0 1px 2px rgba(20,24,28,.04), 0 1px 4px rgba(20,24,28,.04);
+  --shadow-md: 0 6px 18px rgba(20,24,28,.06), 0 2px 6px rgba(20,24,28,.04);
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+h1 { font-size: clamp(2rem, 4vw + 1rem, 3rem); margin: 0 0 1rem; }
+h2 { font-size: clamp(1.5rem, 2vw + 0.75rem, 2rem); margin: 2.5rem 0 1rem; }
+h3 { font-size: 1.25rem; margin: 2rem 0 0.75rem; }
+h4 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; font-family: 'Inter', sans-serif; font-weight: 600; }
+
+p { margin: 0 0 1.25rem; }
+a { color: var(--primary); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: var(--primary-deep); }
+
+ul, ol { margin: 0 0 1.25rem; padding-left: 1.5rem; }
+li { margin: 0.4rem 0; }
+
+strong { font-weight: 600; color: var(--text); }
+
+hr {
+  border: 0;
+  height: 1px;
+  background: var(--border);
+  margin: 2.5rem 0;
+}
+
+/* Layout */
+.container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
+.prose { max-width: var(--prose); }
+.prose-wide { max-width: 54rem; }
+
+/* Skip link */
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  padding: 0.5rem 1rem;
+  background: var(--primary);
+  color: #fff;
+  z-index: 100;
+  text-decoration: none;
+}
+.skip:focus { left: 0; }
+
+/* Header */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.92);
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+  gap: 1rem;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.brand-mark {
+  width: 26px; height: 26px;
+  background: var(--primary);
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+.nav { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+.nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+.nav a:hover { color: var(--text); }
+.nav .nav-cta {
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.95rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+}
+.nav .nav-cta:hover { background: var(--accent-deep); color: #fff; }
+
+/* Breadcrumbs */
+.crumbs {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding: 1rem 0 0;
+}
+.crumbs a { color: var(--text-muted); text-decoration: none; }
+.crumbs a:hover { color: var(--primary); text-decoration: underline; }
+.crumbs span[aria-current] { color: var(--text); }
+.crumbs .sep { margin: 0 0.4rem; color: var(--text-dim); }
+
+/* Hero */
+.hero {
+  padding: 3rem 0 2rem;
+  border-bottom: 1px solid var(--border);
+}
+.hero .lede {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 40rem;
+  margin: 0.5rem 0 1.5rem;
+}
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin-top: 1rem;
+}
+.hero-meta span { display: inline-flex; align-items: center; gap: 0.4rem; }
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+/* Main content */
+main { padding: 2rem 0 4rem; }
+main .container > section { margin-bottom: 2.5rem; }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.85rem 1.4rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  line-height: 1.2;
+  transition: background 0.15s ease;
+}
+.btn:hover { background: var(--accent-deep); color: #fff; }
+.btn-secondary {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--border-strong);
+}
+.btn-secondary:hover { background: var(--bg-cream); color: var(--primary-deep); }
+.btn-row { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+
+/* Cards & callouts */
+.card {
+  background: var(--bg-cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+.card-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  margin: 1.5rem 0;
+}
+.card h3 { margin-top: 0; }
+.card p:last-child { margin-bottom: 0; }
+
+.callout {
+  background: var(--warn-bg);
+  border-left: 3px solid var(--warn);
+  padding: 1.1rem 1.25rem;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin: 1.5rem 0;
+  font-size: 0.96rem;
+}
+.callout strong { display: block; margin-bottom: 0.3rem; }
+.callout p:last-child { margin-bottom: 0; }
+
+.factbox {
+  background: var(--bg-cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+}
+.factbox .label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 0.4rem;
+}
+.factbox .stat {
+  font-family: 'Fraunces', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+.factbox .source {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* CTA banner */
+.cta-banner {
+  background: var(--primary);
+  color: #fff;
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  margin: 3rem 0;
+  text-align: left;
+}
+.cta-banner h2 { color: #fff; margin-top: 0; }
+.cta-banner p { color: rgba(255,255,255,0.85); max-width: 36rem; }
+.cta-banner .btn {
+  background: #fff;
+  color: var(--primary-deep);
+  margin-top: 0.5rem;
+}
+.cta-banner .btn:hover { background: var(--bg-cream); color: var(--primary-deep); }
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+th, td {
+  text-align: left;
+  padding: 0.75rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+th {
+  font-weight: 600;
+  background: var(--bg-cream);
+  font-size: 0.88rem;
+  letter-spacing: 0.01em;
+}
+table.compact { font-size: 0.88rem; }
+table.compact th, table.compact td { padding: 0.5rem 0.75rem; }
+
+/* FAQ details */
+details {
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 0;
+}
+details:first-of-type { border-top: 1px solid var(--border); }
+details summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.02rem;
+  list-style: none;
+  position: relative;
+  padding-right: 2rem;
+  color: var(--text);
+}
+details summary::-webkit-details-marker { display: none; }
+details summary::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 1.4rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  transition: transform 0.15s ease;
+}
+details[open] summary::after { content: '–'; }
+details > p, details > ul { margin-top: 0.75rem; }
+
+/* Source citations */
+.sources {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.sources h2 { font-size: 1.1rem; margin-top: 0; font-family: 'Inter', sans-serif; }
+.sources ol { padding-left: 1.2rem; }
+.sources li { margin: 0.5rem 0; }
+
+/* Internal link block */
+.related {
+  background: var(--bg-cream);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem 0;
+  margin: 3rem 0;
+}
+.related h2 { margin-top: 0; font-size: 1.3rem; }
+.related-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+.related-grid a {
+  display: block;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.related-grid a:hover {
+  border-color: var(--primary);
+  color: var(--primary-deep);
+}
+.related-grid .related-label {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.related-grid .related-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--bg-cream-deep);
+  border-top: 1px solid var(--border);
+  padding: 3rem 0 2rem;
+  margin-top: 4rem;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+.site-footer .footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+.site-footer h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  margin: 0 0 0.75rem;
+}
+.site-footer ul { list-style: none; padding: 0; margin: 0; }
+.site-footer ul li { margin: 0.4rem 0; }
+.site-footer ul a { color: var(--text-muted); text-decoration: none; }
+.site-footer ul a:hover { color: var(--primary); text-decoration: underline; }
+.site-footer .footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+.site-footer .disclaimer { max-width: 50rem; }
+
+/* Forms */
+.form { background: var(--bg-cream); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--border); }
+.field { margin-bottom: 1.25rem; }
+.field label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+  color: var(--text);
+}
+.field .hint {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-family: inherit;
+  background: #fff;
+  color: var(--text);
+}
+.field textarea { resize: vertical; min-height: 5rem; }
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+  border-color: var(--primary);
+}
+.field-row { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); }
+.required { color: var(--accent-deep); }
+.consent {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+.consent input { width: auto; margin-top: 0.25rem; }
+
+/* Lists */
+.checklist { list-style: none; padding: 0; }
+.checklist li {
+  padding-left: 1.75rem;
+  position: relative;
+}
+.checklist li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--success);
+  font-weight: 700;
+}
+
+/* Tag pills */
+.pill {
+  display: inline-block;
+  background: var(--bg-cream);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.2rem 0.75rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-right: 0.4rem;
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .hero { padding: 2rem 0 1.5rem; }
+  .nav { gap: 0.85rem; }
+  .nav a:not(.nav-cta) { display: none; }
+  .nav .nav-cta { padding: 0.4rem 0.8rem; font-size: 0.88rem; }
+  .cta-banner { padding: 1.75rem; }
+  body { font-size: 16px; }
+  .factbox .stat { font-size: 1.5rem; }
+  table { font-size: 0.85rem; }
+  th, td { padding: 0.5rem 0.6rem; }
+}
+</style>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Colorado Radon Guide", "url": "https://coloradoradonguide.com", "description": "Independent Colorado radon information and quote-connection resource.", "areaServed": {"@type": "AdministrativeArea", "name": "Colorado, USA"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Colorado Radon Guide", "url": "https://coloradoradonguide.com"}</script>
+  
+  
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/" aria-label="Colorado Radon Guide home">
+      <span class="brand-mark" aria-hidden="true">CR</span>
+      <span>Colorado Radon Guide</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/colorado-springs/">Colorado Springs</a>
+      <a href="/colorado-springs/radon-mitigation-cost/">Mitigation Cost</a>
+      <a href="/colorado-springs/radon-testing/">Testing</a>
+      <a href="/colorado-springs/failed-radon-test/">Failed Test</a>
+      <a href="/about/">About</a>
+      <a href="/request-quote/" class="nav-cta">Get a Quote</a>
+    </nav>
+  </div>
+</header>
+  <section class="hero">
+    <div class="container">
+      
+      <span class="eyebrow">Statewide guide</span>
+      <h1>Your independent Colorado radon guide</h1>
+      <p class="lede">Roughly half of Colorado homes test above the EPA radon action level. This is the calm, sourced, contractor-independent guide to what radon is, what testing costs, what mitigation costs, and what to do next.</p>
+      <div class="hero-meta"><span><strong>Updated</strong> May 2026</span> <span><strong>Sources</strong> CDPHE • EPA • El Paso County • Colorado DORA</span></div>
+    </div>
+  </section>
+  <main id="main">
+    <div class="container">
+      
+<section>
+  <div class="prose-wide">
+    <p>Roughly <strong>half of Colorado homes test above the U.S. Environmental Protection Agency's radon action level</strong> of 4.0 picocuries per liter (pCi/L). Colorado's uranium-rich Rocky Mountain geology means radon is not a rare problem here — it is a baseline assumption for every homeowner, buyer, and seller in the state.<sup><a href="#src-1">[1]</a></sup></p>
+    <p>This site is an <strong>independent guide</strong>. We do not install mitigation systems and we do not represent a single contractor. We pull from the Colorado Department of Public Health and Environment (CDPHE), the EPA, El Paso County Public Health, Denver Public Health, and Colorado state law to help you make the call: <em>do I need to test, do I need to mitigate, and what should it cost?</em></p>
+  </div>
+</section>
+
+<section>
+  <div class="card-grid">
+    <div class="factbox">
+      <div class="label">Colorado Homes</div>
+      <div class="stat">~50%</div>
+      <div class="source">test above the EPA action level. Source: <a href="https://cdphe.colorado.gov/radon" rel="noopener" target="_blank">CDPHE</a></div>
+    </div>
+    <div class="factbox">
+      <div class="label">EPA Action Level</div>
+      <div class="stat">4.0 pCi/L</div>
+      <div class="source">Mitigate at or above this. Source: <a href="https://www.epa.gov/radon/health-risk-radon" rel="noopener" target="_blank">EPA</a></div>
+    </div>
+    <div class="factbox">
+      <div class="label">El Paso County</div>
+      <div class="stat">40%+</div>
+      <div class="source">of homes tested 2005–2023 had high radon. Source: <a href="https://www.elpasocountyhealth.org/radon" rel="noopener" target="_blank">El Paso County Public Health</a></div>
+    </div>
+    <div class="factbox">
+      <div class="label">Typical Mitigation</div>
+      <div class="stat">$1,000–$2,000</div>
+      <div class="source">baseline cost; complex jobs cost more. Source: <a href="https://cdphe.colorado.gov/radon" rel="noopener" target="_blank">CDPHE</a></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>What radon is and why it matters in Colorado</h2>
+  <div class="prose-wide">
+    <p>Radon is an invisible, odorless, radioactive gas produced by the natural decay of uranium in soil and rock. It rises from the ground and enters homes through cracks in foundations, sump pits, drain tile, crawl spaces, and other openings. Because Colorado's geology is uranium-rich, indoor radon accumulates here more than in most of the U.S. — and the EPA classifies most of the Front Range, including El Paso County, as <strong>Zone 1: highest potential</strong>.<sup><a href="#src-2">[2]</a></sup></p>
+    <p>Long-term exposure damages lung tissue and increases lung cancer risk. The EPA estimates radon causes roughly 21,000 lung cancer deaths per year in the U.S., and CDPHE identifies radon as the second-leading cause of lung cancer in Colorado overall and the leading cause among non-smokers.<sup><a href="#src-1">[1]</a></sup><sup><a href="#src-3">[3]</a></sup> Risk is additive with smoking, but you do not have to smoke for radon to be a problem.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Testing comes first — always</h2>
+  <div class="prose-wide">
+    <p>You cannot smell, see, or feel radon. The only way to know your level is to test. CDPHE recommends every Colorado home be tested, and EPA guidance is to retest every two years or after major remodels or HVAC changes.<sup><a href="#src-1">[1]</a></sup></p>
+    <p>You have three practical options:</p>
+    <ul>
+      <li><strong>Short-term DIY kit</strong> (2–7 days). Low-cost, available at retail and from CDPHE programs.</li>
+      <li><strong>Long-term DIY kit</strong> (90+ days). Better picture of year-round exposure.</li>
+      <li><strong>Professional measurement</strong> by a contractor certified through the National Radon Proficiency Program (NRPP) or the National Radon Safety Board (NRSB), required for real estate transactions.<sup><a href="#src-4">[4]</a></sup></li>
+    </ul>
+    <p>Our <a href="/colorado-springs/radon-testing/">Colorado Springs testing guide</a> walks through each option, what they cost, and how to interpret the result.</p>
+  </div>
+</section>
+
+<section>
+  <h2>If your test is high, mitigation is solvable</h2>
+  <div class="prose-wide">
+    <p>A result at or above 4.0 pCi/L is the EPA's action threshold. The standard fix is <strong>active sub-slab depressurization</strong> — a sealed vent pipe and a quiet electric fan that pulls radon from under the slab and exhausts it above the roofline. Homes with crawl spaces use a sub-membrane variant; homes with sump pits or drain tile can tie those into the system.</p>
+    <p>A correctly designed system typically reduces indoor radon by <strong>80–99%</strong>.<sup><a href="#src-2">[2]</a></sup> CDPHE and El Paso County both put a typical Colorado mitigation system in the <strong>$1,000–$2,000</strong> range, with larger or more complex installations costing more.<sup><a href="#src-1">[1]</a></sup><sup><a href="#src-5">[5]</a></sup> Our <a href="/colorado-springs/radon-mitigation-cost/">cost page</a> breaks down what drives the price.</p>
+    <p>Caulking, sealing, or running fans alone is <strong>not</strong> a substitute for a properly engineered system. CDPHE warns that sealing cracks alone is unreliable and can sometimes make things worse.<sup><a href="#src-1">[1]</a></sup></p>
+  </div>
+</section>
+
+<section>
+  <h2>Colorado law &amp; licensing — what changed in 2022 and 2023</h2>
+  <div class="prose-wide">
+    <p>Two recent regulatory changes shape every Colorado radon decision:</p>
+    <ul>
+      <li><strong>Contractor licensing (July 2022).</strong> All radon measurement and mitigation professionals working in Colorado must be certified through NRPP or NRSB <em>and</em> registered with the <a href="https://dpo.colorado.gov/Radon" rel="noopener" target="_blank">Colorado Department of Regulatory Agencies (DORA) Office of Radon Professionals</a>. Always verify a contractor's registration before hiring.<sup><a href="#src-4">[4]</a></sup></li>
+      <li><strong>Real estate disclosure — SB23-206 (2023).</strong> Every residential sale and lease in Colorado must include a radon warning, any known test results, and any mitigation history. The CDPHE radon brochure must be provided. After January 2026, tenants gain additional remedies if a known elevated radon level was not mitigated.<sup><a href="#src-6">[6]</a></sup></li>
+    </ul>
+    <p>Important nuance: Colorado does <strong>not</strong> require a seller to test or mitigate — only to disclose what they know.<sup><a href="#src-1">[1]</a></sup> Buyers should not assume "no disclosure" means "no radon." It usually means "no test was done."</p>
+  </div>
+</section>
+
+<section>
+  <h2>What this site is — and what it isn't</h2>
+  <div class="prose-wide">
+    <p>Colorado Radon Guide is an independent editorial resource. We publish information drawn from public Colorado and federal health sources, and we connect homeowners who request a quote with a licensed Colorado mitigation partner. That is it.</p>
+    <ul>
+      <li><strong>We are not a radon contractor.</strong> We do not install systems and we do not sell equipment.</li>
+      <li><strong>We are not a medical or legal source.</strong> We summarize publicly available guidance and link to the originals — always confirm with CDPHE, the EPA, or a licensed professional for your specific situation.</li>
+      <li><strong>We are paid when a quote is routed to a partner.</strong> See our <a href="/disclosure/">editorial &amp; lead disclosure</a> for the financial relationship and editorial separation.</li>
+    </ul>
+    <p>If that sounds reasonable, the most useful place to go next is your city.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Pick your city</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h3>Colorado Springs</h3>
+      <p>El Paso County is EPA Zone 1; more than 40% of homes tested 2005–2023 came back high. Start here for testing, mitigation cost, and what to do after a failed result.</p>
+      <p><a href="/colorado-springs/" class="btn btn-secondary">Colorado Springs Hub</a></p>
+    </div>
+    <div class="card">
+      <h3>More cities coming</h3>
+      <p>We are expanding to Denver, Aurora, Boulder, and Fort Collins next. If you would like to be notified when your city's guide is live, <a href="/contact/">drop us a line</a>.</p>
+      <p><span class="pill">Coming soon</span></p>
+    </div>
+  </div>
+</section>
+
+<aside class="sources" aria-label="Sources">
+  <h2>Sources</h2>
+  <ol>
+    <li id="src-1">Colorado Department of Public Health and Environment. <em>Radon</em>. <a href="https://cdphe.colorado.gov/radon" rel="noopener" target="_blank">cdphe.colorado.gov/radon</a></li>
+    <li id="src-2">U.S. Environmental Protection Agency. <em>Radon</em>. <a href="https://www.epa.gov/radon" rel="noopener" target="_blank">epa.gov/radon</a></li>
+    <li id="src-3">U.S. Environmental Protection Agency. <em>Health Risk of Radon</em>. <a href="https://www.epa.gov/radon/health-risk-radon" rel="noopener" target="_blank">epa.gov/radon/health-risk-radon</a></li>
+    <li id="src-4">Colorado Department of Regulatory Agencies. <em>Office of Radon Professionals</em>. <a href="https://dpo.colorado.gov/Radon" rel="noopener" target="_blank">dpo.colorado.gov/Radon</a></li>
+    <li id="src-5">El Paso County Public Health. <em>Radon</em>. <a href="https://www.elpasocountyhealth.org/radon" rel="noopener" target="_blank">elpasocountyhealth.org/radon</a></li>
+    <li id="src-6">Colorado General Assembly. <em>SB23-206: Concerning measures to mitigate the effects of radon in residential properties</em>. <a href="https://leg.colorado.gov/bills/sb23-206" rel="noopener" target="_blank">leg.colorado.gov/bills/sb23-206</a></li>
+  </ol>
+</aside>
+
+    </div>
+    <section class="container">
+      <div class="cta-banner">
+        <h2>Get a Colorado Springs Radon Quote</h2>
+        <p>Tell us about your home and test result and we'll connect you with a licensed Colorado mitigation partner. No high-pressure sales calls, no contracts to start.</p>
+        <a href="/request-quote/" class="btn">Request a Quote</a>
+      </div>
+    </section>
+  </main>
+  <section class="related">
+    <div class="container">
+      <h2>Keep reading</h2>
+      <div class="related-grid"><a href="/colorado-springs/"><span class="related-label">Colorado Springs</span><span class="related-title">Local prevalence, testing, mitigation, real estate</span></a><a href="/colorado-springs/radon-mitigation-cost/"><span class="related-label">Mitigation Cost</span><span class="related-title">Typical ranges and what moves the price</span></a><a href="/colorado-springs/failed-radon-test/"><span class="related-label">After a Failed Test</span><span class="related-title">Step-by-step next steps for homeowners and buyers</span></a></div>
+    </div>
+  </section>
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Colorado Radon Guide</h4>
+        <p>An independent Colorado radon information and quote-connection resource. We do not install mitigation systems.</p>
+      </div>
+      <div>
+        <h4>Colorado Springs</h4>
+        <ul>
+          <li><a href="/colorado-springs/">Colorado Springs Hub</a></li>
+          <li><a href="/colorado-springs/radon-mitigation-cost/">Mitigation Cost</a></li>
+          <li><a href="/colorado-springs/radon-testing/">Radon Testing</a></li>
+          <li><a href="/colorado-springs/failed-radon-test/">After a Failed Test</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About the Site</h4>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/disclosure/">Editorial &amp; Lead Disclosure</a></li>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Authoritative Sources</h4>
+        <ul>
+          <li><a href="https://cdphe.colorado.gov/radon" rel="noopener" target="_blank">CDPHE Radon Program</a></li>
+          <li><a href="https://www.epa.gov/radon" rel="noopener" target="_blank">EPA Radon</a></li>
+          <li><a href="https://www.elpasocountyhealth.org/radon" rel="noopener" target="_blank">El Paso County Public Health</a></li>
+          <li><a href="https://dpo.colorado.gov/Radon" rel="noopener" target="_blank">Colorado DORA Office of Radon Professionals</a></li>
+          <li><a href="https://leg.colorado.gov/bills/sb23-206" rel="noopener" target="_blank">Colorado SB23-206</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="disclaimer">
+        <strong>Disclaimer.</strong> Colorado Radon Guide is an independent educational resource. We are not a radon mitigation contractor, do not perform radon testing or installation, and do not provide medical advice. Information is drawn from public Colorado and federal health sources and may change. Cost ranges are estimates only and do not represent a contractor quote. Quote requests submitted through this site are routed to a licensed Colorado mitigation partner. See our <a href="/disclosure/">disclosure</a> and <a href="/privacy/">privacy</a> pages.
+      </p>
+      <p>&copy; 2026 Colorado Radon Guide. Page last updated May 2026.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,777 @@
+"""Shared template for ColoradoRadonGuide.com V1 pages.
+
+Each page is rendered from this template with its own:
+  - url_path (e.g. "/colorado-springs/")
+  - title (browser/SERP title)
+  - meta_description
+  - h1
+  - body_html (the page's unique main content)
+  - breadcrumbs (list of (label, url) tuples, ending with current page)
+  - extra_jsonld (optional JSON-LD blocks like FAQPage, Article)
+
+Run `python3 _build/build.py` to regenerate all pages.
+"""
+
+SITE_NAME = "Colorado Radon Guide"
+SITE_URL = "https://coloradoradonguide.com"
+LAST_UPDATED = "May 2026"
+
+# ---------------------------------------------------------------------------
+# Shared CSS (kept inline on every page so the site works as flat HTML and
+# also renders inside sandboxed preview iframes).
+# ---------------------------------------------------------------------------
+SHARED_CSS = """
+:root {
+  --bg: #ffffff;
+  --bg-cream: #f7f3ec;
+  --bg-cream-deep: #efe9dc;
+  --border: #e3dccc;
+  --border-strong: #cfc6b1;
+  --text: #14181c;
+  --text-muted: #5a6470;
+  --text-dim: #828a94;
+  --primary: #1c4a6e;
+  --primary-deep: #14385a;
+  --accent: #b35333;
+  --accent-deep: #8e3d22;
+  --success: #156845;
+  --warn: #8a6d1a;
+  --warn-bg: #fbf3dc;
+  --max: 72rem;
+  --prose: 38rem;
+  --radius: 6px;
+  --radius-lg: 10px;
+  --shadow-sm: 0 1px 2px rgba(20,24,28,.04), 0 1px 4px rgba(20,24,28,.04);
+  --shadow-md: 0 6px 18px rgba(20,24,28,.06), 0 2px 6px rgba(20,24,28,.04);
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+h1 { font-size: clamp(2rem, 4vw + 1rem, 3rem); margin: 0 0 1rem; }
+h2 { font-size: clamp(1.5rem, 2vw + 0.75rem, 2rem); margin: 2.5rem 0 1rem; }
+h3 { font-size: 1.25rem; margin: 2rem 0 0.75rem; }
+h4 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; font-family: 'Inter', sans-serif; font-weight: 600; }
+
+p { margin: 0 0 1.25rem; }
+a { color: var(--primary); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: var(--primary-deep); }
+
+ul, ol { margin: 0 0 1.25rem; padding-left: 1.5rem; }
+li { margin: 0.4rem 0; }
+
+strong { font-weight: 600; color: var(--text); }
+
+hr {
+  border: 0;
+  height: 1px;
+  background: var(--border);
+  margin: 2.5rem 0;
+}
+
+/* Layout */
+.container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
+.prose { max-width: var(--prose); }
+.prose-wide { max-width: 54rem; }
+
+/* Skip link */
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  padding: 0.5rem 1rem;
+  background: var(--primary);
+  color: #fff;
+  z-index: 100;
+  text-decoration: none;
+}
+.skip:focus { left: 0; }
+
+/* Header */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.92);
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+  gap: 1rem;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.brand-mark {
+  width: 26px; height: 26px;
+  background: var(--primary);
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+.nav { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+.nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+.nav a:hover { color: var(--text); }
+.nav .nav-cta {
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.95rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+}
+.nav .nav-cta:hover { background: var(--accent-deep); color: #fff; }
+
+/* Breadcrumbs */
+.crumbs {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding: 1rem 0 0;
+}
+.crumbs a { color: var(--text-muted); text-decoration: none; }
+.crumbs a:hover { color: var(--primary); text-decoration: underline; }
+.crumbs span[aria-current] { color: var(--text); }
+.crumbs .sep { margin: 0 0.4rem; color: var(--text-dim); }
+
+/* Hero */
+.hero {
+  padding: 3rem 0 2rem;
+  border-bottom: 1px solid var(--border);
+}
+.hero .lede {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 40rem;
+  margin: 0.5rem 0 1.5rem;
+}
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin-top: 1rem;
+}
+.hero-meta span { display: inline-flex; align-items: center; gap: 0.4rem; }
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+/* Main content */
+main { padding: 2rem 0 4rem; }
+main .container > section { margin-bottom: 2.5rem; }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.85rem 1.4rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  line-height: 1.2;
+  transition: background 0.15s ease;
+}
+.btn:hover { background: var(--accent-deep); color: #fff; }
+.btn-secondary {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--border-strong);
+}
+.btn-secondary:hover { background: var(--bg-cream); color: var(--primary-deep); }
+.btn-row { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+
+/* Cards & callouts */
+.card {
+  background: var(--bg-cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+.card-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  margin: 1.5rem 0;
+}
+.card h3 { margin-top: 0; }
+.card p:last-child { margin-bottom: 0; }
+
+.callout {
+  background: var(--warn-bg);
+  border-left: 3px solid var(--warn);
+  padding: 1.1rem 1.25rem;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin: 1.5rem 0;
+  font-size: 0.96rem;
+}
+.callout strong { display: block; margin-bottom: 0.3rem; }
+.callout p:last-child { margin-bottom: 0; }
+
+.factbox {
+  background: var(--bg-cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+}
+.factbox .label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 0.4rem;
+}
+.factbox .stat {
+  font-family: 'Fraunces', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+.factbox .source {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* CTA banner */
+.cta-banner {
+  background: var(--primary);
+  color: #fff;
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  margin: 3rem 0;
+  text-align: left;
+}
+.cta-banner h2 { color: #fff; margin-top: 0; }
+.cta-banner p { color: rgba(255,255,255,0.85); max-width: 36rem; }
+.cta-banner .btn {
+  background: #fff;
+  color: var(--primary-deep);
+  margin-top: 0.5rem;
+}
+.cta-banner .btn:hover { background: var(--bg-cream); color: var(--primary-deep); }
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+th, td {
+  text-align: left;
+  padding: 0.75rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+th {
+  font-weight: 600;
+  background: var(--bg-cream);
+  font-size: 0.88rem;
+  letter-spacing: 0.01em;
+}
+table.compact { font-size: 0.88rem; }
+table.compact th, table.compact td { padding: 0.5rem 0.75rem; }
+
+/* FAQ details */
+details {
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 0;
+}
+details:first-of-type { border-top: 1px solid var(--border); }
+details summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.02rem;
+  list-style: none;
+  position: relative;
+  padding-right: 2rem;
+  color: var(--text);
+}
+details summary::-webkit-details-marker { display: none; }
+details summary::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 1.4rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  transition: transform 0.15s ease;
+}
+details[open] summary::after { content: '–'; }
+details > p, details > ul { margin-top: 0.75rem; }
+
+/* Source citations */
+.sources {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.sources h2 { font-size: 1.1rem; margin-top: 0; font-family: 'Inter', sans-serif; }
+.sources ol { padding-left: 1.2rem; }
+.sources li { margin: 0.5rem 0; }
+
+/* Internal link block */
+.related {
+  background: var(--bg-cream);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem 0;
+  margin: 3rem 0;
+}
+.related h2 { margin-top: 0; font-size: 1.3rem; }
+.related-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+.related-grid a {
+  display: block;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.related-grid a:hover {
+  border-color: var(--primary);
+  color: var(--primary-deep);
+}
+.related-grid .related-label {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.related-grid .related-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--bg-cream-deep);
+  border-top: 1px solid var(--border);
+  padding: 3rem 0 2rem;
+  margin-top: 4rem;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+.site-footer .footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+.site-footer h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  margin: 0 0 0.75rem;
+}
+.site-footer ul { list-style: none; padding: 0; margin: 0; }
+.site-footer ul li { margin: 0.4rem 0; }
+.site-footer ul a { color: var(--text-muted); text-decoration: none; }
+.site-footer ul a:hover { color: var(--primary); text-decoration: underline; }
+.site-footer .footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+.site-footer .disclaimer { max-width: 50rem; }
+
+/* Forms */
+.form { background: var(--bg-cream); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--border); }
+.field { margin-bottom: 1.25rem; }
+.field label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+  color: var(--text);
+}
+.field .hint {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-family: inherit;
+  background: #fff;
+  color: var(--text);
+}
+.field textarea { resize: vertical; min-height: 5rem; }
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+  border-color: var(--primary);
+}
+.field-row { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); }
+.required { color: var(--accent-deep); }
+.consent {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+.consent input { width: auto; margin-top: 0.25rem; }
+
+/* Lists */
+.checklist { list-style: none; padding: 0; }
+.checklist li {
+  padding-left: 1.75rem;
+  position: relative;
+}
+.checklist li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--success);
+  font-weight: 700;
+}
+
+/* Tag pills */
+.pill {
+  display: inline-block;
+  background: var(--bg-cream);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.2rem 0.75rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-right: 0.4rem;
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .hero { padding: 2rem 0 1.5rem; }
+  .nav { gap: 0.85rem; }
+  .nav a:not(.nav-cta) { display: none; }
+  .nav .nav-cta { padding: 0.4rem 0.8rem; font-size: 0.88rem; }
+  .cta-banner { padding: 1.75rem; }
+  body { font-size: 16px; }
+  .factbox .stat { font-size: 1.5rem; }
+  table { font-size: 0.85rem; }
+  th, td { padding: 0.5rem 0.6rem; }
+}
+"""
+
+# ---------------------------------------------------------------------------
+# Shared header / nav and footer markup.
+# ---------------------------------------------------------------------------
+NAV_LINKS = [
+    ("Colorado Springs", "/colorado-springs/"),
+    ("Mitigation Cost", "/colorado-springs/radon-mitigation-cost/"),
+    ("Testing", "/colorado-springs/radon-testing/"),
+    ("Failed Test", "/colorado-springs/failed-radon-test/"),
+    ("About", "/about/"),
+]
+
+
+def header_html(current_path: str) -> str:
+    items = []
+    for label, href in NAV_LINKS:
+        items.append(f'<a href="{href}">{label}</a>')
+    items.append('<a href="/request-quote/" class="nav-cta">Get a Quote</a>')
+    nav = "\n      ".join(items)
+    return f"""<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/" aria-label="{SITE_NAME} home">
+      <span class="brand-mark" aria-hidden="true">CR</span>
+      <span>{SITE_NAME}</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      {nav}
+    </nav>
+  </div>
+</header>"""
+
+
+FOOTER_HTML = f"""<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>{SITE_NAME}</h4>
+        <p>An independent Colorado radon information and quote-connection resource. We do not install mitigation systems.</p>
+      </div>
+      <div>
+        <h4>Colorado Springs</h4>
+        <ul>
+          <li><a href="/colorado-springs/">Colorado Springs Hub</a></li>
+          <li><a href="/colorado-springs/radon-mitigation-cost/">Mitigation Cost</a></li>
+          <li><a href="/colorado-springs/radon-testing/">Radon Testing</a></li>
+          <li><a href="/colorado-springs/failed-radon-test/">After a Failed Test</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About the Site</h4>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/disclosure/">Editorial &amp; Lead Disclosure</a></li>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Authoritative Sources</h4>
+        <ul>
+          <li><a href="https://cdphe.colorado.gov/radon" rel="noopener" target="_blank">CDPHE Radon Program</a></li>
+          <li><a href="https://www.epa.gov/radon" rel="noopener" target="_blank">EPA Radon</a></li>
+          <li><a href="https://www.elpasocountyhealth.org/radon" rel="noopener" target="_blank">El Paso County Public Health</a></li>
+          <li><a href="https://dpo.colorado.gov/Radon" rel="noopener" target="_blank">Colorado DORA Office of Radon Professionals</a></li>
+          <li><a href="https://leg.colorado.gov/bills/sb23-206" rel="noopener" target="_blank">Colorado SB23-206</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="disclaimer">
+        <strong>Disclaimer.</strong> {SITE_NAME} is an independent educational resource. We are not a radon mitigation contractor, do not perform radon testing or installation, and do not provide medical advice. Information is drawn from public Colorado and federal health sources and may change. Cost ranges are estimates only and do not represent a contractor quote. Quote requests submitted through this site are routed to a licensed Colorado mitigation partner. See our <a href="/disclosure/">disclosure</a> and <a href="/privacy/">privacy</a> pages.
+      </p>
+      <p>&copy; 2026 {SITE_NAME}. Page last updated {LAST_UPDATED}.</p>
+    </div>
+  </div>
+</footer>"""
+
+
+# ---------------------------------------------------------------------------
+# Schema helpers
+# ---------------------------------------------------------------------------
+def org_schema() -> str:
+    import json
+    obj = {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": SITE_NAME,
+        "url": SITE_URL,
+        "description": "Independent Colorado radon information and quote-connection resource.",
+        "areaServed": {"@type": "AdministrativeArea", "name": "Colorado, USA"},
+    }
+    return f'<script type="application/ld+json">{json.dumps(obj)}</script>'
+
+
+def website_schema() -> str:
+    import json
+    obj = {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": SITE_NAME,
+        "url": SITE_URL,
+    }
+    return f'<script type="application/ld+json">{json.dumps(obj)}</script>'
+
+
+def breadcrumb_schema(crumbs):
+    """crumbs = [(label, url), ...] absolute paths starting from /"""
+    import json
+    items = []
+    for i, (label, url) in enumerate(crumbs):
+        items.append({
+            "@type": "ListItem",
+            "position": i + 1,
+            "name": label,
+            "item": SITE_URL + url,
+        })
+    obj = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": items,
+    }
+    return f'<script type="application/ld+json">{json.dumps(obj)}</script>'
+
+
+def breadcrumb_nav_html(crumbs):
+    """crumbs = [(label, url), ...] -- last item is current page."""
+    parts = []
+    for i, (label, url) in enumerate(crumbs):
+        if i == len(crumbs) - 1:
+            parts.append(f'<span aria-current="page">{label}</span>')
+        else:
+            parts.append(f'<a href="{url}">{label}</a>')
+    return '<nav class="crumbs" aria-label="Breadcrumb">' + '<span class="sep">›</span>'.join(parts) + '</nav>'
+
+
+# ---------------------------------------------------------------------------
+# Page renderer
+# ---------------------------------------------------------------------------
+def render_page(*, url_path, title, description, h1, body_html,
+                breadcrumbs=None, extra_jsonld=None, hero_html=None,
+                hero_eyebrow=None, hero_lede=None, hero_meta=None,
+                show_breadcrumbs=True, show_cta_banner=True, related=None):
+    """Render a complete HTML5 page."""
+    canonical = SITE_URL + url_path
+    extra = "\n  ".join(extra_jsonld or [])
+    crumbs_html = ""
+    crumbs_schema_html = ""
+    if show_breadcrumbs and breadcrumbs:
+        crumbs_html = breadcrumb_nav_html(breadcrumbs)
+        crumbs_schema_html = breadcrumb_schema(breadcrumbs)
+
+    # Hero
+    if hero_html is not None:
+        hero = hero_html
+    else:
+        eyebrow = f'<span class="eyebrow">{hero_eyebrow}</span>' if hero_eyebrow else ""
+        lede = f'<p class="lede">{hero_lede}</p>' if hero_lede else ""
+        meta = f'<div class="hero-meta">{hero_meta}</div>' if hero_meta else ""
+        hero = f"""<section class="hero">
+    <div class="container">
+      {crumbs_html}
+      {eyebrow}
+      <h1>{h1}</h1>
+      {lede}
+      {meta}
+    </div>
+  </section>"""
+
+    # Optional related/internal-link block
+    related_html = ""
+    if related:
+        items = ""
+        for label_text, title_text, href in related:
+            items += f'''<a href="{href}"><span class="related-label">{label_text}</span><span class="related-title">{title_text}</span></a>'''
+        related_html = f"""<section class="related">
+    <div class="container">
+      <h2>Keep reading</h2>
+      <div class="related-grid">{items}</div>
+    </div>
+  </section>"""
+
+    # Default CTA banner
+    cta_banner = ""
+    if show_cta_banner:
+        cta_banner = """<section class="container">
+      <div class="cta-banner">
+        <h2>Get a Colorado Springs Radon Quote</h2>
+        <p>Tell us about your home and test result and we'll connect you with a licensed Colorado mitigation partner. No high-pressure sales calls, no contracts to start.</p>
+        <a href="/request-quote/" class="btn">Request a Quote</a>
+      </div>
+    </section>"""
+
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title}</title>
+  <meta name="description" content="{description}">
+  <link rel="canonical" href="{canonical}">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <meta name="theme-color" content="#1c4a6e">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{title}">
+  <meta property="og:description" content="{description}">
+  <meta property="og:url" content="{canonical}">
+  <meta property="og:site_name" content="{SITE_NAME}">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{title}">
+  <meta name="twitter:description" content="{description}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>{SHARED_CSS}</style>
+
+  {org_schema()}
+  {website_schema()}
+  {crumbs_schema_html}
+  {extra}
+</head>
+<body>
+  {header_html(url_path)}
+  {hero}
+  <main id="main">
+    <div class="container">
+      {body_html}
+    </div>
+    {cta_banner}
+  </main>
+  {related_html}
+  {FOOTER_HTML}
+</body>
+</html>"""
