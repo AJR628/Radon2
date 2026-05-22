@@ -85,6 +85,18 @@ The Python files under `_build/` are the source-of-truth templates that produced
 | `/radon-contractors/warranties-and-retesting/` | `radon-contractors/warranties-and-retesting/index.html` |
 | `/radon-contractors/how-to-file-a-complaint/` | `radon-contractors/how-to-file-a-complaint/index.html` |
 
+### Phase 6: Colorado Springs cluster (May 2026)
+
+| URL | File |
+|---|---|
+| `/colorado-springs/home-buyers-and-sellers/` | `colorado-springs/home-buyers-and-sellers/index.html` |
+
+### Phase 7: Cross-cutting polish (May 2026)
+
+| URL | File |
+|---|---|
+| `/library/` | `library/index.html` (Content Library hub — every page on the site) |
+
 ## Before you launch
 
 1. **Quote form back end (Netlify Forms).** `request-quote/index.html` uses Netlify Forms (`data-netlify="true"`, `name="quote-request"`). On deploy, Netlify auto-detects the form; submissions appear in the Netlify dashboard under **Forms → quote-request**. Email and Slack notifications can be added under **Forms → Notifications**. The form POSTs hidden `city` and `source_page` fields for lead attribution, plus a honeypot `bot-field` for spam protection.
@@ -107,6 +119,8 @@ The HTML pages are generated from Python templates under `_build/`:
 - `pages_testing.py` — Phase 4 Testing & Real Estate pillar (6 pages)
 - `pages_basics.py` — Phase 5a Radon Basics pillar (6 pages)
 - `pages_contractors.py` — Phase 5b Contractor Selection pillar (6 pages)
+- `pages_cs_v2.py` — Phase 6 Colorado Springs home buyers/sellers page
+- `pages_library.py` — Phase 7 content library hub
 - `pages_misc.py` — quote form, thank-you, about, disclosure, privacy, contact
 - `build.py` — orchestrator that calls `render_page()` for each URL
 

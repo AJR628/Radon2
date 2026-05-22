@@ -59,6 +59,12 @@ from pages_contractors import (  # noqa: E402
     WARRANTIES_BODY, warranties_faq_jsonld,
     COMPLAINT_BODY, complaint_faq_jsonld,
 )
+from pages_cs_v2 import (  # noqa: E402
+    CS_HOME_BUYERS_BODY, cs_home_buyers_faq_jsonld,
+)
+from pages_library import (  # noqa: E402
+    LIBRARY_BODY,
+)
 from pages_misc import (  # noqa: E402
     QUOTE_BODY, QUOTE_THANKYOU_BODY,
     ABOUT_BODY, DISCLOSURE_BODY,
@@ -116,7 +122,7 @@ write("index.html", render_page(
     ],
 ))
 
-# 2. COLORADO SPRINGS HUB
+# 2. COLORADO SPRINGS HUB (refreshed with Phase 6 cross-links)
 write("colorado-springs/index.html", render_page(
     url_path="/colorado-springs/",
     title="Radon in Colorado Springs — Testing, Mitigation & Cost Guide",
@@ -131,9 +137,9 @@ write("colorado-springs/index.html", render_page(
         article_schema("/colorado-springs/", "Radon in Colorado Springs", "A local guide to radon testing, mitigation, cost, and real estate rules in Colorado Springs."),
     ],
     related=[
-        ("Mitigation Cost", "Typical ranges and what moves the price", "/colorado-springs/radon-mitigation-cost/"),
-        ("Radon Testing", "DIY kits, professional tests, action level", "/colorado-springs/radon-testing/"),
-        ("Failed Test", "Step-by-step for homeowners and buyers", "/colorado-springs/failed-radon-test/"),
+        ("Mitigation Cost", "Local quote ranges by foundation scenario", "/colorado-springs/radon-mitigation-cost/"),
+        ("Home Buyers and Sellers", "CS-specific real estate guide with SB23-206", "/colorado-springs/home-buyers-and-sellers/"),
+        ("Failed Test Next Steps", "Step-by-step playbook for high results", "/colorado-springs/failed-radon-test/"),
     ],
 ))
 
@@ -923,6 +929,62 @@ write("radon-contractors/warranties-and-retesting/index.html", render_page(
     ],
 ))
 
+# =========================================================================
+# PHASE 6 — Colorado Springs home buyers and sellers
+# =========================================================================
+
+# 28a. CS HOME BUYERS AND SELLERS (NEW Phase 6)
+write("colorado-springs/home-buyers-and-sellers/index.html", render_page(
+    url_path="/colorado-springs/home-buyers-and-sellers/",
+    title="Radon for Colorado Springs Home Buyers and Sellers (SB23-206 Guide)",
+    description="The Colorado Springs-specific real estate radon guide. SB23-206 disclosure, buyer's three options under inspection objection, seller's pre-listing decisions, local timeline, and El Paso County context.",
+    h1="Radon Mitigation for Colorado Springs Home Buyers and Sellers",
+    hero_eyebrow="Colorado Springs · Real estate",
+    hero_lede="40%+ of El Paso County homes test elevated. If you're buying or selling in Colorado Springs, radon almost certainly comes up. Here's the local process from both sides of the transaction.",
+    body_html=CS_HOME_BUYERS_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Colorado Springs", "/colorado-springs/"),
+        ("Home Buyers and Sellers", "/colorado-springs/home-buyers-and-sellers/"),
+    ],
+    extra_jsonld=[
+        cs_home_buyers_faq_jsonld(),
+        article_schema("/colorado-springs/home-buyers-and-sellers/", "Radon for Colorado Springs Home Buyers and Sellers", "Colorado Springs-specific real estate radon guide. SB23-206 disclosure law, buyer's three options under inspection objection, seller's pre-listing decisions, local Pikes Peak region context."),
+    ],
+    related=[
+        ("Real Estate Testing", "SB23-206 + CRM standard + tampering controls", "/radon-testing/during-real-estate-transactions/"),
+        ("Real Estate Cost Deadlines", "Buyer options + credit-vs-mitigate framework", "/radon-mitigation-cost/real-estate-deadlines/"),
+        ("Failed Test Next Steps", "Step-by-step playbook by situation", "/colorado-springs/failed-radon-test/"),
+    ],
+))
+
+# =========================================================================
+# PHASE 7 — Content library hub
+# =========================================================================
+
+# 29. CONTENT LIBRARY HUB (NEW Phase 7)
+write("library/index.html", render_page(
+    url_path="/library/",
+    title="Colorado Radon Guide Library: Every Page Organized by Topic",
+    description="The full content index of Colorado Radon Guide. Radon Basics, Testing, Mitigation Systems, Cost & Quotes, Contractor Selection, and Colorado Springs local — every page on the site organized by pillar.",
+    h1="The Colorado Radon Guide Library",
+    hero_eyebrow="Content library",
+    hero_lede="Every page on Colorado Radon Guide, organized by topic. Use the decision flow below to find where to start.",
+    body_html=LIBRARY_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Library", "/library/"),
+    ],
+    extra_jsonld=[
+        article_schema("/library/", "Colorado Radon Guide Library", "Full content index organized by pillar: Radon Basics, Testing, Mitigation Systems, Cost & Quotes, Contractor Selection, Colorado Springs Local."),
+    ],
+    related=[
+        ("Radon Basics", "What is radon, why Colorado, health risks", "/radon-basics/"),
+        ("Radon Testing", "How to test for radon in Colorado", "/radon-testing/"),
+        ("Colorado Springs Hub", "Local prevalence, systems, real estate", "/colorado-springs/"),
+    ],
+))
+
 # 28. HOW TO FILE A COMPLAINT
 write("radon-contractors/how-to-file-a-complaint/index.html", render_page(
     url_path="/radon-contractors/how-to-file-a-complaint/",
@@ -1155,6 +1217,10 @@ SITEMAP_URLS = [
     ("/radon-contractors/red-flags-in-a-quote/", "0.8"),
     ("/radon-contractors/warranties-and-retesting/", "0.8"),
     ("/radon-contractors/how-to-file-a-complaint/", "0.8"),
+    # Colorado Springs additional (Phase 6)
+    ("/colorado-springs/home-buyers-and-sellers/", "0.8"),
+    # Content library (Phase 7)
+    ("/library/", "0.7"),
     ("/request-quote/", "0.8"),
     ("/about/", "0.4"),
     ("/disclosure/", "0.4"),
@@ -1273,6 +1339,18 @@ The Python files under `_build/` are the source-of-truth templates that produced
 | `/radon-contractors/warranties-and-retesting/` | `radon-contractors/warranties-and-retesting/index.html` |
 | `/radon-contractors/how-to-file-a-complaint/` | `radon-contractors/how-to-file-a-complaint/index.html` |
 
+### Phase 6: Colorado Springs cluster (May 2026)
+
+| URL | File |
+|---|---|
+| `/colorado-springs/home-buyers-and-sellers/` | `colorado-springs/home-buyers-and-sellers/index.html` |
+
+### Phase 7: Cross-cutting polish (May 2026)
+
+| URL | File |
+|---|---|
+| `/library/` | `library/index.html` (Content Library hub — every page on the site) |
+
 ## Before you launch
 
 1. **Quote form back end (Netlify Forms).** `request-quote/index.html` uses Netlify Forms (`data-netlify="true"`, `name="quote-request"`). On deploy, Netlify auto-detects the form; submissions appear in the Netlify dashboard under **Forms → quote-request**. Email and Slack notifications can be added under **Forms → Notifications**. The form POSTs hidden `city` and `source_page` fields for lead attribution, plus a honeypot `bot-field` for spam protection.
@@ -1295,6 +1373,8 @@ The HTML pages are generated from Python templates under `_build/`:
 - `pages_testing.py` — Phase 4 Testing & Real Estate pillar (6 pages)
 - `pages_basics.py` — Phase 5a Radon Basics pillar (6 pages)
 - `pages_contractors.py` — Phase 5b Contractor Selection pillar (6 pages)
+- `pages_cs_v2.py` — Phase 6 Colorado Springs home buyers/sellers page
+- `pages_library.py` — Phase 7 content library hub
 - `pages_misc.py` — quote form, thank-you, about, disclosure, privacy, contact
 - `build.py` — orchestrator that calls `render_page()` for each URL
 
