@@ -202,6 +202,99 @@ hr {
 }
 .hero-meta span { display: inline-flex; align-items: center; gap: 0.4rem; }
 
+/* Photo hero - editorial two-column on desktop, stacked on mobile */
+.hero-photo {
+  padding: 3rem 0 3rem;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-cream) 100%);
+}
+.hero-photo .hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.hero-photo .hero-text h1 {
+  font-size: clamp(2rem, 3.5vw + 0.5rem, 2.85rem);
+  margin: 0.75rem 0 1rem;
+}
+.hero-photo .hero-text .lede {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 1.75rem;
+  max-width: none;
+}
+.hero-photo .hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+.hero-photo .hero-meta {
+  margin-top: 1.5rem;
+  font-size: 0.82rem;
+}
+.hero-photo .hero-image {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  box-shadow: var(--shadow-md);
+  background: var(--bg-cream-deep);
+}
+.hero-photo .hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero-photo .img-credit {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.6rem;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.85);
+  background: rgba(20,24,28,0.45);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.hero-photo .img-credit:hover { color: #fff; background: rgba(20,24,28,0.65); }
+
+/* Inline illustration figure (e.g. radon entry diagram) */
+.figure {
+  margin: 2rem 0 2.5rem;
+  background: var(--bg-cream);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+}
+.figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+}
+.figure figcaption {
+  margin-top: 0.85rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.figure figcaption strong { color: var(--text); }
+
+/* Two-column explainer (text + diagram side by side) */
+.explainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  margin: 2rem 0;
+}
+.explainer .figure { margin: 0; }
+.explainer-text p:last-child { margin-bottom: 0; }
+
 .eyebrow {
   display: inline-block;
   font-size: 0.78rem;
@@ -528,8 +621,14 @@ details > p, details > ul { margin-top: 0.75rem; }
 }
 
 /* Responsive */
+@media (max-width: 900px) {
+  .hero-photo .hero-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+  .hero-photo .hero-image { aspect-ratio: 16/10; max-width: 100%; }
+  .explainer { grid-template-columns: 1fr; gap: 1.75rem; }
+}
 @media (max-width: 720px) {
   .hero { padding: 2rem 0 1.5rem; }
+  .hero-photo { padding: 1.75rem 0 2rem; }
   .nav { gap: 0.85rem; }
   .nav a:not(.nav-cta) { display: none; }
   .nav .nav-cta { padding: 0.4rem 0.8rem; font-size: 0.88rem; }
@@ -543,7 +642,7 @@ details > p, details > ul { margin-top: 0.75rem; }
 
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Colorado Radon Guide", "url": "https://coloradoradonguide.com", "description": "Independent Colorado radon information and quote-connection resource.", "areaServed": {"@type": "AdministrativeArea", "name": "Colorado, USA"}}</script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Colorado Radon Guide", "url": "https://coloradoradonguide.com"}</script>
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://coloradoradonguide.com/"}, {"@type": "ListItem", "position": 2, "name": "Colorado Springs", "item": "https://coloradoradonguide.com/colorado-springs/"}]}</script>
+  
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is radon actually a problem in Colorado Springs?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. El Paso County Public Health reports more than 40% of homes tested between 2005 and 2023 were above the EPA action level of 4.0 pCi/L. The county is in EPA Zone 1, the highest indoor radon category."}}, {"@type": "Question", "name": "How long does radon mitigation take in Colorado Springs?", "acceptedAnswer": {"@type": "Answer", "text": "Most single-family installations take one day. Add a few days for scheduling and a post-installation test. A reasonable end-to-end timeline is one to two weeks once a quote is signed."}}, {"@type": "Question", "name": "Do I need to retest after mitigation?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. A post-mitigation test confirms the system is working. EPA guidance is to retest every two years afterward."}}, {"@type": "Question", "name": "Do air purifiers fix radon?", "acceptedAnswer": {"@type": "Answer", "text": "No. Radon is a soil gas and must be redirected away from the foundation. The EPA does not recommend air purifiers as a substitute for mitigation."}}, {"@type": "Question", "name": "Does Colorado Springs require a permit for mitigation?", "acceptedAnswer": {"@type": "Answer", "text": "Mechanical and electrical work on a mitigation system may require a permit. A licensed contractor will pull it. Confirm the permit is included in the written quote."}}]}</script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Radon in Colorado Springs", "description": "A local guide to radon testing, mitigation, cost, and real estate rules in Colorado Springs.", "url": "https://coloradoradonguide.com/colorado-springs/", "publisher": {"@type": "Organization", "name": "Colorado Radon Guide"}, "dateModified": "2026-05-21", "author": {"@type": "Organization", "name": "Colorado Radon Guide"}}</script>
 </head>
@@ -565,22 +664,44 @@ details > p, details > ul { margin-top: 0.75rem; }
     </nav>
   </div>
 </header>
-  <section class="hero">
-    <div class="container">
-      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">›</span><span aria-current="page">Colorado Springs</span></nav>
-      <span class="eyebrow">Colorado Springs · El Paso County</span>
-      <h1>Radon in Colorado Springs</h1>
-      <p class="lede">El Paso County is EPA Zone 1 and more than 40% of homes tested 2005–2023 came back above the EPA action level. Here is the full local guide.</p>
-      
+  <section class="hero-photo">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <span class="eyebrow">Colorado Springs · El Paso County</span>
+        <h1>Radon in Colorado Springs: what's normal, what's elevated, and what to do.</h1>
+        <p class="lede">El Paso County is EPA Zone 1, and county public-health data shows more than 40% of homes tested between 2005 and 2023 came back above the action level. This is your local guide to testing, mitigation, cost, and what to do under a closing deadline.</p>
+        <div class="hero-buttons">
+          <a href="/colorado-springs/radon-mitigation-cost/" class="btn">See typical Colorado Springs costs</a>
+          <a href="/colorado-springs/radon-testing/" class="btn btn-secondary">How to test</a>
+        </div>
+        <div class="hero-meta">
+          <span><strong>Updated</strong> May 2026</span>
+          <span><strong>Local source</strong> El Paso County Public Health</span>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="/assets/images/hero-pikes-peak.jpg" alt="Pikes Peak rising behind Colorado Springs." width="1600" height="1071">
+        <a class="img-credit" href="https://unsplash.com/s/photos/pikes-peak" rel="noopener" target="_blank">Photo: Unsplash</a>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
   <main id="main">
     <div class="container">
       
 <section>
-  <div class="prose-wide">
-    <p>Colorado Springs sits in El Paso County, which the EPA designates <strong>Zone 1</strong> — the highest predicted indoor radon zone in the country. The county's own public-health data is even more pointed: of all homes tested in El Paso County between 2005 and 2023, <strong>more than 40% came back above the EPA action level of 4.0 pCi/L</strong>.<sup><a href="#src-1">[1]</a></sup></p>
-    <p>This page is the starting point for everything radon-related in Colorado Springs: testing, mitigation systems, cost, what to do if your test failed, and how to verify a contractor before you hand them a check.</p>
+  <h2>How radon gets into a Colorado Springs home</h2>
+  <div class="explainer">
+    <div class="explainer-text">
+      <p>The same uranium-rich Rocky Mountain geology that gives Colorado Springs Pikes Peak as a backdrop is the reason radon is common indoors here. Radon is the natural decay product of uranium in soil and rock, and the EPA classifies El Paso County in <strong>Zone 1</strong>: the highest indoor radon potential.<sup><a href="#src-2">[2]</a></sup></p>
+      <p>The gas rises out of the soil under and around the foundation, finds its way through cracks, sump pits, drain tile, and crawl-space openings, and accumulates indoors. Basements and finished lower levels see the highest readings; slab-on-grade homes still have radon but typically less than multi-level homes.</p>
+      <p>That's why both CDPHE and El Paso County Public Health recommend <strong>every home in the county be tested</strong>.<sup><a href="#src-1">[1]</a></sup><sup><a href="#src-5">[5]</a></sup></p>
+    </div>
+    <figure class="figure">
+      <img src="/assets/images/radon-entry-diagram.jpg" alt="Cross-section illustration of a home showing radon gas rising from soil through foundation cracks and accumulating in the basement." width="1200" height="896" loading="lazy">
+      <figcaption><strong>How radon enters a home.</strong> Soil gas rises through small foundation cracks, the floor-wall joint, sump pits, and plumbing penetrations into the basement and living space above.</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -601,14 +722,6 @@ details > p, details > ul { margin-top: 0.75rem; }
       <div class="stat">$1,000–$2,000</div>
       <div class="source">For most Colorado homes; complex jobs cost more. Source: <a href="https://cdphe.colorado.gov/radon" rel="noopener" target="_blank">CDPHE</a></div>
     </div>
-  </div>
-</section>
-
-<section>
-  <h2>Why Colorado Springs has high radon</h2>
-  <div class="prose-wide">
-    <p>The same geology that gives Colorado its Rocky Mountain scenery is the reason radon levels here are elevated. Uranium-bearing rock and soil are abundant under the Front Range, and radon — a product of uranium decay — accumulates indoors when soil gas enters through foundation cracks, drain tile gaps, sump pits, and unsealed crawl spaces.<sup><a href="#src-2">[2]</a></sup></p>
-    <p>What matters in practice: <strong>basements and crawl spaces are the typical entry points</strong>. Slab-on-grade homes still have radon, but multi-level homes with finished basements are where Colorado Springs sees the highest readings.</p>
   </div>
 </section>
 
@@ -651,11 +764,11 @@ details > p, details > ul { margin-top: 0.75rem; }
 <section>
   <h2>If your test came back high</h2>
   <div class="prose-wide">
-    <p>A reading above 4.0 pCi/L is the EPA action threshold. What you do next depends on whether you are a homeowner with no transaction pending, a buyer or seller under contract, or a tenant or landlord:</p>
+    <p>A reading above 4.0 pCi/L is the EPA action threshold. What you do next depends on whether you're a homeowner without a transaction pending, a buyer or seller under contract, or a tenant or landlord:</p>
     <ul>
       <li>Confirm the reading with a second test or continuous monitor</li>
       <li>Get at least two written quotes from licensed contractors</li>
-      <li>If you are under contract, calculate the closing timeline before negotiating</li>
+      <li>If you're under contract, calculate the closing timeline before negotiating</li>
     </ul>
     <p><a href="/colorado-springs/failed-radon-test/" class="btn btn-secondary">Read the failed-test playbook →</a></p>
   </div>
@@ -688,11 +801,11 @@ details > p, details > ul { margin-top: 0.75rem; }
   <h2>Frequently asked questions</h2>
   <details>
     <summary>Is radon actually a problem in Colorado Springs, or is this overblown?</summary>
-    <p>El Paso County Public Health reports more than 40% of homes tested between 2005 and 2023 were above the EPA action level. The county is in EPA Zone 1, the highest indoor radon category. It is a real, locally documented issue — not marketing.<sup><a href="#src-1">[1]</a></sup></p>
+    <p>El Paso County Public Health reports more than 40% of homes tested between 2005 and 2023 were above the EPA action level. The county is in EPA Zone 1, the highest indoor radon category. It's a real, locally documented issue — not marketing.<sup><a href="#src-1">[1]</a></sup></p>
   </details>
   <details>
     <summary>How long does mitigation take?</summary>
-    <p>Most single-family installations take one day. Add a few days to schedule, plus a post-installation test (which is typically 48 hours). A reasonable end-to-end timeline is one to two weeks once you have signed a quote.</p>
+    <p>Most single-family installations take one day. Add a few days to schedule, plus a post-installation test (which is typically 48 hours). A reasonable end-to-end timeline is one to two weeks once you've signed a quote.</p>
   </details>
   <details>
     <summary>Will I have to retest after mitigation?</summary>
@@ -700,16 +813,23 @@ details > p, details > ul { margin-top: 0.75rem; }
   </details>
   <details>
     <summary>Do air purifiers fix radon?</summary>
-    <p>No. Radon is a soil gas; it has to be redirected away from the home's foundation. Air purifiers do not address the entry pathway and the EPA does not recommend them as a substitute for mitigation.<sup><a href="#src-2">[2]</a></sup></p>
+    <p>No. Radon is a soil gas; it has to be redirected away from the home's foundation. Air purifiers don't address the entry pathway and the EPA does not recommend them as a substitute for mitigation.<sup><a href="#src-2">[2]</a></sup></p>
   </details>
   <details>
     <summary>Does Colorado Springs require a permit for mitigation?</summary>
     <p>Mechanical and electrical work on a mitigation system may require a permit; your licensed contractor will pull it. Always confirm the permit is included in the written quote.</p>
   </details>
   <details>
-    <summary>What if I cannot afford mitigation?</summary>
+    <summary>What if I can't afford mitigation?</summary>
     <p>CDPHE administers a low-income radon mitigation assistance program. Eligibility and funding vary year to year; check the <a href="https://cdphe.colorado.gov/radon" rel="noopener" target="_blank">CDPHE radon page</a> for the current details.<sup><a href="#src-5">[5]</a></sup></p>
   </details>
+</section>
+
+<section>
+  <div class="callout">
+    <strong>About this guide.</strong>
+    <p>Colorado Radon Guide is an independent editorial resource. We do not install mitigation systems and are not a contractor. When you request a quote, your information is routed to one licensed Colorado mitigation partner. <a href="/about/">More about us</a> · <a href="/disclosure/">How leads are routed</a>.</p>
+  </div>
 </section>
 
 <aside class="sources" aria-label="Sources">

@@ -7,7 +7,11 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 
 from template import render_page, SITE_URL, SITE_NAME, LAST_UPDATED  # noqa: E402
-from pages_main import HOMEPAGE_BODY, CS_HUB_BODY, cs_hub_faq_jsonld  # noqa: E402
+from pages_main import (  # noqa: E402
+    HOMEPAGE_BODY, HOMEPAGE_HERO,
+    CS_HUB_BODY, CS_HUB_HERO,
+    cs_hub_faq_jsonld,
+)
 from pages_cs import (  # noqa: E402
     CS_COST_BODY, cs_cost_faq_jsonld,
     CS_TESTING_BODY,
@@ -57,11 +61,9 @@ write("index.html", render_page(
     url_path="/",
     title="Colorado Radon Guide — Testing, Mitigation Cost & Next Steps",
     description="Independent Colorado radon guide. Learn radon risk in Colorado, the 4.0 pCi/L EPA action level, mitigation cost ranges, and how to find a licensed local contractor.",
-    h1="Your independent Colorado radon guide",
-    hero_eyebrow="Statewide guide",
-    hero_lede="Roughly half of Colorado homes test above the EPA radon action level. This is the calm, sourced, contractor-independent guide to what radon is, what testing costs, what mitigation costs, and what to do next.",
-    hero_meta='<span><strong>Updated</strong> ' + LAST_UPDATED + '</span> <span><strong>Sources</strong> CDPHE • EPA • El Paso County • Colorado DORA</span>',
+    h1="Radon is in roughly half of Colorado homes. Here's what to do about yours.",
     body_html=HOMEPAGE_BODY,
+    hero_html=HOMEPAGE_HERO,
     breadcrumbs=[("Home", "/")],
     show_breadcrumbs=False,
     show_cta_banner=True,
@@ -77,11 +79,11 @@ write("colorado-springs/index.html", render_page(
     url_path="/colorado-springs/",
     title="Radon in Colorado Springs — Testing, Mitigation & Cost Guide",
     description="Colorado Springs radon guide. El Paso County radon prevalence, testing options, mitigation cost ranges, licensed contractor verification, and SB23-206 real estate rules.",
-    h1="Radon in Colorado Springs",
-    hero_eyebrow="Colorado Springs · El Paso County",
-    hero_lede="El Paso County is EPA Zone 1 and more than 40% of homes tested 2005–2023 came back above the EPA action level. Here is the full local guide.",
+    h1="Radon in Colorado Springs: what's normal, what's elevated, and what to do.",
     body_html=CS_HUB_BODY,
+    hero_html=CS_HUB_HERO,
     breadcrumbs=[("Home", "/"), ("Colorado Springs", "/colorado-springs/")],
+    show_breadcrumbs=False,
     extra_jsonld=[
         cs_hub_faq_jsonld(),
         article_schema("/colorado-springs/", "Radon in Colorado Springs", "A local guide to radon testing, mitigation, cost, and real estate rules in Colorado Springs."),

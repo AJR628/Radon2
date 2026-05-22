@@ -20,13 +20,48 @@ def s(name):
 
 
 # =========================================================================
-# HOMEPAGE
+# HOMEPAGE — new photo-led hero, then mechanism explainer with diagram,
+# then stats, action paths, law, trust line, city pick.
 # =========================================================================
+
+HOMEPAGE_HERO = f"""<section class="hero-photo">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <span class="eyebrow">Colorado Radon Guide</span>
+        <h1>Radon is in roughly half of Colorado homes. Here's what to do about yours.</h1>
+        <p class="lede">Colorado's geology means most homes here have elevated indoor radon. The good news: it's testable, fixable, and the state has clear rules to help you navigate it. This is the calm, sourced guide to understanding your situation and what it should cost.</p>
+        <div class="hero-buttons">
+          <a href="/colorado-springs/" class="btn">Start with Colorado Springs</a>
+          <a href="/colorado-springs/radon-mitigation-cost/" class="btn btn-secondary">See typical costs</a>
+        </div>
+        <div class="hero-meta">
+          <span><strong>Updated</strong> May 2026</span>
+          <span><strong>Sources</strong> CDPHE · EPA · El Paso County · Colorado DORA</span>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="/assets/images/hero-colorado-homes.jpg" alt="A Colorado home against the Rocky Mountain foothills." width="1600" height="1067">
+        <a class="img-credit" href="https://unsplash.com/photos/HrGBOlyASYE" rel="noopener" target="_blank">Photo: Unsplash</a>
+      </div>
+    </div>
+  </div>
+</section>"""
+
+
 HOMEPAGE_BODY = f"""
 <section>
-  <div class="prose-wide">
-    <p>Roughly <strong>half of Colorado homes test above the U.S. Environmental Protection Agency's radon action level</strong> of 4.0 picocuries per liter (pCi/L). Colorado's uranium-rich Rocky Mountain geology means radon is not a rare problem here — it is a baseline assumption for every homeowner, buyer, and seller in the state.<sup><a href="#src-1">[1]</a></sup></p>
-    <p>This site is an <strong>independent guide</strong>. We do not install mitigation systems and we do not represent a single contractor. We pull from the Colorado Department of Public Health and Environment (CDPHE), the EPA, El Paso County Public Health, Denver Public Health, and Colorado state law to help you make the call: <em>do I need to test, do I need to mitigate, and what should it cost?</em></p>
+  <h2>How radon gets into a Colorado home</h2>
+  <div class="explainer">
+    <div class="explainer-text">
+      <p>Radon is an invisible, odorless gas produced by the natural decay of uranium in soil and rock. Colorado's Rocky Mountain geology is uranium-rich, so radon levels under homes here are higher than in most of the U.S. — and the EPA places most of the Front Range, including El Paso County, in <strong>Zone 1</strong>: the highest indoor radon potential.<sup><a href="#src-2">[2]</a></sup></p>
+      <p>The gas rises out of the soil and finds its way indoors through small openings in the foundation: hairline slab cracks, the gap where the floor meets the wall, plumbing penetrations, sump pits, and unsealed crawl spaces. Once inside, it accumulates in lower levels — basements first, then living areas above.</p>
+      <p>Two things matter: <strong>most Colorado homes have some radon</strong>, and <strong>you can't tell by sight or smell whether yours is above the action level</strong>. The only way to know is a test.</p>
+    </div>
+    <figure class="figure">
+      <img src="/assets/images/radon-entry-diagram.jpg" alt="Cross-section illustration of a home showing radon gas rising from soil through foundation cracks and accumulating in the basement." width="1200" height="896" loading="lazy">
+      <figcaption><strong>How radon enters a home.</strong> Soil gas rises through small foundation cracks, the floor-wall joint, sump pits, and plumbing penetrations into the basement and living space above.</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -56,74 +91,61 @@ HOMEPAGE_BODY = f"""
 </section>
 
 <section>
-  <h2>What radon is and why it matters in Colorado</h2>
-  <div class="prose-wide">
-    <p>Radon is an invisible, odorless, radioactive gas produced by the natural decay of uranium in soil and rock. It rises from the ground and enters homes through cracks in foundations, sump pits, drain tile, crawl spaces, and other openings. Because Colorado's geology is uranium-rich, indoor radon accumulates here more than in most of the U.S. — and the EPA classifies most of the Front Range, including El Paso County, as <strong>Zone 1: highest potential</strong>.<sup><a href="#src-2">[2]</a></sup></p>
-    <p>Long-term exposure damages lung tissue and increases lung cancer risk. The EPA estimates radon causes roughly 21,000 lung cancer deaths per year in the U.S., and CDPHE identifies radon as the second-leading cause of lung cancer in Colorado overall and the leading cause among non-smokers.<sup><a href="#src-1">[1]</a></sup><sup><a href="#src-3">[3]</a></sup> Risk is additive with smoking, but you do not have to smoke for radon to be a problem.</p>
-  </div>
-</section>
-
-<section>
-  <h2>Testing comes first — always</h2>
+  <h2>Step one is always testing</h2>
   <div class="prose-wide">
     <p>You cannot smell, see, or feel radon. The only way to know your level is to test. CDPHE recommends every Colorado home be tested, and EPA guidance is to retest every two years or after major remodels or HVAC changes.<sup><a href="#src-1">[1]</a></sup></p>
     <p>You have three practical options:</p>
     <ul>
       <li><strong>Short-term DIY kit</strong> (2–7 days). Low-cost, available at retail and from CDPHE programs.</li>
       <li><strong>Long-term DIY kit</strong> (90+ days). Better picture of year-round exposure.</li>
-      <li><strong>Professional measurement</strong> by a contractor certified through the National Radon Proficiency Program (NRPP) or the National Radon Safety Board (NRSB), required for real estate transactions.<sup><a href="#src-4">[4]</a></sup></li>
+      <li><strong>Professional measurement</strong> by a tester certified through the National Radon Proficiency Program (NRPP) or the National Radon Safety Board (NRSB), required for real estate transactions.<sup><a href="#src-4">[4]</a></sup></li>
     </ul>
-    <p>Our <a href="/colorado-springs/radon-testing/">Colorado Springs testing guide</a> walks through each option, what they cost, and how to interpret the result.</p>
+    <p>Our <a href="/colorado-springs/radon-testing/">Colorado Springs testing guide</a> walks through each option, what they cost, and how to read the result.</p>
   </div>
 </section>
 
 <section>
-  <h2>If your test is high, mitigation is solvable</h2>
+  <h2>If your test is high, the fix is straightforward</h2>
   <div class="prose-wide">
-    <p>A result at or above 4.0 pCi/L is the EPA's action threshold. The standard fix is <strong>active sub-slab depressurization</strong> — a sealed vent pipe and a quiet electric fan that pulls radon from under the slab and exhausts it above the roofline. Homes with crawl spaces use a sub-membrane variant; homes with sump pits or drain tile can tie those into the system.</p>
+    <p>A result at or above 4.0 pCi/L is the EPA's action threshold. The standard fix is <strong>active sub-slab depressurization</strong> — a sealed vent pipe and a quiet electric fan that pulls radon from under the slab and exhausts it above the roofline. Homes with crawl spaces use a sub-membrane variant; sump pits and drain tile can be tied into the same system.</p>
     <p>A correctly designed system typically reduces indoor radon by <strong>80–99%</strong>.<sup><a href="#src-2">[2]</a></sup> CDPHE and El Paso County both put a typical Colorado mitigation system in the <strong>$1,000–$2,000</strong> range, with larger or more complex installations costing more.<sup><a href="#src-1">[1]</a></sup><sup><a href="#src-5">[5]</a></sup> Our <a href="/colorado-springs/radon-mitigation-cost/">cost page</a> breaks down what drives the price.</p>
-    <p>Caulking, sealing, or running fans alone is <strong>not</strong> a substitute for a properly engineered system. CDPHE warns that sealing cracks alone is unreliable and can sometimes make things worse.<sup><a href="#src-1">[1]</a></sup></p>
+    <p>Caulking, sealing, or running fans alone is <strong>not</strong> a substitute for a properly engineered system. CDPHE notes that sealing cracks alone is unreliable and can sometimes make things worse.<sup><a href="#src-1">[1]</a></sup></p>
   </div>
 </section>
 
 <section>
-  <h2>Colorado law &amp; licensing — what changed in 2022 and 2023</h2>
+  <h2>What Colorado law and licensing actually say</h2>
   <div class="prose-wide">
-    <p>Two recent regulatory changes shape every Colorado radon decision:</p>
+    <p>Two recent changes shape every Colorado radon decision:</p>
     <ul>
       <li><strong>Contractor licensing (July 2022).</strong> All radon measurement and mitigation professionals working in Colorado must be certified through NRPP or NRSB <em>and</em> registered with the <a href="{s('dora_radon')}" rel="noopener" target="_blank">Colorado Department of Regulatory Agencies (DORA) Office of Radon Professionals</a>. Always verify a contractor's registration before hiring.<sup><a href="#src-4">[4]</a></sup></li>
       <li><strong>Real estate disclosure — SB23-206 (2023).</strong> Every residential sale and lease in Colorado must include a radon warning, any known test results, and any mitigation history. The CDPHE radon brochure must be provided. After January 2026, tenants gain additional remedies if a known elevated radon level was not mitigated.<sup><a href="#src-6">[6]</a></sup></li>
     </ul>
-    <p>Important nuance: Colorado does <strong>not</strong> require a seller to test or mitigate — only to disclose what they know.<sup><a href="#src-1">[1]</a></sup> Buyers should not assume "no disclosure" means "no radon." It usually means "no test was done."</p>
-  </div>
-</section>
-
-<section>
-  <h2>What this site is — and what it isn't</h2>
-  <div class="prose-wide">
-    <p>Colorado Radon Guide is an independent editorial resource. We publish information drawn from public Colorado and federal health sources, and we connect homeowners who request a quote with a licensed Colorado mitigation partner. That is it.</p>
-    <ul>
-      <li><strong>We are not a radon contractor.</strong> We do not install systems and we do not sell equipment.</li>
-      <li><strong>We are not a medical or legal source.</strong> We summarize publicly available guidance and link to the originals — always confirm with CDPHE, the EPA, or a licensed professional for your specific situation.</li>
-      <li><strong>We are paid when a quote is routed to a partner.</strong> See our <a href="/disclosure/">editorial &amp; lead disclosure</a> for the financial relationship and editorial separation.</li>
-    </ul>
-    <p>If that sounds reasonable, the most useful place to go next is your city.</p>
+    <p>Important nuance: Colorado does <strong>not</strong> require a seller to test or mitigate — only to disclose what they know.<sup><a href="#src-1">[1]</a></sup> "No disclosure" usually means "no test was done," not "no radon."</p>
   </div>
 </section>
 
 <section>
   <h2>Pick your city</h2>
+  <p style="max-width:42rem;color:var(--text-muted);">We're starting with Colorado Springs, where El Paso County's public-health data is the most pointed in the state. More Front Range cities are next.</p>
   <div class="card-grid">
     <div class="card">
       <h3>Colorado Springs</h3>
       <p>El Paso County is EPA Zone 1; more than 40% of homes tested 2005–2023 came back high. Start here for testing, mitigation cost, and what to do after a failed result.</p>
-      <p><a href="/colorado-springs/" class="btn btn-secondary">Colorado Springs Hub</a></p>
+      <p><a href="/colorado-springs/" class="btn btn-secondary">Open the Colorado Springs hub</a></p>
     </div>
     <div class="card">
       <h3>More cities coming</h3>
-      <p>We are expanding to Denver, Aurora, Boulder, and Fort Collins next. If you would like to be notified when your city's guide is live, <a href="/contact/">drop us a line</a>.</p>
+      <p>We're expanding to Denver, Aurora, Boulder, and Fort Collins next. If you'd like to be notified when your city's guide is live, <a href="/contact/">drop us a line</a>.</p>
       <p><span class="pill">Coming soon</span></p>
     </div>
+  </div>
+</section>
+
+<section>
+  <div class="callout">
+    <strong>About this guide.</strong>
+    <p>Colorado Radon Guide is an independent editorial resource. We do not install mitigation systems and are not a contractor. When you request a quote, your information is routed to one licensed Colorado mitigation partner. <a href="/about/">More about us</a> · <a href="/disclosure/">How leads are routed</a>.</p>
   </div>
 </section>
 
@@ -142,13 +164,48 @@ HOMEPAGE_BODY = f"""
 
 
 # =========================================================================
-# COLORADO SPRINGS HUB
+# COLORADO SPRINGS HUB — photo-led hero with Pikes Peak imagery, same
+# explainer pattern, calmer ordering.
 # =========================================================================
+
+CS_HUB_HERO = f"""<section class="hero-photo">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <span class="eyebrow">Colorado Springs · El Paso County</span>
+        <h1>Radon in Colorado Springs: what's normal, what's elevated, and what to do.</h1>
+        <p class="lede">El Paso County is EPA Zone 1, and county public-health data shows more than 40% of homes tested between 2005 and 2023 came back above the action level. This is your local guide to testing, mitigation, cost, and what to do under a closing deadline.</p>
+        <div class="hero-buttons">
+          <a href="/colorado-springs/radon-mitigation-cost/" class="btn">See typical Colorado Springs costs</a>
+          <a href="/colorado-springs/radon-testing/" class="btn btn-secondary">How to test</a>
+        </div>
+        <div class="hero-meta">
+          <span><strong>Updated</strong> May 2026</span>
+          <span><strong>Local source</strong> El Paso County Public Health</span>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="/assets/images/hero-pikes-peak.jpg" alt="Pikes Peak rising behind Colorado Springs." width="1600" height="1071">
+        <a class="img-credit" href="https://unsplash.com/s/photos/pikes-peak" rel="noopener" target="_blank">Photo: Unsplash</a>
+      </div>
+    </div>
+  </div>
+</section>"""
+
+
 CS_HUB_BODY = f"""
 <section>
-  <div class="prose-wide">
-    <p>Colorado Springs sits in El Paso County, which the EPA designates <strong>Zone 1</strong> — the highest predicted indoor radon zone in the country. The county's own public-health data is even more pointed: of all homes tested in El Paso County between 2005 and 2023, <strong>more than 40% came back above the EPA action level of 4.0 pCi/L</strong>.<sup><a href="#src-1">[1]</a></sup></p>
-    <p>This page is the starting point for everything radon-related in Colorado Springs: testing, mitigation systems, cost, what to do if your test failed, and how to verify a contractor before you hand them a check.</p>
+  <h2>How radon gets into a Colorado Springs home</h2>
+  <div class="explainer">
+    <div class="explainer-text">
+      <p>The same uranium-rich Rocky Mountain geology that gives Colorado Springs Pikes Peak as a backdrop is the reason radon is common indoors here. Radon is the natural decay product of uranium in soil and rock, and the EPA classifies El Paso County in <strong>Zone 1</strong>: the highest indoor radon potential.<sup><a href="#src-2">[2]</a></sup></p>
+      <p>The gas rises out of the soil under and around the foundation, finds its way through cracks, sump pits, drain tile, and crawl-space openings, and accumulates indoors. Basements and finished lower levels see the highest readings; slab-on-grade homes still have radon but typically less than multi-level homes.</p>
+      <p>That's why both CDPHE and El Paso County Public Health recommend <strong>every home in the county be tested</strong>.<sup><a href="#src-1">[1]</a></sup><sup><a href="#src-5">[5]</a></sup></p>
+    </div>
+    <figure class="figure">
+      <img src="/assets/images/radon-entry-diagram.jpg" alt="Cross-section illustration of a home showing radon gas rising from soil through foundation cracks and accumulating in the basement." width="1200" height="896" loading="lazy">
+      <figcaption><strong>How radon enters a home.</strong> Soil gas rises through small foundation cracks, the floor-wall joint, sump pits, and plumbing penetrations into the basement and living space above.</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -169,14 +226,6 @@ CS_HUB_BODY = f"""
       <div class="stat">$1,000–$2,000</div>
       <div class="source">For most Colorado homes; complex jobs cost more. Source: <a href="{s('cdphe_radon')}" rel="noopener" target="_blank">CDPHE</a></div>
     </div>
-  </div>
-</section>
-
-<section>
-  <h2>Why Colorado Springs has high radon</h2>
-  <div class="prose-wide">
-    <p>The same geology that gives Colorado its Rocky Mountain scenery is the reason radon levels here are elevated. Uranium-bearing rock and soil are abundant under the Front Range, and radon — a product of uranium decay — accumulates indoors when soil gas enters through foundation cracks, drain tile gaps, sump pits, and unsealed crawl spaces.<sup><a href="#src-2">[2]</a></sup></p>
-    <p>What matters in practice: <strong>basements and crawl spaces are the typical entry points</strong>. Slab-on-grade homes still have radon, but multi-level homes with finished basements are where Colorado Springs sees the highest readings.</p>
   </div>
 </section>
 
@@ -219,11 +268,11 @@ CS_HUB_BODY = f"""
 <section>
   <h2>If your test came back high</h2>
   <div class="prose-wide">
-    <p>A reading above 4.0 pCi/L is the EPA action threshold. What you do next depends on whether you are a homeowner with no transaction pending, a buyer or seller under contract, or a tenant or landlord:</p>
+    <p>A reading above 4.0 pCi/L is the EPA action threshold. What you do next depends on whether you're a homeowner without a transaction pending, a buyer or seller under contract, or a tenant or landlord:</p>
     <ul>
       <li>Confirm the reading with a second test or continuous monitor</li>
       <li>Get at least two written quotes from licensed contractors</li>
-      <li>If you are under contract, calculate the closing timeline before negotiating</li>
+      <li>If you're under contract, calculate the closing timeline before negotiating</li>
     </ul>
     <p><a href="/colorado-springs/failed-radon-test/" class="btn btn-secondary">Read the failed-test playbook →</a></p>
   </div>
@@ -256,11 +305,11 @@ CS_HUB_BODY = f"""
   <h2>Frequently asked questions</h2>
   <details>
     <summary>Is radon actually a problem in Colorado Springs, or is this overblown?</summary>
-    <p>El Paso County Public Health reports more than 40% of homes tested between 2005 and 2023 were above the EPA action level. The county is in EPA Zone 1, the highest indoor radon category. It is a real, locally documented issue — not marketing.<sup><a href="#src-1">[1]</a></sup></p>
+    <p>El Paso County Public Health reports more than 40% of homes tested between 2005 and 2023 were above the EPA action level. The county is in EPA Zone 1, the highest indoor radon category. It's a real, locally documented issue — not marketing.<sup><a href="#src-1">[1]</a></sup></p>
   </details>
   <details>
     <summary>How long does mitigation take?</summary>
-    <p>Most single-family installations take one day. Add a few days to schedule, plus a post-installation test (which is typically 48 hours). A reasonable end-to-end timeline is one to two weeks once you have signed a quote.</p>
+    <p>Most single-family installations take one day. Add a few days to schedule, plus a post-installation test (which is typically 48 hours). A reasonable end-to-end timeline is one to two weeks once you've signed a quote.</p>
   </details>
   <details>
     <summary>Will I have to retest after mitigation?</summary>
@@ -268,16 +317,23 @@ CS_HUB_BODY = f"""
   </details>
   <details>
     <summary>Do air purifiers fix radon?</summary>
-    <p>No. Radon is a soil gas; it has to be redirected away from the home's foundation. Air purifiers do not address the entry pathway and the EPA does not recommend them as a substitute for mitigation.<sup><a href="#src-2">[2]</a></sup></p>
+    <p>No. Radon is a soil gas; it has to be redirected away from the home's foundation. Air purifiers don't address the entry pathway and the EPA does not recommend them as a substitute for mitigation.<sup><a href="#src-2">[2]</a></sup></p>
   </details>
   <details>
     <summary>Does Colorado Springs require a permit for mitigation?</summary>
     <p>Mechanical and electrical work on a mitigation system may require a permit; your licensed contractor will pull it. Always confirm the permit is included in the written quote.</p>
   </details>
   <details>
-    <summary>What if I cannot afford mitigation?</summary>
+    <summary>What if I can't afford mitigation?</summary>
     <p>CDPHE administers a low-income radon mitigation assistance program. Eligibility and funding vary year to year; check the <a href="{s('cdphe_radon')}" rel="noopener" target="_blank">CDPHE radon page</a> for the current details.<sup><a href="#src-5">[5]</a></sup></p>
   </details>
+</section>
+
+<section>
+  <div class="callout">
+    <strong>About this guide.</strong>
+    <p>Colorado Radon Guide is an independent editorial resource. We do not install mitigation systems and are not a contractor. When you request a quote, your information is routed to one licensed Colorado mitigation partner. <a href="/about/">More about us</a> · <a href="/disclosure/">How leads are routed</a>.</p>
+  </div>
 </section>
 
 <aside class="sources" aria-label="Sources">
