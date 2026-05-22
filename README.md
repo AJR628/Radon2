@@ -63,6 +63,28 @@ The Python files under `_build/` are the source-of-truth templates that produced
 | `/radon-testing/for-rentals/` | `radon-testing/for-rentals/index.html` |
 | `/radon-testing/for-businesses/` | `radon-testing/for-businesses/index.html` |
 
+### Phase 5a: Radon Basics pillar (May 2026)
+
+| URL | File |
+|---|---|
+| `/radon-basics/` | `radon-basics/index.html` (What Is Radon hub) |
+| `/radon-basics/why-common-in-colorado/` | `radon-basics/why-common-in-colorado/index.html` |
+| `/radon-basics/how-it-enters-homes/` | `radon-basics/how-it-enters-homes/index.html` |
+| `/radon-basics/health-risks/` | `radon-basics/health-risks/index.html` |
+| `/radon-basics/levels-explained/` | `radon-basics/levels-explained/index.html` |
+| `/radon-basics/by-foundation-type/` | `radon-basics/by-foundation-type/index.html` |
+
+### Phase 5b: Contractor Selection pillar (May 2026)
+
+| URL | File |
+|---|---|
+| `/radon-contractors/` | `radon-contractors/index.html` (How to Choose a Contractor hub) |
+| `/radon-contractors/verify-licenses-and-certifications/` | `radon-contractors/verify-licenses-and-certifications/index.html` |
+| `/radon-contractors/questions-to-ask/` | `radon-contractors/questions-to-ask/index.html` |
+| `/radon-contractors/red-flags-in-a-quote/` | `radon-contractors/red-flags-in-a-quote/index.html` |
+| `/radon-contractors/warranties-and-retesting/` | `radon-contractors/warranties-and-retesting/index.html` |
+| `/radon-contractors/how-to-file-a-complaint/` | `radon-contractors/how-to-file-a-complaint/index.html` |
+
 ## Before you launch
 
 1. **Quote form back end (Netlify Forms).** `request-quote/index.html` uses Netlify Forms (`data-netlify="true"`, `name="quote-request"`). On deploy, Netlify auto-detects the form; submissions appear in the Netlify dashboard under **Forms → quote-request**. Email and Slack notifications can be added under **Forms → Notifications**. The form POSTs hidden `city` and `source_page` fields for lead attribution, plus a honeypot `bot-field` for spam protection.
@@ -83,6 +105,8 @@ The HTML pages are generated from Python templates under `_build/`:
 - `pages_cost.py` — Phase 2 Cost & Quote pillar (8 pages including refreshed CS cost)
 - `pages_systems.py` — Phase 3 Mitigation Systems pillar (7 pages)
 - `pages_testing.py` — Phase 4 Testing & Real Estate pillar (6 pages)
+- `pages_basics.py` — Phase 5a Radon Basics pillar (6 pages)
+- `pages_contractors.py` — Phase 5b Contractor Selection pillar (6 pages)
 - `pages_misc.py` — quote form, thank-you, about, disclosure, privacy, contact
 - `build.py` — orchestrator that calls `render_page()` for each URL
 

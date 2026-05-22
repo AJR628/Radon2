@@ -43,6 +43,22 @@ from pages_testing import (  # noqa: E402
     TESTING_RENTALS_BODY, testing_rentals_faq_jsonld,
     TESTING_BUSINESSES_BODY, testing_businesses_faq_jsonld,
 )
+from pages_basics import (  # noqa: E402
+    BASICS_HUB_BODY, basics_hub_faq_jsonld,
+    WHY_COLORADO_BODY, why_colorado_faq_jsonld,
+    HOW_ENTERS_BODY, how_enters_faq_jsonld,
+    HEALTH_RISKS_BODY, health_risks_faq_jsonld,
+    LEVELS_EXPLAINED_BODY, levels_explained_faq_jsonld,
+    BY_FOUNDATION_BODY, by_foundation_faq_jsonld,
+)
+from pages_contractors import (  # noqa: E402
+    CONTRACTORS_HUB_BODY, contractors_hub_faq_jsonld,
+    VERIFY_LICENSES_BODY, verify_licenses_faq_jsonld,
+    QUESTIONS_TO_ASK_BODY, questions_to_ask_faq_jsonld,
+    RED_FLAGS_BODY, red_flags_faq_jsonld,
+    WARRANTIES_BODY, warranties_faq_jsonld,
+    COMPLAINT_BODY, complaint_faq_jsonld,
+)
 from pages_misc import (  # noqa: E402
     QUOTE_BODY, QUOTE_THANKYOU_BODY,
     ABOUT_BODY, DISCLOSURE_BODY,
@@ -626,6 +642,312 @@ write("radon-testing/for-businesses/index.html", render_page(
     ],
 ))
 
+# =========================================================================
+# PHASE 5a — RADON BASICS PILLAR (6 pages)
+# =========================================================================
+
+# 17. BASICS HUB — What Is Radon?
+write("radon-basics/index.html", render_page(
+    url_path="/radon-basics/",
+    title="What Is Radon? Plain-Language Introduction for Colorado Homeowners",
+    description="What radon is (radioactive gas from uranium decay), how it's measured (pCi/L vs Bq/m³), why it accumulates indoors, and why Colorado is one of the most radon-prone states. Plain-language introduction.",
+    h1="What Is Radon?",
+    hero_eyebrow="Basics · Colorado",
+    hero_lede="Invisible, odorless, naturally radioactive. Half of Colorado homes test above EPA's action level. Here's the plain-language introduction to what radon is and why it matters.",
+    body_html=BASICS_HUB_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Radon Basics", "/radon-basics/"),
+    ],
+    extra_jsonld=[
+        basics_hub_faq_jsonld(),
+        article_schema("/radon-basics/", "What Is Radon", "Plain-language introduction to radon: what it is, where it comes from (uranium decay chain), how it's measured, why it accumulates indoors, and why Colorado specifically has high indoor radon."),
+    ],
+    related=[
+        ("Why Colorado", "Front Range geology and high prevalence", "/radon-basics/why-common-in-colorado/"),
+        ("Health Risks", "EPA, WHO, and ATSDR risk data", "/radon-basics/health-risks/"),
+        ("Levels Explained", "What your test number means", "/radon-basics/levels-explained/"),
+    ],
+))
+
+# 18. WHY COMMON IN COLORADO
+write("radon-basics/why-common-in-colorado/index.html", render_page(
+    url_path="/radon-basics/why-common-in-colorado/",
+    title="Why Radon Is Common in Colorado (Front Range Geology + Housing Stock)",
+    description="Why Colorado has higher indoor radon than almost any state: uranium-bearing Pikes Peak granite, Pierre Shale, the Colorado Plateau, and the basement-heavy housing stock. All 64 counties are EPA Zone 1.",
+    h1="Why Radon Is Common in Colorado",
+    hero_eyebrow="Basics · Colorado geology",
+    hero_lede="All 64 Colorado counties are EPA Zone 1. Half of Colorado homes test above the action level. Here's the geology and housing stock that combine to make Colorado one of the most radon-prone states.",
+    body_html=WHY_COLORADO_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Radon Basics", "/radon-basics/"),
+        ("Why Common in Colorado", "/radon-basics/why-common-in-colorado/"),
+    ],
+    extra_jsonld=[
+        why_colorado_faq_jsonld(),
+        article_schema("/radon-basics/why-common-in-colorado/", "Why Radon Is Common in Colorado", "Front Range and Colorado Plateau geology, uranium-bearing Pikes Peak granite and Pierre Shale, El Paso County prevalence, and why Colorado's basement-heavy housing stock concentrates indoor radon."),
+    ],
+    related=[
+        ("What Is Radon", "Plain-language introduction", "/radon-basics/"),
+        ("How It Enters Homes", "Foundation pathways and stack effect", "/radon-basics/how-it-enters-homes/"),
+        ("Colorado Springs Cost", "Local cost ranges by scenario", "/colorado-springs/radon-mitigation-cost/"),
+    ],
+))
+
+# 19. HOW IT ENTERS HOMES
+write("radon-basics/how-it-enters-homes/index.html", render_page(
+    url_path="/radon-basics/how-it-enters-homes/",
+    title="How Radon Enters Homes (Pressure Mechanism, Pathways, Seasonal Patterns)",
+    description="How radon gets from the soil into your home: the stack effect pressure mechanism, the specific entry pathways (slab cracks, floor-wall joint, sump pits, plumbing penetrations), and Colorado seasonal swings.",
+    h1="How Radon Enters Homes",
+    hero_eyebrow="Basics · Entry mechanism",
+    hero_lede="Radon enters because of pressure, not opening size. The stack effect creates suction at lower levels that pulls soil gas in through any small opening. Here's how the mechanism actually works.",
+    body_html=HOW_ENTERS_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Radon Basics", "/radon-basics/"),
+        ("How It Enters Homes", "/radon-basics/how-it-enters-homes/"),
+    ],
+    extra_jsonld=[
+        how_enters_faq_jsonld(),
+        article_schema("/radon-basics/how-it-enters-homes/", "How Radon Enters Homes", "The stack effect pressure mechanism, the specific foundation pathways radon uses (slab cracks, floor-wall joint, sump pits, plumbing penetrations, crawlspace gaps), and Colorado seasonal variation."),
+    ],
+    related=[
+        ("Why Sealing Isn't Enough", "Why pressure-driven entry can't be sealed away", "/radon-mitigation-systems/why-sealing-isnt-enough/"),
+        ("By Foundation Type", "Different foundations, different radon profiles", "/radon-basics/by-foundation-type/"),
+        ("Short-Term vs Long-Term", "Why winter readings are higher", "/radon-testing/short-term-vs-long-term/"),
+    ],
+))
+
+# 20. HEALTH RISKS
+write("radon-basics/health-risks/index.html", render_page(
+    url_path="/radon-basics/health-risks/",
+    title="Radon Health Risks: EPA, WHO, and Surgeon General Data",
+    description="EPA's ~21,000 annual U.S. lung cancer deaths attributed to radon, the #1-in-non-smokers ranking, smoker synergy, ATSDR children data, WHO action level, and Surgeon General advisory. The full health risk picture.",
+    h1="Radon Health Risks",
+    hero_eyebrow="Basics · Health risk",
+    hero_lede="Radon causes about 21,000 lung cancer deaths per year in the U.S. — #2 overall, #1 in non-smokers. Risk is continuous; lower is better. Here's the full data behind the recommendation to mitigate.",
+    body_html=HEALTH_RISKS_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Radon Basics", "/radon-basics/"),
+        ("Health Risks", "/radon-basics/health-risks/"),
+    ],
+    extra_jsonld=[
+        health_risks_faq_jsonld(),
+        article_schema("/radon-basics/health-risks/", "Radon Health Risks", "EPA risk tables for smokers and never-smokers, ATSDR on children, WHO vs EPA action levels, 2005 Surgeon General advisory, and common health myths about radon."),
+    ],
+    related=[
+        ("Levels Explained", "What your test number means by risk", "/radon-basics/levels-explained/"),
+        ("What Is Radon", "How radon causes cancer (progeny + alpha radiation)", "/radon-basics/"),
+        ("Testing Hub", "How to know your level", "/radon-testing/"),
+    ],
+))
+
+# 21. LEVELS EXPLAINED
+write("radon-basics/levels-explained/index.html", render_page(
+    url_path="/radon-basics/levels-explained/",
+    title="Radon Levels Explained: What 2, 4, 10, and 20 pCi/L Actually Mean",
+    description="The full reference table: outdoor air, U.S. indoor average, EPA action level (4.0), WHO action level (2.7), and the high ranges. What each number means for your home and your risk.",
+    h1="Radon Levels Explained",
+    hero_eyebrow="Basics · pCi/L brackets",
+    hero_lede="Your test came back as a number. Here's what that number actually means — by bracket, with risk references, and with what to do at each level.",
+    body_html=LEVELS_EXPLAINED_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Radon Basics", "/radon-basics/"),
+        ("Levels Explained", "/radon-basics/levels-explained/"),
+    ],
+    extra_jsonld=[
+        levels_explained_faq_jsonld(),
+        article_schema("/radon-basics/levels-explained/", "Radon Levels Explained", "Reference table from outdoor air (0.4 pCi/L) through EPA action level (4.0 pCi/L) to very high readings (20+ pCi/L). What each bracket means and what to do at each level."),
+    ],
+    related=[
+        ("Health Risks", "Risk-per-pCi/L for smokers and never-smokers", "/radon-basics/health-risks/"),
+        ("Testing Hub", "How to test for radon in Colorado", "/radon-testing/"),
+        ("Failed Test Next Steps", "What to do after a high test result", "/colorado-springs/failed-radon-test/"),
+    ],
+))
+
+# 22. BY FOUNDATION TYPE
+write("radon-basics/by-foundation-type/index.html", render_page(
+    url_path="/radon-basics/by-foundation-type/",
+    title="Radon by Foundation Type: Basement, Crawlspace, Slab, Walk-out, Tri-level",
+    description="How radon behaves differently in each foundation type: full basement, crawlspace, slab-on-grade, walk-out basement, tri-level/split-level, finished basement, and mixed foundations. Cost and mitigation implications.",
+    h1="Radon in Basements, Crawlspaces, Slabs, and Lower Levels",
+    hero_eyebrow="Basics · By foundation type",
+    hero_lede="Different foundations, different radon profiles. Here's how each Colorado foundation type interacts with soil gas — and what mitigation looks like for each.",
+    body_html=BY_FOUNDATION_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Radon Basics", "/radon-basics/"),
+        ("By Foundation Type", "/radon-basics/by-foundation-type/"),
+    ],
+    extra_jsonld=[
+        by_foundation_faq_jsonld(),
+        article_schema("/radon-basics/by-foundation-type/", "Radon by Foundation Type", "How radon behaves in basements, crawlspaces, slab-on-grade homes, walk-out basements, tri-level and split-level homes, finished basements, and mixed foundations. Mitigation implications for each."),
+    ],
+    related=[
+        ("Crawlspace Cost", "Sub-membrane mitigation cost drivers", "/radon-mitigation-cost/crawlspaces/"),
+        ("Finished Basement Cost", "Interior routing and aesthetic options", "/radon-mitigation-cost/finished-basements/"),
+        ("How It Enters Homes", "Entry pathways by foundation", "/radon-basics/how-it-enters-homes/"),
+    ],
+))
+
+# =========================================================================
+# PHASE 5b — CONTRACTOR SELECTION PILLAR (6 pages)
+# =========================================================================
+
+# 23. CONTRACTORS HUB — How to Choose a Colorado Radon Contractor
+write("radon-contractors/index.html", render_page(
+    url_path="/radon-contractors/",
+    title="How to Choose a Radon Mitigation Contractor in Colorado (DORA + NRPP/NRSB)",
+    description="Colorado requires DORA radon mitigation licensing. Plus NRPP or NRSB certification, references, insurance, and a written quote. Here's the full vetting framework for Colorado radon contractors.",
+    h1="How to Choose a Radon Mitigation Contractor in Colorado",
+    hero_eyebrow="Contractors · Colorado",
+    hero_lede="Colorado is one of the few states with state-level radon contractor licensing. Verification takes 30 seconds. Here's the full vetting framework — credentials, scope comparison, and what to walk away from.",
+    body_html=CONTRACTORS_HUB_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Radon Contractors", "/radon-contractors/"),
+    ],
+    extra_jsonld=[
+        contractors_hub_faq_jsonld(),
+        article_schema("/radon-contractors/", "How to Choose a Colorado Radon Mitigation Contractor", "Vetting framework for Colorado radon mitigation contractors: DORA license + NRPP/NRSB certification verification, BBB and reference checks, insurance, written quote comparison, and red flags."),
+    ],
+    related=[
+        ("Verify Licenses", "Step-by-step DORA + NRPP/NRSB lookup", "/radon-contractors/verify-licenses-and-certifications/"),
+        ("Questions to Ask", "Pre-hire question list", "/radon-contractors/questions-to-ask/"),
+        ("Red Flags in a Quote", "What to walk away from", "/radon-contractors/red-flags-in-a-quote/"),
+    ],
+))
+
+# 24. VERIFY LICENSES AND CERTIFICATIONS
+write("radon-contractors/verify-licenses-and-certifications/index.html", render_page(
+    url_path="/radon-contractors/verify-licenses-and-certifications/",
+    title="How to Verify a Colorado Radon Contractor's License (DORA, NRPP, NRSB Lookup)",
+    description="Step-by-step verification of a Colorado radon mitigation contractor: DORA license lookup at apps.colorado.gov, NRPP search at nrpp.info/pro-search, NRSB search, BBB profile, insurance verification.",
+    h1="How to Verify Radon Licenses and Certifications",
+    hero_eyebrow="Contractors · Verification",
+    hero_lede="Takes 30 seconds per contractor and protects you from hiring someone unlicensed, suspended, or with open complaints. Here's the step-by-step.",
+    body_html=VERIFY_LICENSES_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Radon Contractors", "/radon-contractors/"),
+        ("Verify Licenses & Certifications", "/radon-contractors/verify-licenses-and-certifications/"),
+    ],
+    extra_jsonld=[
+        verify_licenses_faq_jsonld(),
+        article_schema("/radon-contractors/verify-licenses-and-certifications/", "How to Verify Colorado Radon Contractor Licenses", "Step-by-step walkthrough of Colorado DORA license lookup, NRPP and NRSB certification verification, BBB profile checks, and liability insurance verification."),
+    ],
+    related=[
+        ("Contractors Hub", "Full vetting framework", "/radon-contractors/"),
+        ("Questions to Ask", "Pre-hire questions for credentials and design", "/radon-contractors/questions-to-ask/"),
+        ("Red Flags", "What missing credentials really mean", "/radon-contractors/red-flags-in-a-quote/"),
+    ],
+))
+
+# 25. QUESTIONS TO ASK BEFORE HIRING
+write("radon-contractors/questions-to-ask/index.html", render_page(
+    url_path="/radon-contractors/questions-to-ask/",
+    title="Questions to Ask Before Hiring a Radon Contractor in Colorado",
+    description="The full pre-hire question list: phone screen, in-home assessment, system design (PFE, fan, altitude correction), quote stage, references, and pre-install logistics.",
+    h1="Questions to Ask Before Hiring a Radon Contractor",
+    hero_eyebrow="Contractors · Pre-hire",
+    hero_lede="The 30 minutes you spend asking the right questions before signing is the cheapest insurance on the install. Here's the question list organized by stage.",
+    body_html=QUESTIONS_TO_ASK_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Radon Contractors", "/radon-contractors/"),
+        ("Questions to Ask", "/radon-contractors/questions-to-ask/"),
+    ],
+    extra_jsonld=[
+        questions_to_ask_faq_jsonld(),
+        article_schema("/radon-contractors/questions-to-ask/", "Questions to Ask Before Hiring a Colorado Radon Contractor", "Pre-hire question list organized by stage: phone screen credentials, in-home assessment, system design (PFE, fan model, Colorado altitude), quote stage, references, and pre-install logistics."),
+    ],
+    related=[
+        ("Verify Licenses", "Where to look up credentials", "/radon-contractors/verify-licenses-and-certifications/"),
+        ("Red Flags", "Answers that should make you walk away", "/radon-contractors/red-flags-in-a-quote/"),
+        ("Warranties & Retesting", "Post-install expectations", "/radon-contractors/warranties-and-retesting/"),
+    ],
+))
+
+# 26. RED FLAGS IN A QUOTE
+write("radon-contractors/red-flags-in-a-quote/index.html", render_page(
+    url_path="/radon-contractors/red-flags-in-a-quote/",
+    title="Red Flags in a Radon Mitigation Quote (Colorado Field Guide)",
+    description="Absolute walk-away red flags (no DORA license, cash-only, no written quote) plus the ask-before-signing yellow flags (vague scope, no fan model, suspicious pricing, weak warranty). Field guide to bad quotes.",
+    h1="Red Flags in a Radon Mitigation Quote",
+    hero_eyebrow="Contractors · Red flags",
+    hero_lede="A bad radon quote isn't always obviously bad. Sometimes it looks professional and the price seems reasonable. Here's the field guide to what to walk away from.",
+    body_html=RED_FLAGS_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Radon Contractors", "/radon-contractors/"),
+        ("Red Flags in a Quote", "/radon-contractors/red-flags-in-a-quote/"),
+    ],
+    extra_jsonld=[
+        red_flags_faq_jsonld(),
+        article_schema("/radon-contractors/red-flags-in-a-quote/", "Red Flags in a Colorado Radon Mitigation Quote", "Absolute walk-away red flags, sales-tactic red flags, scope red flags, warranty red flags, pricing red flags, and yellow flags that warrant clarifying questions."),
+    ],
+    related=[
+        ("Quote Variation", "Why quotes can vary without being suspicious", "/radon-mitigation-cost/quote-variation/"),
+        ("Quote Too High", "Sanity-check tree by scenario", "/radon-mitigation-cost/quote-too-high/"),
+        ("What's in a Quote", "14-item complete-quote checklist", "/radon-mitigation-cost/whats-in-a-quote/"),
+    ],
+))
+
+# 27. WARRANTIES, RETESTING, POST-INSTALL
+write("radon-contractors/warranties-and-retesting/index.html", render_page(
+    url_path="/radon-contractors/warranties-and-retesting/",
+    title="Radon Mitigation Warranties, Retesting & Post-Install Expectations (Colorado)",
+    description="Three warranties that come with a Colorado mitigation install (workmanship, fan manufacturer, performance), EPA's every-2-years retest cadence, what to document, manometer maintenance, and fan replacement.",
+    h1="Warranties, Retesting, and Post-Install Expectations",
+    hero_eyebrow="Contractors · After install",
+    hero_lede="The install isn't really finished when the contractor leaves. It's finished when the post-mit test passes and the warranty terms are written down. Here's what to expect on both.",
+    body_html=WARRANTIES_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Radon Contractors", "/radon-contractors/"),
+        ("Warranties & Retesting", "/radon-contractors/warranties-and-retesting/"),
+    ],
+    extra_jsonld=[
+        warranties_faq_jsonld(),
+        article_schema("/radon-contractors/warranties-and-retesting/", "Radon Mitigation Warranties, Retesting & Post-Install", "Workmanship, fan manufacturer, and performance warranties typical for Colorado mitigation installs. EPA's every-2-years retest cadence, what to document, monthly manometer check, and fan replacement timing."),
+    ],
+    related=[
+        ("After Mitigation", "Post-mit test methodology and manometer reading", "/radon-mitigation-systems/what-happens-after-mitigation/"),
+        ("How to File a Complaint", "What to do if warranty isn't honored", "/radon-contractors/how-to-file-a-complaint/"),
+        ("Questions to Ask", "Warranty questions to ask before signing", "/radon-contractors/questions-to-ask/"),
+    ],
+))
+
+# 28. HOW TO FILE A COMPLAINT
+write("radon-contractors/how-to-file-a-complaint/index.html", render_page(
+    url_path="/radon-contractors/how-to-file-a-complaint/",
+    title="How to File a Complaint About a Colorado Radon Contractor (DORA, BBB, AG)",
+    description="Step-by-step: written demand to the contractor, DORA complaint at dpo.colorado.gov, BBB complaint, Colorado Attorney General complaint, small claims court. Documentation to gather and when to consult an attorney.",
+    h1="How to File a Complaint About a Radon Contractor",
+    hero_eyebrow="Contractors · Recourse",
+    hero_lede="Most Colorado radon installs go well. Some don't. Here's the formal recourse paths: DORA, BBB, the Colorado AG, and small claims court — when to use each.",
+    body_html=COMPLAINT_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Radon Contractors", "/radon-contractors/"),
+        ("How to File a Complaint", "/radon-contractors/how-to-file-a-complaint/"),
+    ],
+    extra_jsonld=[
+        complaint_faq_jsonld(),
+        article_schema("/radon-contractors/how-to-file-a-complaint/", "How to File a Complaint Against a Colorado Radon Contractor", "Recourse paths in order: written demand, DORA complaint at the Office of Radon Professionals, BBB complaint, Colorado Attorney General consumer complaint, and small claims or higher civil court."),
+    ],
+    related=[
+        ("Verify Licenses", "License lookup includes public disciplinary actions", "/radon-contractors/verify-licenses-and-certifications/"),
+        ("Warranties & Retesting", "What the contractor owes you post-install", "/radon-contractors/warranties-and-retesting/"),
+        ("Red Flags", "What to avoid signing in the first place", "/radon-contractors/red-flags-in-a-quote/"),
+    ],
+))
+
 # 10. WHAT HAPPENS AFTER MITIGATION
 write("radon-mitigation-systems/what-happens-after-mitigation/index.html", render_page(
     url_path="/radon-mitigation-systems/what-happens-after-mitigation/",
@@ -819,6 +1141,20 @@ SITEMAP_URLS = [
     ("/radon-testing/during-real-estate-transactions/", "0.8"),
     ("/radon-testing/for-rentals/", "0.8"),
     ("/radon-testing/for-businesses/", "0.8"),
+    # Radon Basics pillar (Phase 5a)
+    ("/radon-basics/", "0.9"),
+    ("/radon-basics/why-common-in-colorado/", "0.8"),
+    ("/radon-basics/how-it-enters-homes/", "0.8"),
+    ("/radon-basics/health-risks/", "0.8"),
+    ("/radon-basics/levels-explained/", "0.8"),
+    ("/radon-basics/by-foundation-type/", "0.8"),
+    # Contractor Selection pillar (Phase 5b)
+    ("/radon-contractors/", "0.9"),
+    ("/radon-contractors/verify-licenses-and-certifications/", "0.8"),
+    ("/radon-contractors/questions-to-ask/", "0.8"),
+    ("/radon-contractors/red-flags-in-a-quote/", "0.8"),
+    ("/radon-contractors/warranties-and-retesting/", "0.8"),
+    ("/radon-contractors/how-to-file-a-complaint/", "0.8"),
     ("/request-quote/", "0.8"),
     ("/about/", "0.4"),
     ("/disclosure/", "0.4"),
@@ -915,6 +1251,28 @@ The Python files under `_build/` are the source-of-truth templates that produced
 | `/radon-testing/for-rentals/` | `radon-testing/for-rentals/index.html` |
 | `/radon-testing/for-businesses/` | `radon-testing/for-businesses/index.html` |
 
+### Phase 5a: Radon Basics pillar (May 2026)
+
+| URL | File |
+|---|---|
+| `/radon-basics/` | `radon-basics/index.html` (What Is Radon hub) |
+| `/radon-basics/why-common-in-colorado/` | `radon-basics/why-common-in-colorado/index.html` |
+| `/radon-basics/how-it-enters-homes/` | `radon-basics/how-it-enters-homes/index.html` |
+| `/radon-basics/health-risks/` | `radon-basics/health-risks/index.html` |
+| `/radon-basics/levels-explained/` | `radon-basics/levels-explained/index.html` |
+| `/radon-basics/by-foundation-type/` | `radon-basics/by-foundation-type/index.html` |
+
+### Phase 5b: Contractor Selection pillar (May 2026)
+
+| URL | File |
+|---|---|
+| `/radon-contractors/` | `radon-contractors/index.html` (How to Choose a Contractor hub) |
+| `/radon-contractors/verify-licenses-and-certifications/` | `radon-contractors/verify-licenses-and-certifications/index.html` |
+| `/radon-contractors/questions-to-ask/` | `radon-contractors/questions-to-ask/index.html` |
+| `/radon-contractors/red-flags-in-a-quote/` | `radon-contractors/red-flags-in-a-quote/index.html` |
+| `/radon-contractors/warranties-and-retesting/` | `radon-contractors/warranties-and-retesting/index.html` |
+| `/radon-contractors/how-to-file-a-complaint/` | `radon-contractors/how-to-file-a-complaint/index.html` |
+
 ## Before you launch
 
 1. **Quote form back end (Netlify Forms).** `request-quote/index.html` uses Netlify Forms (`data-netlify="true"`, `name="quote-request"`). On deploy, Netlify auto-detects the form; submissions appear in the Netlify dashboard under **Forms → quote-request**. Email and Slack notifications can be added under **Forms → Notifications**. The form POSTs hidden `city` and `source_page` fields for lead attribution, plus a honeypot `bot-field` for spam protection.
@@ -935,6 +1293,8 @@ The HTML pages are generated from Python templates under `_build/`:
 - `pages_cost.py` — Phase 2 Cost & Quote pillar (8 pages including refreshed CS cost)
 - `pages_systems.py` — Phase 3 Mitigation Systems pillar (7 pages)
 - `pages_testing.py` — Phase 4 Testing & Real Estate pillar (6 pages)
+- `pages_basics.py` — Phase 5a Radon Basics pillar (6 pages)
+- `pages_contractors.py` — Phase 5b Contractor Selection pillar (6 pages)
 - `pages_misc.py` — quote form, thank-you, about, disclosure, privacy, contact
 - `build.py` — orchestrator that calls `render_page()` for each URL
 

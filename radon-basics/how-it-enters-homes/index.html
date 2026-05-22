@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How Radon Enters Homes (Pressure Mechanism, Pathways, Seasonal Patterns)</title>
+  <meta name="description" content="How radon gets from the soil into your home: the stack effect pressure mechanism, the specific entry pathways (slab cracks, floor-wall joint, sump pits, plumbing penetrations), and Colorado seasonal swings.">
+  <link rel="canonical" href="https://coloradoradonguide.com/radon-basics/how-it-enters-homes/">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <meta name="theme-color" content="#1c4a6e">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="How Radon Enters Homes (Pressure Mechanism, Pathways, Seasonal Patterns)">
+  <meta property="og:description" content="How radon gets from the soil into your home: the stack effect pressure mechanism, the specific entry pathways (slab cracks, floor-wall joint, sump pits, plumbing penetrations), and Colorado seasonal swings.">
+  <meta property="og:url" content="https://coloradoradonguide.com/radon-basics/how-it-enters-homes/">
+  <meta property="og:site_name" content="Colorado Radon Guide">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How Radon Enters Homes (Pressure Mechanism, Pathways, Seasonal Patterns)">
+  <meta name="twitter:description" content="How radon gets from the soil into your home: the stack effect pressure mechanism, the specific entry pathways (slab cracks, floor-wall joint, sump pits, plumbing penetrations), and Colorado seasonal swings.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+:root {
+  --bg: #ffffff;
+  --bg-cream: #f7f3ec;
+  --bg-cream-deep: #efe9dc;
+  --border: #e3dccc;
+  --border-strong: #cfc6b1;
+  --text: #14181c;
+  --text-muted: #5a6470;
+  --text-dim: #828a94;
+  --primary: #1c4a6e;
+  --primary-deep: #14385a;
+  --accent: #b35333;
+  --accent-deep: #8e3d22;
+  --success: #156845;
+  --warn: #8a6d1a;
+  --warn-bg: #fbf3dc;
+  --max: 72rem;
+  --prose: 38rem;
+  --radius: 6px;
+  --radius-lg: 10px;
+  --shadow-sm: 0 1px 2px rgba(20,24,28,.04), 0 1px 4px rgba(20,24,28,.04);
+  --shadow-md: 0 6px 18px rgba(20,24,28,.06), 0 2px 6px rgba(20,24,28,.04);
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+h1 { font-size: clamp(2rem, 4vw + 1rem, 3rem); margin: 0 0 1rem; }
+h2 { font-size: clamp(1.5rem, 2vw + 0.75rem, 2rem); margin: 2.5rem 0 1rem; }
+h3 { font-size: 1.25rem; margin: 2rem 0 0.75rem; }
+h4 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; font-family: 'Inter', sans-serif; font-weight: 600; }
+
+p { margin: 0 0 1.25rem; }
+a { color: var(--primary); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: var(--primary-deep); }
+
+ul, ol { margin: 0 0 1.25rem; padding-left: 1.5rem; }
+li { margin: 0.4rem 0; }
+
+strong { font-weight: 600; color: var(--text); }
+
+hr {
+  border: 0;
+  height: 1px;
+  background: var(--border);
+  margin: 2.5rem 0;
+}
+
+/* Layout */
+.container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
+.prose { max-width: var(--prose); }
+.prose-wide { max-width: 54rem; }
+
+/* Skip link */
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  padding: 0.5rem 1rem;
+  background: var(--primary);
+  color: #fff;
+  z-index: 100;
+  text-decoration: none;
+}
+.skip:focus { left: 0; }
+
+/* Header */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.92);
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+  gap: 1rem;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.brand-mark {
+  width: 26px; height: 26px;
+  background: var(--primary);
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+.nav { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+.nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+.nav a:hover { color: var(--text); }
+.nav .nav-cta {
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.95rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+}
+.nav .nav-cta:hover { background: var(--accent-deep); color: #fff; }
+
+/* Breadcrumbs */
+.crumbs {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding: 1rem 0 0;
+}
+.crumbs a { color: var(--text-muted); text-decoration: none; }
+.crumbs a:hover { color: var(--primary); text-decoration: underline; }
+.crumbs span[aria-current] { color: var(--text); }
+.crumbs .sep { margin: 0 0.4rem; color: var(--text-dim); }
+
+/* Hero */
+.hero {
+  padding: 3rem 0 2rem;
+  border-bottom: 1px solid var(--border);
+}
+.hero .lede {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 40rem;
+  margin: 0.5rem 0 1.5rem;
+}
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin-top: 1rem;
+}
+.hero-meta span { display: inline-flex; align-items: center; gap: 0.4rem; }
+
+/* Photo hero - editorial two-column on desktop, stacked on mobile */
+.hero-photo {
+  padding: 3rem 0 3rem;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-cream) 100%);
+}
+.hero-photo .hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.hero-photo .hero-text h1 {
+  font-size: clamp(2rem, 3.5vw + 0.5rem, 2.85rem);
+  margin: 0.75rem 0 1rem;
+}
+.hero-photo .hero-text .lede {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 1.75rem;
+  max-width: none;
+}
+.hero-photo .hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+.hero-photo .hero-meta {
+  margin-top: 1.5rem;
+  font-size: 0.82rem;
+}
+.hero-photo .hero-image {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  box-shadow: var(--shadow-md);
+  background: var(--bg-cream-deep);
+}
+.hero-photo .hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero-photo .img-credit {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.6rem;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.85);
+  background: rgba(20,24,28,0.45);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.hero-photo .img-credit:hover { color: #fff; background: rgba(20,24,28,0.65); }
+
+/* Inline illustration figure (e.g. radon entry diagram) */
+.figure {
+  margin: 2rem 0 2.5rem;
+  background: var(--bg-cream);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+}
+.figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+}
+.figure figcaption {
+  margin-top: 0.85rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.figure figcaption strong { color: var(--text); }
+
+/* Two-column explainer (text + diagram side by side) */
+.explainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  margin: 2rem 0;
+}
+.explainer .figure { margin: 0; }
+.explainer-text p:last-child { margin-bottom: 0; }
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+/* Main content */
+main { padding: 2rem 0 4rem; }
+main .container > section { margin-bottom: 2.5rem; }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.85rem 1.4rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  line-height: 1.2;
+  transition: background 0.15s ease;
+}
+.btn:hover { background: var(--accent-deep); color: #fff; }
+.btn-secondary {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--border-strong);
+}
+.btn-secondary:hover { background: var(--bg-cream); color: var(--primary-deep); }
+.btn-row { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+
+/* Cards & callouts */
+.card {
+  background: var(--bg-cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+.card-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  margin: 1.5rem 0;
+}
+.card h3 { margin-top: 0; }
+.card p:last-child { margin-bottom: 0; }
+
+.callout {
+  background: var(--warn-bg);
+  border-left: 3px solid var(--warn);
+  padding: 1.1rem 1.25rem;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin: 1.5rem 0;
+  font-size: 0.96rem;
+}
+.callout strong { display: block; margin-bottom: 0.3rem; }
+.callout p:last-child { margin-bottom: 0; }
+
+.factbox {
+  background: var(--bg-cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+}
+.factbox .label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 0.4rem;
+}
+.factbox .stat {
+  font-family: 'Fraunces', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+.factbox .source {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* CTA banner */
+.cta-banner {
+  background: var(--primary);
+  color: #fff;
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  margin: 3rem 0;
+  text-align: left;
+}
+.cta-banner h2 { color: #fff; margin-top: 0; }
+.cta-banner p { color: rgba(255,255,255,0.85); max-width: 36rem; }
+.cta-banner .btn {
+  background: #fff;
+  color: var(--primary-deep);
+  margin-top: 0.5rem;
+}
+.cta-banner .btn:hover { background: var(--bg-cream); color: var(--primary-deep); }
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+th, td {
+  text-align: left;
+  padding: 0.75rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+th {
+  font-weight: 600;
+  background: var(--bg-cream);
+  font-size: 0.88rem;
+  letter-spacing: 0.01em;
+}
+table.compact { font-size: 0.88rem; }
+table.compact th, table.compact td { padding: 0.5rem 0.75rem; }
+
+/* FAQ details */
+details {
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 0;
+}
+details:first-of-type { border-top: 1px solid var(--border); }
+details summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.02rem;
+  list-style: none;
+  position: relative;
+  padding-right: 2rem;
+  color: var(--text);
+}
+details summary::-webkit-details-marker { display: none; }
+details summary::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 1.4rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  transition: transform 0.15s ease;
+}
+details[open] summary::after { content: '–'; }
+details > p, details > ul { margin-top: 0.75rem; }
+
+/* Source citations */
+.sources {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.sources h2 { font-size: 1.1rem; margin-top: 0; font-family: 'Inter', sans-serif; }
+.sources ol { padding-left: 1.2rem; }
+.sources li { margin: 0.5rem 0; }
+
+/* Internal link block */
+.related {
+  background: var(--bg-cream);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem 0;
+  margin: 3rem 0;
+}
+.related h2 { margin-top: 0; font-size: 1.3rem; }
+.related-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+.related-grid a {
+  display: block;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.related-grid a:hover {
+  border-color: var(--primary);
+  color: var(--primary-deep);
+}
+.related-grid .related-label {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.related-grid .related-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--bg-cream-deep);
+  border-top: 1px solid var(--border);
+  padding: 3rem 0 2rem;
+  margin-top: 4rem;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+.site-footer .footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+.site-footer h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  margin: 0 0 0.75rem;
+}
+.site-footer ul { list-style: none; padding: 0; margin: 0; }
+.site-footer ul li { margin: 0.4rem 0; }
+.site-footer ul a { color: var(--text-muted); text-decoration: none; }
+.site-footer ul a:hover { color: var(--primary); text-decoration: underline; }
+.site-footer .footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+.site-footer .disclaimer { max-width: 50rem; }
+
+/* Forms */
+.form { background: var(--bg-cream); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--border); }
+.field { margin-bottom: 1.25rem; }
+.field label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+  color: var(--text);
+}
+.field .hint {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-family: inherit;
+  background: #fff;
+  color: var(--text);
+}
+.field textarea { resize: vertical; min-height: 5rem; }
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+  border-color: var(--primary);
+}
+.field-row { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); }
+.required { color: var(--accent-deep); }
+.consent {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+.consent input { width: auto; margin-top: 0.25rem; }
+
+/* Lists */
+.checklist { list-style: none; padding: 0; }
+.checklist li {
+  padding-left: 1.75rem;
+  position: relative;
+}
+.checklist li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--success);
+  font-weight: 700;
+}
+
+/* Tag pills */
+.pill {
+  display: inline-block;
+  background: var(--bg-cream);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.2rem 0.75rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-right: 0.4rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-photo .hero-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+  .hero-photo .hero-image { aspect-ratio: 16/10; max-width: 100%; }
+  .explainer { grid-template-columns: 1fr; gap: 1.75rem; }
+}
+@media (max-width: 720px) {
+  .hero { padding: 2rem 0 1.5rem; }
+  .hero-photo { padding: 1.75rem 0 2rem; }
+  .nav { gap: 0.85rem; }
+  .nav a:not(.nav-cta) { display: none; }
+  .nav .nav-cta { padding: 0.4rem 0.8rem; font-size: 0.88rem; }
+  .cta-banner { padding: 1.75rem; }
+  body { font-size: 16px; }
+  .factbox .stat { font-size: 1.5rem; }
+  table { font-size: 0.85rem; }
+  th, td { padding: 0.5rem 0.6rem; }
+}
+</style>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Colorado Radon Guide", "url": "https://coloradoradonguide.com", "description": "Independent Colorado radon information and quote-connection resource.", "areaServed": {"@type": "AdministrativeArea", "name": "Colorado, USA"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Colorado Radon Guide", "url": "https://coloradoradonguide.com"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://coloradoradonguide.com/"}, {"@type": "ListItem", "position": 2, "name": "Radon Basics", "item": "https://coloradoradonguide.com/radon-basics/"}, {"@type": "ListItem", "position": 3, "name": "How It Enters Homes", "item": "https://coloradoradonguide.com/radon-basics/how-it-enters-homes/"}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How does radon get into a home?", "acceptedAnswer": {"@type": "Answer", "text": "Radon enters through small openings in the foundation because air pressure inside the home is slightly lower than soil gas pressure beneath. The stack effect (warm indoor air rising) and HVAC operation create this pressure difference. Common entry pathways: hairline slab cracks, the floor-wall joint, sump pits, plumbing penetrations, crawlspace dirt floors, and foundation construction joints."}}, {"@type": "Question", "name": "Why do basements have higher radon than upper floors?", "acceptedAnswer": {"@type": "Answer", "text": "Three reasons: basements have the largest soil-contact area of any foundation type, the stack effect creates strongest suction at the lowest level, and basements typically have less ventilation than upper floors. A typical Colorado home reads highest in the basement, about half that on the ground floor, and about a third on the second floor."}}, {"@type": "Question", "name": "Do Colorado radon levels change with the seasons?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, significantly. Winter readings can be 30-50% higher than summer readings on the same home because the stack effect is strongest when indoor-outdoor temperature differences are largest, and homes are tighter (less air exchange). A short-term test in winter captures the peak; a long-term 90+ day test averages across seasons."}}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How Radon Enters Homes", "description": "The stack effect pressure mechanism, the specific foundation pathways radon uses (slab cracks, floor-wall joint, sump pits, plumbing penetrations, crawlspace gaps), and Colorado seasonal variation.", "url": "https://coloradoradonguide.com/radon-basics/how-it-enters-homes/", "publisher": {"@type": "Organization", "name": "Colorado Radon Guide"}, "dateModified": "2026-05-21", "author": {"@type": "Organization", "name": "Colorado Radon Guide"}}</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/" aria-label="Colorado Radon Guide home">
+      <span class="brand-mark" aria-hidden="true">CR</span>
+      <span>Colorado Radon Guide</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/colorado-springs/">Colorado Springs</a>
+      <a href="/colorado-springs/radon-mitigation-cost/">Mitigation Cost</a>
+      <a href="/colorado-springs/radon-testing/">Testing</a>
+      <a href="/colorado-springs/failed-radon-test/">Failed Test</a>
+      <a href="/about/">About</a>
+      <a href="/request-quote/" class="nav-cta">Get a Quote</a>
+    </nav>
+  </div>
+</header>
+  <section class="hero">
+    <div class="container">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">›</span><a href="/radon-basics/">Radon Basics</a><span class="sep">›</span><span aria-current="page">How It Enters Homes</span></nav>
+      <span class="eyebrow">Basics · Entry mechanism</span>
+      <h1>How Radon Enters Homes</h1>
+      <p class="lede">Radon enters because of pressure, not opening size. The stack effect creates suction at lower levels that pulls soil gas in through any small opening. Here's how the mechanism actually works.</p>
+      
+    </div>
+  </section>
+  <main id="main">
+    <div class="container">
+      
+<section>
+  <div class="prose-wide">
+    <p>Radon enters a home because of one simple mechanism: pressure. The air inside your home is slightly lower in pressure than the soil gas beneath the foundation, and that pressure difference pulls radon-laden gas up through any small opening it can find. The mechanism is the same in every home; what varies is which openings the gas uses and how much accumulates inside.</p>
+    <p>This page covers the physics of radon entry (briefly), the specific pathways radon uses, why basements concentrate it, and how seasonal patterns change the entry rate.</p>
+  </div>
+</section>
+
+<section>
+  <h2>The pressure mechanism</h2>
+  <div class="prose-wide">
+    <p>Two forces create the pressure difference that drives radon entry:</p>
+
+    <h3>Stack effect (the biggest driver)</h3>
+    <p>Warm indoor air is less dense than cold outdoor air. In winter, warm air inside your home rises through stairwells, upper floors, and any chimney or vent stack, creating slight suction at the lowest levels. That suction pulls soil gas — including radon — up through openings in the foundation.</p>
+    <p>The stack effect is strongest in winter (largest indoor-outdoor temperature difference) and weakest in summer (temperatures roughly equalize). That's why Colorado winter readings are typically 30–50% higher than summer readings on the same home.<sup><a href="#src-1">[1]</a></sup></p>
+
+    <h3>HVAC and exhaust systems</h3>
+    <p>HVAC systems, range hoods, bathroom fans, and clothes dryers all push air out of the home. When air goes out, replacement air has to come in somewhere — typically through small foundation openings. That replacement air carries radon with it from the soil.</p>
+    <p>Combustion appliances (gas furnace, water heater, fireplace) intensify this effect by drawing combustion air from inside, again creating depressurization that pulls soil gas in.</p>
+
+    <h3>Diffusion (small effect)</h3>
+    <p>Radon also diffuses through concrete and soil naturally, even without a pressure difference. Diffusion is a much smaller effect than pressure-driven flow but contributes to baseline indoor radon in tight, well-sealed homes.</p>
+  </div>
+</section>
+
+<section>
+  <h2>The pathways radon uses</h2>
+  <div class="prose-wide">
+    <p>Soil gas can enter through any opening between soil and indoor air. The common pathways:</p>
+    <ol>
+      <li><strong>Hairline cracks in the basement slab.</strong> Even cracks too small to see clearly are large enough for soil gas.</li>
+      <li><strong>The floor-wall joint.</strong> The seam where the basement slab meets the foundation wall is almost never airtight; it's the largest single entry pathway in most basements.</li>
+      <li><strong>Sump pits.</strong> An open sump pit is a direct soil-to-air connection. Even covered sumps can leak if the cover isn't sealed.</li>
+      <li><strong>Plumbing penetrations.</strong> Drain pipes, water lines, and gas lines passing through the slab leave small openings around their edges.</li>
+      <li><strong>Crawlspace gaps.</strong> Crawlspaces with dirt floors have a continuous soil-air interface — every square foot is a pathway.</li>
+      <li><strong>Foundation walls.</strong> Concrete block walls (less common in Colorado) have hollow cores; poured concrete walls have hairline shrinkage cracks.</li>
+      <li><strong>Construction joints.</strong> Where one slab section meets another, the joint isn't fully airtight.</li>
+    </ol>
+    <p>Radon doesn't pick one path. It uses whatever's available. Sealing a few cracks won't fix the problem — see <a href="/radon-mitigation-systems/why-sealing-isnt-enough/">why sealing alone isn't enough</a>.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Why basements concentrate radon</h2>
+  <div class="prose-wide">
+    <p>Three reasons basements have higher radon than upper floors:</p>
+    <ul>
+      <li><strong>Largest soil-contact area.</strong> The basement floor and walls are in direct contact with the most soil. Every square foot of contact is a potential pathway.</li>
+      <li><strong>Lowest level = strongest stack-effect suction.</strong> The suction created by warm air rising is strongest at the bottom of the home.</li>
+      <li><strong>Less ventilation.</strong> Upper floors have windows that get opened, exterior doors that swing, and active air movement. Basements are often closed off and don't get the same air exchange.</li>
+    </ul>
+    <p>A typical Colorado home's radon profile: basement reads highest, ground floor reads about half the basement level, second floor reads about a third. That's why the EPA places radon test kits in the lowest livable level — that's where exposure is highest.<sup><a href="#src-2">[2]</a></sup></p>
+  </div>
+</section>
+
+<section>
+  <h2>Crawlspaces — a different kind of problem</h2>
+  <div class="prose-wide">
+    <p>An unsealed crawlspace with a dirt floor is the most direct possible path between soil and indoor air. Every square foot of crawlspace dirt is a potential entry point. The crawlspace then connects to the living space above through floor penetrations, hatches, and any unsealed seams.</p>
+    <p>This is why crawlspace mitigation is its own technique (sub-membrane depressurization) rather than the same approach used for basements. <a href="/radon-mitigation-systems/crawlspace-sub-membrane/">More on crawlspace systems &rarr;</a></p>
+  </div>
+</section>
+
+<section>
+  <h2>Seasonal patterns in Colorado</h2>
+  <div class="prose-wide">
+    <p>Colorado has significant seasonal swings in indoor radon. Three reasons:</p>
+    <ul>
+      <li><strong>Stack effect strongest in winter.</strong> Larger indoor-outdoor temperature difference = more suction at lower levels.</li>
+      <li><strong>Tighter house in winter.</strong> Windows closed, exterior doors closed, weatherstripping engaged. Less air exchange means radon accumulates.</li>
+      <li><strong>Soil conditions.</strong> Frozen ground or saturated ground (after rainfall, snowmelt) can change soil permeability and either increase or decrease radon flux into the basement.</li>
+    </ul>
+    <p>The practical implication: a short-term test in February captures the seasonal peak. A short-term test in July captures the seasonal trough. A long-term test (90+ days) averages both — see <a href="/radon-testing/short-term-vs-long-term/">short-term vs long-term tests</a>.</p>
+  </div>
+</section>
+
+<section>
+  <div class="callout">
+    <strong>Common scenario — same home, three readings</strong>
+    <p>A homeowner in Black Forest ran three short-term radon tests on the same home over a year. February: 6.4 pCi/L. May: 4.1 pCi/L. August: 2.8 pCi/L. None of the readings is wrong. They're all real readings for the conditions during their respective 2-day windows. The seasonal swing — driven by stack effect and tighter house conditions in winter — is large enough that a single short-term test can mislead either direction. A 90-day long-term test running through winter and into spring would average somewhere around 4.5 pCi/L, which is much closer to the true annual exposure.</p>
+  </div>
+</section>
+
+<aside class="sources" aria-label="Sources">
+  <h2>Sources</h2>
+  <ol>
+    <li id="src-1">U.S. EPA. <em>Consumer's Guide to Radon Reduction</em>. <a href="https://www.epa.gov/radon/consumers-guide-radon-reduction" rel="noopener" target="_blank">epa.gov/radon/consumers-guide-radon-reduction</a></li>
+    <li id="src-2">U.S. EPA. <em>Citizen's Guide to Radon</em>. <a href="https://www.epa.gov/radon/citizens-guide-radon" rel="noopener" target="_blank">epa.gov/radon/citizens-guide-radon</a></li>
+  </ol>
+</aside>
+
+    </div>
+    <section class="container">
+      <div class="cta-banner">
+        <h2>Get a Colorado Springs Radon Quote</h2>
+        <p>Tell us about your home and test result and we'll connect you with a licensed Colorado mitigation partner. No high-pressure sales calls, no contracts to start.</p>
+        <a href="/request-quote/" class="btn">Request a Quote</a>
+      </div>
+    </section>
+  </main>
+  <section class="related">
+    <div class="container">
+      <h2>Keep reading</h2>
+      <div class="related-grid"><a href="/radon-mitigation-systems/why-sealing-isnt-enough/"><span class="related-label">Why Sealing Isn't Enough</span><span class="related-title">Why pressure-driven entry can't be sealed away</span></a><a href="/radon-basics/by-foundation-type/"><span class="related-label">By Foundation Type</span><span class="related-title">Different foundations, different radon profiles</span></a><a href="/radon-testing/short-term-vs-long-term/"><span class="related-label">Short-Term vs Long-Term</span><span class="related-title">Why winter readings are higher</span></a></div>
+    </div>
+  </section>
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Colorado Radon Guide</h4>
+        <p>An independent Colorado radon information and quote-connection resource. We do not install mitigation systems.</p>
+      </div>
+      <div>
+        <h4>Colorado Springs</h4>
+        <ul>
+          <li><a href="/colorado-springs/">Colorado Springs Hub</a></li>
+          <li><a href="/colorado-springs/radon-mitigation-cost/">Mitigation Cost</a></li>
+          <li><a href="/colorado-springs/radon-testing/">Radon Testing</a></li>
+          <li><a href="/colorado-springs/failed-radon-test/">After a Failed Test</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About the Site</h4>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/disclosure/">Editorial &amp; Lead Disclosure</a></li>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Authoritative Sources</h4>
+        <ul>
+          <li><a href="https://cdphe.colorado.gov/radon" rel="noopener" target="_blank">CDPHE Radon Program</a></li>
+          <li><a href="https://www.epa.gov/radon" rel="noopener" target="_blank">EPA Radon</a></li>
+          <li><a href="https://www.elpasocountyhealth.org/radon" rel="noopener" target="_blank">El Paso County Public Health</a></li>
+          <li><a href="https://dpo.colorado.gov/Radon" rel="noopener" target="_blank">Colorado DORA Office of Radon Professionals</a></li>
+          <li><a href="https://leg.colorado.gov/bills/sb23-206" rel="noopener" target="_blank">Colorado SB23-206</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="disclaimer">
+        <strong>Disclaimer.</strong> Colorado Radon Guide is an independent educational resource. We are not a radon mitigation contractor, do not perform radon testing or installation, and do not provide medical advice. Information is drawn from public Colorado and federal health sources and may change. Cost ranges are estimates only and do not represent a contractor quote. Quote requests submitted through this site are routed to a licensed Colorado mitigation partner. See our <a href="/disclosure/">disclosure</a> and <a href="/privacy/">privacy</a> pages.
+      </p>
+      <p>&copy; 2026 Colorado Radon Guide. Page last updated May 2026.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
