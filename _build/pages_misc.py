@@ -14,14 +14,16 @@ QUOTE_BODY = f"""
 </section>
 
 <section>
-  <form class="form" action="https://formsubmit.co/REPLACE_WITH_YOUR_EMAIL" method="POST" novalidate>
-    <!-- FormSubmit config (replace REPLACE_WITH_YOUR_EMAIL above and on the next two lines, OR swap this action URL for your own webhook / CRM endpoint). -->
-    <input type="hidden" name="_subject" value="New Colorado Radon Guide quote request">
-    <input type="hidden" name="_next" value="https://coloradoradonguide.com/request-quote/thank-you/">
-    <input type="hidden" name="_captcha" value="true">
-    <input type="hidden" name="_template" value="table">
+  <form class="form" name="quote-request" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/request-quote/thank-you/" novalidate>
+    <!-- Netlify Forms — captured automatically on deploy. Form appears in the Netlify dashboard under Forms → "quote-request". -->
+    <input type="hidden" name="form-name" value="quote-request">
 
-    <!-- City + source tracking (populated automatically; visible only to the back-end) -->
+    <!-- Honeypot field. Hidden from real users; bots that auto-fill every field will trip it and be silently rejected. -->
+    <p class="netlify-honeypot" aria-hidden="true" style="position:absolute;left:-9999px;height:0;overflow:hidden;">
+      <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+    </p>
+
+    <!-- City + source tracking (visible only to the back-end) -->
     <input type="hidden" name="city" value="colorado-springs">
     <input type="hidden" name="source_page" value="/request-quote/">
 
