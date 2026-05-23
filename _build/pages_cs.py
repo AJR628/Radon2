@@ -413,6 +413,14 @@ CS_FAILED_BODY = f"""
   </div>
 </section>
 
+<aside class="cta-inline" aria-label="Request a Colorado Springs quote">
+  <div class="cta-inline-text">
+    <strong>Ready for a quote based on your situation?</strong>
+    Tell us your scenario — homeowner, buyer on a closing, seller — and we'll connect you with our DORA-registered Colorado mitigation partner. Written quote, no pressure.
+  </div>
+  <a href="/request-quote/" class="btn">Request a quote</a>
+</aside>
+
 <section>
   <h2>Choosing a contractor under deadline pressure</h2>
   <div class="prose-wide">

@@ -615,23 +615,208 @@ details > p, details > ul { margin-top: 0.75rem; }
   margin-right: 0.4rem;
 }
 
+/* Mobile nav toggle (pure CSS hamburger) */
+.nav-toggle { position: absolute; left: -9999px; }
+.nav-toggle-label {
+  display: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-right: -0.5rem;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 22px;
+}
+.nav-toggle-label span {
+  display: block;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Decision grid (homepage "Start where you are") */
+.decision-strip {
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-cream) 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 3rem 0 3.5rem;
+}
+.decision-strip .lead-in {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.decision-strip .lead-in .eyebrow { margin-bottom: 0.65rem; }
+.decision-strip h2 {
+  font-size: clamp(1.5rem, 2vw + 0.75rem, 2rem);
+  margin: 0 0 0.5rem;
+}
+.decision-strip .lead-in p {
+  color: var(--text-muted);
+  max-width: 38rem;
+  margin: 0 auto;
+}
+.decision-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.decision-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem 1.4rem 1.25rem;
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  min-height: 9.5rem;
+}
+.decision-card:hover {
+  border-color: var(--primary);
+  color: var(--text);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.decision-card .scenario {
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--text);
+}
+.decision-card .destination {
+  font-size: 0.92rem;
+  color: var(--primary);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.decision-card .destination::after {
+  content: '→';
+  transition: transform 0.15s ease;
+}
+.decision-card:hover .destination::after { transform: translateX(3px); }
+.decision-card.is-featured {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary-deep);
+}
+.decision-card.is-featured .scenario { color: #fff; }
+.decision-card.is-featured .destination { color: rgba(255,255,255,0.9); }
+.decision-card.is-featured:hover { color: #fff; border-color: var(--primary-deep); }
+
+/* CTA banner variants (high-intent) */
+.cta-banner.cta-strong {
+  background: var(--accent);
+}
+.cta-banner.cta-strong p { color: rgba(255,255,255,0.92); }
+.cta-banner.cta-strong .btn {
+  background: #fff;
+  color: var(--accent-deep);
+}
+.cta-banner.cta-strong .btn:hover { background: var(--bg-cream); color: var(--accent-deep); }
+
+/* Inline mid-page CTA prompt */
+.cta-inline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  background: var(--bg-cream);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+}
+.cta-inline .cta-inline-text {
+  font-size: 1rem;
+  color: var(--text);
+  max-width: 32rem;
+}
+.cta-inline .cta-inline-text strong { display: block; font-size: 1.05rem; margin-bottom: 0.15rem; }
+.cta-inline .btn { flex-shrink: 0; white-space: nowrap; }
+
+/* Trust strip on form pages */
+.trust-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 1.1rem 1.4rem;
+  background: var(--bg-cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin: 0 0 1.75rem;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+.trust-strip .item { display: inline-flex; align-items: center; gap: 0.5rem; }
+.trust-strip .item strong { color: var(--text); }
+
 /* Responsive */
 @media (max-width: 900px) {
   .hero-photo .hero-grid { grid-template-columns: 1fr; gap: 1.75rem; }
   .hero-photo .hero-image { aspect-ratio: 16/10; max-width: 100%; }
   .explainer { grid-template-columns: 1fr; gap: 1.75rem; }
+  .decision-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 720px) {
   .hero { padding: 2rem 0 1.5rem; }
   .hero-photo { padding: 1.75rem 0 2rem; }
-  .nav { gap: 0.85rem; }
-  .nav a:not(.nav-cta) { display: none; }
-  .nav .nav-cta { padding: 0.4rem 0.8rem; font-size: 0.88rem; }
   .cta-banner { padding: 1.75rem; }
   body { font-size: 16px; }
   .factbox .stat { font-size: 1.5rem; }
   table { font-size: 0.85rem; }
   th, td { padding: 0.5rem 0.6rem; }
+  .decision-grid { grid-template-columns: 1fr; }
+  .decision-strip { padding: 2.25rem 0 2.5rem; }
+  .cta-inline { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.1rem 1.25rem; }
+  .cta-inline .btn { width: 100%; text-align: center; }
+  /* Mobile hamburger nav */
+  .nav-toggle-label { display: flex; }
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.75rem 1.5rem 1.25rem;
+    gap: 0.4rem;
+    box-shadow: var(--shadow-md);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease, padding 0.25s ease;
+    visibility: hidden;
+  }
+  .nav a {
+    padding: 0.65rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 1rem;
+  }
+  .nav a:last-of-type { border-bottom: 0; }
+  .nav .nav-cta {
+    margin-top: 0.5rem;
+    padding: 0.65rem 1rem;
+    text-align: center;
+    border-radius: var(--radius);
+    border-bottom: 0;
+  }
+  .nav-toggle:checked ~ .container .nav {
+    max-height: 24rem;
+    visibility: visible;
+    padding: 0.75rem 1.5rem 1.25rem;
+  }
+  .nav-toggle:checked ~ .container .nav-toggle-label span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .nav-toggle:checked ~ .container .nav-toggle-label span:nth-child(2) { opacity: 0; }
+  .nav-toggle:checked ~ .container .nav-toggle-label span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+  .site-header .container { position: relative; }
 }
 """
 
@@ -639,11 +824,11 @@ details > p, details > ul { margin-top: 0.75rem; }
 # Shared header / nav and footer markup.
 # ---------------------------------------------------------------------------
 NAV_LINKS = [
+    ("Colorado Map", "/colorado-radon-map/"),
+    ("Testing", "/radon-testing/"),
+    ("Mitigation", "/radon-mitigation-systems/"),
+    ("Cost", "/radon-mitigation-cost/"),
     ("Colorado Springs", "/colorado-springs/"),
-    ("Mitigation Cost", "/colorado-springs/radon-mitigation-cost/"),
-    ("Testing", "/colorado-springs/radon-testing/"),
-    ("Failed Test", "/colorado-springs/failed-radon-test/"),
-    ("About", "/about/"),
 ]
 
 
@@ -652,16 +837,20 @@ def header_html(current_path: str) -> str:
     for label, href in NAV_LINKS:
         items.append(f'<a href="{href}">{label}</a>')
     items.append('<a href="/request-quote/" class="nav-cta">Get a Quote</a>')
-    nav = "\n      ".join(items)
+    nav = "\n        ".join(items)
     return f"""<a class="skip" href="#main">Skip to main content</a>
 <header class="site-header">
+  <input type="checkbox" id="nav-toggle" class="nav-toggle">
   <div class="container">
     <a class="brand" href="/" aria-label="{SITE_NAME} home">
       <span class="brand-mark" aria-hidden="true">CR</span>
       <span>{SITE_NAME}</span>
     </a>
-    <nav class="nav" aria-label="Primary">
-      {nav}
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation menu" aria-controls="primary-nav">
+      <span></span><span></span><span></span>
+    </label>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+        {nav}
     </nav>
   </div>
 </header>"""
@@ -686,12 +875,13 @@ FOOTER_HTML = f"""<footer class="site-footer">
       <div>
         <h4>Content Library</h4>
         <ul>
-          <li><a href="/library/">Full Library</a></li>
+          <li><a href="/colorado-radon-map/">Colorado Radon Map</a></li>
           <li><a href="/radon-basics/">Radon Basics</a></li>
           <li><a href="/radon-testing/">Radon Testing</a></li>
           <li><a href="/radon-mitigation-systems/">Mitigation Systems</a></li>
           <li><a href="/radon-mitigation-cost/">Cost &amp; Quotes</a></li>
           <li><a href="/radon-contractors/">Choosing a Contractor</a></li>
+          <li><a href="/library/">Full Library Index</a></li>
         </ul>
       </div>
       <div>
@@ -787,7 +977,8 @@ def breadcrumb_nav_html(crumbs):
 def render_page(*, url_path, title, description, h1, body_html,
                 breadcrumbs=None, extra_jsonld=None, hero_html=None,
                 hero_eyebrow=None, hero_lede=None, hero_meta=None,
-                show_breadcrumbs=True, show_cta_banner=True, related=None):
+                show_breadcrumbs=True, show_cta_banner=True, related=None,
+                cta_variant="default"):
     """Render a complete HTML5 page."""
     canonical = SITE_URL + url_path
     extra = "\n  ".join(extra_jsonld or [])
@@ -830,7 +1021,16 @@ def render_page(*, url_path, title, description, h1, body_html,
     # Default CTA banner
     cta_banner = ""
     if show_cta_banner:
-        cta_banner = """<section class="container">
+        if cta_variant == "strong":
+            cta_banner = """<section class="container">
+      <div class="cta-banner cta-strong">
+        <h2>Ready to talk to a licensed Colorado contractor?</h2>
+        <p>Tell us about your home and test result — we'll connect you with our DORA-registered, NRPP/NRSB-certified mitigation partner. A written quote, no high-pressure sales, no obligation to move forward.</p>
+        <a href="/request-quote/" class="btn">Get a fast quote</a>
+      </div>
+    </section>"""
+        else:
+            cta_banner = """<section class="container">
       <div class="cta-banner">
         <h2>Get a Colorado Springs Radon Quote</h2>
         <p>Tell us about your home and test result and we'll connect you with a licensed Colorado mitigation partner. No high-pressure sales calls, no contracts to start.</p>

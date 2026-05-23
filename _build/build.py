@@ -169,6 +169,7 @@ write("colorado-springs/radon-mitigation-cost/index.html", render_page(
         ("Why Quotes Vary", "Five real cost drivers (including Colorado altitude)", "/radon-mitigation-cost/quote-variation/"),
         ("Real Estate Deadlines", "Mitigation under closing pressure in Colorado", "/radon-mitigation-cost/real-estate-deadlines/"),
     ],
+    cta_variant="strong",
 ))
 
 # 3a. COST HUB — statewide Colorado cost anchor (NEW Phase 2)
@@ -243,6 +244,7 @@ write("radon-mitigation-cost/quote-too-high/index.html", render_page(
         ("What's in a Quote", "14-item checklist for what should be included", "/radon-mitigation-cost/whats-in-a-quote/"),
         ("Cost Hub", "Statewide Colorado cost overview", "/radon-mitigation-cost/"),
     ],
+    cta_variant="strong",
 ))
 
 # 3d. WHAT'S IN A QUOTE (NEW Phase 2)
@@ -343,6 +345,7 @@ write("radon-mitigation-cost/real-estate-deadlines/index.html", render_page(
         ("Colorado Springs Cost", "Local quote ranges and scenario breakdown", "/colorado-springs/radon-mitigation-cost/"),
         ("Cost Hub", "Statewide Colorado cost overview", "/radon-mitigation-cost/"),
     ],
+    cta_variant="strong",
 ))
 
 # =========================================================================
@@ -1109,6 +1112,7 @@ write("colorado-springs/failed-radon-test/index.html", render_page(
         ("Real Estate Cost Deadlines", "Three buyer options and credit vs mitigate", "/radon-mitigation-cost/real-estate-deadlines/"),
         ("Mitigation Cost", "What you should expect to pay", "/colorado-springs/radon-mitigation-cost/"),
     ],
+    cta_variant="strong",
 ))
 
 # 6. QUOTE REQUEST

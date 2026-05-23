@@ -316,6 +316,14 @@ CS_COST_BODY_V2 = f"""
   </div>
 </section>
 
+<aside class="cta-inline" aria-label="Get a Colorado Springs quote">
+  <div class="cta-inline-text">
+    <strong>Ready to see a real quote for your home?</strong>
+    Tell us about your foundation and test result — our DORA-registered Colorado Springs partner gives you a written quote with scope, fan model, warranty, and post-mitigation test commitment. No high-pressure sales.
+  </div>
+  <a href="/request-quote/" class="btn">Request a quote</a>
+</aside>
+
 <section>
   <h2>What a fair Colorado Springs quote looks like</h2>
   <div class="prose-wide">
@@ -594,6 +602,14 @@ COST_TOO_HIGH_BODY = f"""
     </ul>
   </div>
 </section>
+
+<aside class="cta-inline" aria-label="Request a second-opinion quote">
+  <div class="cta-inline-text">
+    <strong>Want a second quote to compare?</strong>
+    The fastest way to know if your quote is fair is to put a second written estimate next to it. We connect you with our licensed Colorado partner for a free comparison quote.
+  </div>
+  <a href="/request-quote/" class="btn">Request a second quote</a>
+</aside>
 
 <section>
   <h2>The sanity-check tree</h2>

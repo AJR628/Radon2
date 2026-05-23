@@ -8,8 +8,16 @@ from pages_main import s, SOURCES
 QUOTE_BODY = f"""
 <section>
   <div class="prose-wide">
-    <p>Tell us a little about your home and your radon situation, and we'll route your information to a licensed Colorado mitigation partner who serves Colorado Springs. Submissions are free. No high-pressure sales calls; you'll get a written quote.</p>
-    <p>Need to understand the cost ranges first? Read the <a href="/colorado-springs/radon-mitigation-cost/">Colorado Springs mitigation cost page</a>.</p>
+    <p>Tell us a little about your home and your radon situation, and we'll route your information to our licensed Colorado mitigation partner who serves Colorado Springs. The quote is free. There's no obligation, no high-pressure sales call, and we don't sell your information to multiple contractors.</p>
+  </div>
+  <div class="trust-strip">
+    <span class="item"><strong>Free quote</strong> · no obligation</span>
+    <span class="item"><strong>One partner only</strong> · we don't shop your info</span>
+    <span class="item"><strong>DORA-registered</strong> · NRPP/NRSB-certified</span>
+    <span class="item"><strong>Written quote</strong> · scope, fan, warranty, retest</span>
+  </div>
+  <div class="prose-wide">
+    <p>Need cost context first? Read the <a href="/radon-mitigation-cost/">statewide cost page</a> or the <a href="/colorado-springs/radon-mitigation-cost/">Colorado Springs cost guide</a> before submitting.</p>
   </div>
 </section>
 

@@ -32,8 +32,8 @@ HOMEPAGE_HERO = f"""<section class="hero-photo">
         <h1>Radon is in roughly half of Colorado homes. Here's what to do about yours.</h1>
         <p class="lede">Colorado's geology means most homes here have elevated indoor radon. The good news: it's testable, fixable, and the state has clear rules to help you navigate it. This is the calm, sourced guide to understanding your situation and what it should cost.</p>
         <div class="hero-buttons">
-          <a href="/colorado-springs/" class="btn">Start with Colorado Springs</a>
-          <a href="/colorado-springs/radon-mitigation-cost/" class="btn btn-secondary">See typical costs</a>
+          <a href="/request-quote/" class="btn">Get a Colorado Springs quote</a>
+          <a href="/colorado-radon-map/" class="btn btn-secondary">See the Colorado radon map</a>
         </div>
         <div class="hero-meta">
           <span><strong>Updated</strong> May 2026</span>
@@ -44,6 +44,41 @@ HOMEPAGE_HERO = f"""<section class="hero-photo">
         <img src="/assets/images/hero-colorado-homes.jpg" alt="A Colorado home against the Rocky Mountain foothills." width="1600" height="1067">
         <a class="img-credit" href="https://unsplash.com/photos/HrGBOlyASYE" rel="noopener" target="_blank">Photo: Unsplash</a>
       </div>
+    </div>
+  </div>
+</section>
+<section class="decision-strip">
+  <div class="container">
+    <div class="lead-in">
+      <span class="eyebrow">Where to start</span>
+      <h2>Pick what sounds like you</h2>
+      <p>Six common situations. Each links straight to the page that answers it.</p>
+    </div>
+    <div class="decision-grid">
+      <a href="/colorado-radon-map/" class="decision-card">
+        <span class="scenario">I want a visual sense of Colorado radon risk by area.</span>
+        <span class="destination">See the Colorado radon map</span>
+      </a>
+      <a href="/radon-testing/" class="decision-card">
+        <span class="scenario">I haven't tested my home yet.</span>
+        <span class="destination">How to test for radon in Colorado</span>
+      </a>
+      <a href="/colorado-springs/failed-radon-test/" class="decision-card">
+        <span class="scenario">My test came back high. What now?</span>
+        <span class="destination">Failed radon test next steps</span>
+      </a>
+      <a href="/radon-mitigation-cost/quote-too-high/" class="decision-card">
+        <span class="scenario">I have a mitigation quote and want to evaluate it.</span>
+        <span class="destination">Is my quote fair?</span>
+      </a>
+      <a href="/radon-testing/during-real-estate-transactions/" class="decision-card">
+        <span class="scenario">I'm buying or selling a Colorado home.</span>
+        <span class="destination">Radon in real estate (SB23-206)</span>
+      </a>
+      <a href="/request-quote/" class="decision-card is-featured">
+        <span class="scenario">I'm ready for a quote from a licensed Colorado contractor.</span>
+        <span class="destination">Request a free quote</span>
+      </a>
     </div>
   </div>
 </section>"""
@@ -194,6 +229,13 @@ CS_HUB_HERO = f"""<section class="hero-photo">
 
 
 CS_HUB_BODY = f"""
+<section>
+  <div class="callout">
+    <strong>New here? Start with the Colorado radon map.</strong>
+    <p>El Paso County is in EPA Zone 1, the highest predicted-radon classification. The <a href="/colorado-radon-map/">Colorado Radon Map</a> shows how El Paso County compares to the other 63 Colorado counties and what the EPA zone classification does and doesn't tell you about your specific home.</p>
+  </div>
+</section>
+
 <section>
   <h2>How radon gets into a Colorado Springs home</h2>
   <div class="explainer">
