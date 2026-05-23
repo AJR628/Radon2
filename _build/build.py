@@ -68,6 +68,9 @@ from pages_library import (  # noqa: E402
 from pages_map import (  # noqa: E402
     COLORADO_MAP_BODY, colorado_map_faq_jsonld,
 )
+from pages_denver import (  # noqa: E402
+    DENVER_BODY, denver_faq_jsonld,
+)
 from pages_misc import (  # noqa: E402
     QUOTE_BODY, QUOTE_THANKYOU_BODY,
     ABOUT_BODY, DISCLOSURE_BODY,
@@ -981,6 +984,30 @@ write("colorado-springs/home-buyers-and-sellers/index.html", render_page(
 # PHASE 7 — Content library hub
 # =========================================================================
 
+# 31. DENVER HUB (NEW Phase 9 — second local coverage area)
+write("denver/index.html", render_page(
+    url_path="/denver/",
+    title="Denver Radon Guide: Testing, Mitigation Cost & Quote Help",
+    description="Denver radon guide. Front Range EPA Zone 1 context, Denver Metro counties, what's different about Denver homes, testing and mitigation decision flow, SB23-206 real estate, and how to get a Denver radon quote.",
+    h1="Denver Radon Guide",
+    hero_eyebrow="Denver Metro · Front Range",
+    hero_lede="Denver County and every Denver Metro county is in the EPA's highest predicted indoor-radon classification. Roughly half of Colorado homes test above the EPA action level. Here's what that means for a Denver homeowner, buyer, seller, tenant, or landlord — and where to start.",
+    body_html=DENVER_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Denver", "/denver/"),
+    ],
+    extra_jsonld=[
+        denver_faq_jsonld(),
+        article_schema("/denver/", "Denver Radon Guide", "Denver-specific radon decision page covering Front Range EPA Zone 1 context, Denver Metro counties, housing-stock framing, testing and mitigation routing, SB23-206 real estate disclosure, and contractor verification."),
+    ],
+    related=[
+        ("Colorado Radon Map", "Statewide EPA zone context for all 64 Colorado counties", "/colorado-radon-map/"),
+        ("Mitigation Cost in Colorado", "Statewide cost anchor with four-scenario framework", "/radon-mitigation-cost/"),
+        ("How to Test for Radon", "Three test types, where to get a kit, what your number means", "/radon-testing/"),
+    ],
+))
+
 # 30. COLORADO RADON MAP (NEW Phase 8 — top-level reference page)
 write("colorado-radon-map/index.html", render_page(
     url_path="/colorado-radon-map/",
@@ -1131,11 +1158,11 @@ write("colorado-springs/failed-radon-test/index.html", render_page(
 # 6. QUOTE REQUEST
 write("request-quote/index.html", render_page(
     url_path="/request-quote/",
-    title="Request a Colorado Springs Radon Quote — Colorado Radon Guide",
-    description="Submit your radon situation and we'll connect you with a licensed Colorado radon mitigation partner. Free, no obligation, no high-pressure sales.",
+    title="Request a Colorado Radon Mitigation Quote — Colorado Radon Guide",
+    description="Submit your radon situation and we'll connect you with a licensed Colorado radon mitigation partner serving Colorado Springs, Denver, or your Colorado area. Free, no obligation, no high-pressure sales.",
     h1="Request a radon quote",
     hero_eyebrow="Quote request",
-    hero_lede="Tell us about your home and your radon situation. We route one inquiry to one licensed Colorado mitigation partner — no spam, no contractor pile-ons.",
+    hero_lede="Tell us about your home and your radon situation. We route one inquiry to one licensed Colorado mitigation partner — no spam, no contractor pile-ons. Serving Colorado Springs, Denver Metro, and other Colorado areas.",
     body_html=QUOTE_BODY,
     breadcrumbs=[("Home", "/"), ("Request a Quote", "/request-quote/")],
     show_cta_banner=False,
@@ -1267,6 +1294,8 @@ SITEMAP_URLS = [
     ("/library/", "0.7"),
     # Colorado Radon Map (Phase 8 — top-level reference page)
     ("/colorado-radon-map/", "0.9"),
+    # Denver local hub (Phase 9 — second city)
+    ("/denver/", "0.9"),
     ("/request-quote/", "0.8"),
     ("/about/", "0.4"),
     ("/disclosure/", "0.4"),
@@ -1448,7 +1477,7 @@ Every numeric or legal claim is linked to its primary source:
 - CDPHE — <https://cdphe.colorado.gov/radon>
 - EPA — <https://www.epa.gov/radon>
 - El Paso County Public Health — <https://www.elpasocountyhealth.org/radon>
-- Colorado DORA Office of Radon Professionals — <https://dpo.colorado.gov/Radon>
+- Colorado DORA Office of Radon Professionals — <https://dpo.colorado.gov/RadonProfessionals>
 - Colorado SB23-206 — <https://leg.colorado.gov/bills/sb23-206>
 
 ## License

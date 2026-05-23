@@ -143,7 +143,7 @@ CONTRACTORS_HUB_BODY = f"""
 <aside class="sources" aria-label="Sources">
   <h2>Sources</h2>
   <ol>
-    <li id="src-1">Colorado DORA, Office of Radon Professionals (4 CCR 754-1). <a href="{s('dora_radon')}" rel="noopener" target="_blank">dpo.colorado.gov/Radon</a></li>
+    <li id="src-1">Colorado DORA, Office of Radon Professionals (4 CCR 754-1). <a href="{s('dora_radon')}" rel="noopener" target="_blank">dpo.colorado.gov/RadonProfessionals</a></li>
     <li id="src-2">NRPP <a href="{s('nrpp')}" rel="noopener" target="_blank">nrpp.info</a> · NRSB <a href="{s('nrsb')}" rel="noopener" target="_blank">nrsb.org</a></li>
     <li id="src-3">U.S. EPA. <em>Consumer's Guide to Radon Reduction</em>. <a href="{s('epa_consumer_guide')}" rel="noopener" target="_blank">epa.gov/radon/consumers-guide-radon-reduction</a></li>
     <li id="src-4">Colorado DORA complaints. <a href="{s('dora_complaints')}" rel="noopener" target="_blank">dpo.colorado.gov/Filing-Complaint</a></li>
@@ -419,7 +419,7 @@ QUESTIONS_TO_ASK_BODY = f"""
   <h2>Sources</h2>
   <ol>
     <li id="src-1">U.S. EPA. <em>Consumer's Guide to Radon Reduction</em>. <a href="{s('epa_consumer_guide')}" rel="noopener" target="_blank">epa.gov/radon/consumers-guide-radon-reduction</a></li>
-    <li id="src-2">Colorado DORA, Office of Radon Professionals. <a href="{s('dora_radon')}" rel="noopener" target="_blank">dpo.colorado.gov/Radon</a></li>
+    <li id="src-2">Colorado DORA, Office of Radon Professionals. <a href="{s('dora_radon')}" rel="noopener" target="_blank">dpo.colorado.gov/RadonProfessionals</a></li>
   </ol>
 </aside>
 """
@@ -537,7 +537,7 @@ RED_FLAGS_BODY = f"""
 <aside class="sources" aria-label="Sources">
   <h2>Sources</h2>
   <ol>
-    <li id="src-1">Colorado DORA, Office of Radon Professionals (4 CCR 754-1). <a href="{s('dora_radon')}" rel="noopener" target="_blank">dpo.colorado.gov/Radon</a></li>
+    <li id="src-1">Colorado DORA, Office of Radon Professionals (4 CCR 754-1). <a href="{s('dora_radon')}" rel="noopener" target="_blank">dpo.colorado.gov/RadonProfessionals</a></li>
     <li id="src-2">ANSI/AARST SGM-SF-2023 Soil Gas Mitigation Standards. <a href="{s('aarst_standards')}" rel="noopener" target="_blank">standards.aarst.org</a></li>
   </ol>
 </aside>

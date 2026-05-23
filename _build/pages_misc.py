@@ -8,7 +8,7 @@ from pages_main import s, SOURCES
 QUOTE_BODY = f"""
 <section>
   <div class="prose-wide">
-    <p>Tell us a little about your home and your radon situation, and we'll route your information to our licensed Colorado mitigation partner who serves Colorado Springs. The quote is free. There's no obligation, no high-pressure sales call, and we don't sell your information to multiple contractors.</p>
+    <p>Tell us a little about your home and your radon situation, and we'll route your information to our licensed Colorado mitigation partner who serves your area. The quote is free. There's no obligation, no high-pressure sales call, and we don't sell your information to multiple contractors.</p>
   </div>
   <div class="trust-strip">
     <span class="item"><strong>Free quote</strong> · no obligation</span>
@@ -17,7 +17,7 @@ QUOTE_BODY = f"""
     <span class="item"><strong>Written quote</strong> · scope, fan, warranty, retest</span>
   </div>
   <div class="prose-wide">
-    <p>Need cost context first? Read the <a href="/radon-mitigation-cost/">statewide cost page</a> or the <a href="/colorado-springs/radon-mitigation-cost/">Colorado Springs cost guide</a> before submitting.</p>
+    <p>Need cost context first? Read the <a href="/radon-mitigation-cost/">statewide cost page</a>, the <a href="/colorado-springs/radon-mitigation-cost/">Colorado Springs cost guide</a>, or the <a href="/denver/">Denver hub</a> before submitting.</p>
   </div>
 </section>
 
@@ -31,8 +31,7 @@ QUOTE_BODY = f"""
       <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
     </p>
 
-    <!-- City + source tracking (visible only to the back-end) -->
-    <input type="hidden" name="city" value="colorado-springs">
+    <!-- Source page tracking (visible only to the back-end). Service area is captured in the visible service_area field below. -->
     <input type="hidden" name="source_page" value="/request-quote/">
 
     <div class="field-row">
@@ -54,8 +53,19 @@ QUOTE_BODY = f"""
       <div class="field">
         <label for="zip">ZIP code <span class="required">*</span></label>
         <input id="zip" name="zip" type="text" inputmode="numeric" pattern="[0-9]{{5}}" autocomplete="postal-code" required>
-        <div class="hint">Five-digit Colorado ZIP code.</div>
+        <div class="hint">Five-digit Colorado ZIP code. We route by ZIP, not city.</div>
       </div>
+    </div>
+
+    <div class="field">
+      <label for="service-area">Where is the property located? <span class="required">*</span></label>
+      <select id="service-area" name="service_area" required>
+        <option value="">Select an area…</option>
+        <option value="colorado-springs">Colorado Springs / El Paso County</option>
+        <option value="denver-metro">Denver Metro</option>
+        <option value="other-colorado">Other Colorado area</option>
+      </select>
+      <div class="hint">Helps us route your request to a contractor whose service area covers you.</div>
     </div>
 
     <div class="field">

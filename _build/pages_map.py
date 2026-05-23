@@ -329,7 +329,32 @@ COLORADO_MAP_BODY = f"""
       <li><a href="/colorado-springs/radon-mitigation-cost/"><strong>Mitigation cost in Colorado Springs</strong></a> — local quote ranges by scenario ($900-$4,800 depending on foundation).</li>
       <li><a href="/colorado-springs/failed-radon-test/"><strong>Failed radon test next steps</strong></a> — step-by-step playbook for elevated results.</li>
     </ul>
-    <p>The Front Range north and west of Colorado Springs — Denver, Jefferson, Boulder, Larimer, Weld counties — all sit in EPA Zone 1 as well. We'll add city-specific hubs for these regions as the site expands.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Denver and the Front Range Metro</h2>
+  <div class="prose-wide">
+    <p>Every Denver Metro county is classified <strong>EPA Zone 1</strong> (highest predicted indoor radon). None of the 11 Colorado counties in EPA Zone 2 fall inside the Denver-Aurora-Centennial metro footprint.<sup><a href="#src-1">[1]</a></sup></p>
+    <table>
+      <thead>
+        <tr><th>County</th><th>EPA Zone</th><th>What sits in it (selected)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Denver County</td><td>Zone 1</td><td>City and County of Denver</td></tr>
+        <tr><td>Adams County</td><td>Zone 1</td><td>Thornton, Northglenn, Commerce City, Brighton, parts of Aurora and Westminster</td></tr>
+        <tr><td>Arapahoe County</td><td>Zone 1</td><td>Centennial, Englewood, Littleton, most of Aurora, Greenwood Village</td></tr>
+        <tr><td>Boulder County</td><td>Zone 1</td><td>Boulder, Longmont, Louisville, Lafayette, Superior</td></tr>
+        <tr><td>Broomfield County</td><td>Zone 1</td><td>City and County of Broomfield</td></tr>
+        <tr><td>Douglas County</td><td>Zone 1</td><td>Castle Rock, Parker, Lone Tree, Highlands Ranch (CDP)</td></tr>
+        <tr><td>Jefferson County</td><td>Zone 1</td><td>Lakewood, Arvada, Wheat Ridge, Golden, Evergreen</td></tr>
+      </tbody>
+    </table>
+    <p>Going further north on the Front Range, <strong>Larimer County</strong> (Fort Collins, Loveland, Estes Park) and <strong>Weld County</strong> (Greeley, Windsor, parts of Erie) are also EPA Zone 1.</p>
+    <p>The same caveat applies as everywhere else: Zone 1 is the EPA's <em>predicted</em> classification, not your specific home's actual radon level. CDPHE still recommends every Colorado home be tested regardless of zone.<sup><a href="#src-2">[2]</a></sup> The COEPHT county-level radon dataset offers a finer-grained look at actual indoor measurements for these counties.<sup><a href="#src-4">[4]</a></sup></p>
+    <ul>
+      <li><a href="/denver/"><strong>Denver radon hub</strong></a> — Front Range radon risk context, Denver housing stock, testing and mitigation decision flow, real estate and quote scenarios.</li>
+    </ul>
   </div>
 </section>
 

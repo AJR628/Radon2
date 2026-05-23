@@ -889,6 +889,7 @@ NAV_LINKS = [
     ("Mitigation", "/radon-mitigation-systems/"),
     ("Cost", "/radon-mitigation-cost/"),
     ("Colorado Springs", "/colorado-springs/"),
+    ("Denver", "/denver/"),
 ]
 
 
@@ -924,12 +925,13 @@ FOOTER_HTML = f"""<footer class="site-footer">
         <p>An independent Colorado radon information and quote-connection resource. We do not install mitigation systems.</p>
       </div>
       <div>
-        <h4>Colorado Springs</h4>
+        <h4>Local Guides</h4>
         <ul>
           <li><a href="/colorado-springs/">Colorado Springs Hub</a></li>
-          <li><a href="/colorado-springs/radon-mitigation-cost/">Mitigation Cost</a></li>
-          <li><a href="/colorado-springs/radon-testing/">Radon Testing</a></li>
-          <li><a href="/colorado-springs/failed-radon-test/">After a Failed Test</a></li>
+          <li><a href="/colorado-springs/radon-mitigation-cost/">Colorado Springs Cost</a></li>
+          <li><a href="/colorado-springs/radon-testing/">Colorado Springs Testing</a></li>
+          <li><a href="/colorado-springs/failed-radon-test/">After a Failed Test (CS)</a></li>
+          <li><a href="/denver/">Denver Hub</a></li>
         </ul>
       </div>
       <div>
@@ -959,7 +961,7 @@ FOOTER_HTML = f"""<footer class="site-footer">
           <li><a href="https://cdphe.colorado.gov/radon" rel="noopener" target="_blank">CDPHE Radon Program</a></li>
           <li><a href="https://www.epa.gov/radon" rel="noopener" target="_blank">EPA Radon</a></li>
           <li><a href="https://www.elpasocountyhealth.org/radon" rel="noopener" target="_blank">El Paso County Public Health</a></li>
-          <li><a href="https://dpo.colorado.gov/Radon" rel="noopener" target="_blank">Colorado DORA Office of Radon Professionals</a></li>
+          <li><a href="https://dpo.colorado.gov/RadonProfessionals" rel="noopener" target="_blank">Colorado DORA Office of Radon Professionals</a></li>
           <li><a href="https://leg.colorado.gov/bills/sb23-206" rel="noopener" target="_blank">Colorado SB23-206</a></li>
         </ul>
       </div>
@@ -1107,8 +1109,8 @@ def render_page(*, url_path, title, description, h1, body_html,
         else:
             cta_banner = """<section class="container">
       <div class="cta-banner">
-        <h2>Get a Colorado Springs Radon Quote</h2>
-        <p>Tell us about your home and test result and we'll connect you with a licensed Colorado mitigation partner. No high-pressure sales calls, no contracts to start.</p>
+        <h2>Get a Colorado Radon Quote</h2>
+        <p>Tell us about your home and test result and we'll connect you with a licensed Colorado mitigation partner who serves your area. No high-pressure sales calls, no contracts to start.</p>
         <a href="/request-quote/" class="btn">Request a Quote</a>
       </div>
     </section>"""

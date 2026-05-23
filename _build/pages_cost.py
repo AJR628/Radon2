@@ -191,7 +191,7 @@ COST_CO_BODY = f"""
     <li id="src-1">CDPHE. <em>Radon</em>. <a href="{s('cdphe_radon')}" rel="noopener" target="_blank">cdphe.colorado.gov/radon</a></li>
     <li id="src-2">El Paso County Public Health. <em>Radon</em>. <a href="{s('elpaso_radon')}" rel="noopener" target="_blank">elpasocountyhealth.org/radon</a></li>
     <li id="src-3">RadonAway. <em>Fan Specifications &amp; Altitude Correction</em>. <a href="{s('radonaway_specs')}" rel="noopener" target="_blank">radonaway.com</a></li>
-    <li id="src-4">Colorado DORA, Office of Radon Professionals. <a href="{s('dora_radon')}" rel="noopener" target="_blank">dpo.colorado.gov/Radon</a></li>
+    <li id="src-4">Colorado DORA, Office of Radon Professionals. <a href="{s('dora_radon')}" rel="noopener" target="_blank">dpo.colorado.gov/RadonProfessionals</a></li>
     <li id="src-5">U.S. EPA. <em>Consumer's Guide to Radon Reduction</em>. <a href="{s('epa_consumer_guide')}" rel="noopener" target="_blank">epa.gov/radon/consumers-guide-radon-reduction</a></li>
   </ol>
 </aside>
@@ -375,7 +375,7 @@ CS_COST_BODY_V2 = f"""
     <li id="src-1">CDPHE. <em>Radon</em>. <a href="{s('cdphe_radon')}" rel="noopener" target="_blank">cdphe.colorado.gov/radon</a></li>
     <li id="src-2">U.S. EPA. <em>EPA Map of Radon Zones</em>. <a href="{s('epa_radon')}" rel="noopener" target="_blank">epa.gov/radon</a></li>
     <li id="src-3">El Paso County Public Health. <em>Radon</em>. <a href="{s('elpaso_radon')}" rel="noopener" target="_blank">elpasocountyhealth.org/radon</a></li>
-    <li id="src-4">Colorado DORA, Office of Radon Professionals. <a href="{s('dora_radon')}" rel="noopener" target="_blank">dpo.colorado.gov/Radon</a></li>
+    <li id="src-4">Colorado DORA, Office of Radon Professionals. <a href="{s('dora_radon')}" rel="noopener" target="_blank">dpo.colorado.gov/RadonProfessionals</a></li>
     <li id="src-5">Pikes Peak Regional Building Department. <a href="{s('pprbd')}" rel="noopener" target="_blank">pprbd.org</a></li>
     <li id="src-6">U.S. EPA. <em>Consumer's Guide to Radon Reduction</em>. <a href="{s('epa_consumer_guide')}" rel="noopener" target="_blank">epa.gov/radon/consumers-guide-radon-reduction</a></li>
   </ol>
@@ -520,7 +520,7 @@ COST_VARIATION_BODY = f"""
     <li id="src-1">CDPHE. <em>Radon</em>. <a href="{s('cdphe_radon')}" rel="noopener" target="_blank">cdphe.colorado.gov/radon</a></li>
     <li id="src-2">RadonAway. <em>Fan Specifications &amp; Altitude Correction</em>. <a href="{s('radonaway_specs')}" rel="noopener" target="_blank">radonaway.com</a></li>
     <li id="src-3">ANSI/AARST. <em>SGM-SF-2023 Soil Gas Mitigation Standards</em>. <a href="{s('aarst_standards')}" rel="noopener" target="_blank">standards.aarst.org</a></li>
-    <li id="src-4">Colorado DORA, Office of Radon Professionals. <a href="{s('dora_radon')}" rel="noopener" target="_blank">dpo.colorado.gov/Radon</a></li>
+    <li id="src-4">Colorado DORA, Office of Radon Professionals. <a href="{s('dora_radon')}" rel="noopener" target="_blank">dpo.colorado.gov/RadonProfessionals</a></li>
   </ol>
 </aside>
 """
@@ -660,7 +660,7 @@ COST_TOO_HIGH_BODY = f"""
 <aside class="sources" aria-label="Sources">
   <h2>Sources</h2>
   <ol>
-    <li id="src-1">Colorado DORA, Office of Radon Professionals. <a href="{s('dora_radon')}" rel="noopener" target="_blank">dpo.colorado.gov/Radon</a></li>
+    <li id="src-1">Colorado DORA, Office of Radon Professionals. <a href="{s('dora_radon')}" rel="noopener" target="_blank">dpo.colorado.gov/RadonProfessionals</a></li>
     <li id="src-2">RadonAway. <em>Fan Specifications &amp; Altitude Correction</em>. <a href="{s('radonaway_specs')}" rel="noopener" target="_blank">radonaway.com</a></li>
   </ol>
 </aside>
@@ -764,7 +764,7 @@ COST_INCLUDES_BODY = f"""
 <aside class="sources" aria-label="Sources">
   <h2>Sources</h2>
   <ol>
-    <li id="src-1">Colorado DORA, Office of Radon Professionals. <a href="{s('dora_radon')}" rel="noopener" target="_blank">dpo.colorado.gov/Radon</a></li>
+    <li id="src-1">Colorado DORA, Office of Radon Professionals. <a href="{s('dora_radon')}" rel="noopener" target="_blank">dpo.colorado.gov/RadonProfessionals</a></li>
     <li id="src-2">National Radon Proficiency Program. <a href="{s('nrpp')}" rel="noopener" target="_blank">nrpp.info</a> · National Radon Safety Board. <a href="{s('nrsb')}" rel="noopener" target="_blank">nrsb.org</a></li>
     <li id="src-3">U.S. EPA. <em>Consumer's Guide to Radon Reduction</em>. <a href="{s('epa_consumer_guide')}" rel="noopener" target="_blank">epa.gov/radon/consumers-guide-radon-reduction</a></li>
     <li id="src-4">Pikes Peak Regional Building Department. <a href="{s('pprbd')}" rel="noopener" target="_blank">pprbd.org</a></li>

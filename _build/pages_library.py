@@ -46,6 +46,10 @@ LIBRARY_BODY = f"""
           <td>I'm buying or selling a Colorado home</td>
           <td><a href="/colorado-springs/home-buyers-and-sellers/">Radon for CS Home Buyers and Sellers</a></td>
         </tr>
+        <tr>
+          <td>I'm in Denver or the Denver Metro area</td>
+          <td><a href="/denver/">Denver Radon Guide</a></td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -141,15 +145,22 @@ LIBRARY_BODY = f"""
 </section>
 
 <section>
-  <h2>Colorado Springs Local</h2>
+  <h2>Local Area Guides</h2>
   <div class="prose-wide">
-    <p>Local Colorado Springs and El Paso County context.</p>
+    <p>City and county-specific context. We currently publish two local hubs — Colorado Springs (El Paso County, our V1 launch market) and Denver (the Denver Metro Front Range). Additional Colorado cities will be added as we can produce content that goes beyond a name swap.</p>
+
+    <h3 style="margin-top:1.5rem;">Colorado Springs / El Paso County</h3>
     <ul>
       <li><a href="/colorado-springs/"><strong>Colorado Springs Radon Guide</strong></a> — local prevalence, testing, mitigation, real estate</li>
       <li><a href="/colorado-springs/radon-mitigation-cost/"><strong>Mitigation Cost in Colorado Springs</strong></a> — local quote ranges, El Paso County context</li>
       <li><a href="/colorado-springs/radon-testing/"><strong>Radon Testing in Colorado Springs</strong></a> — local kit sources, professional testing</li>
       <li><a href="/colorado-springs/failed-radon-test/"><strong>Failed Radon Test in Colorado Springs</strong></a> — next steps by situation</li>
       <li><a href="/colorado-springs/home-buyers-and-sellers/"><strong>Home Buyers and Sellers</strong></a> — CS-specific real estate guide with SB23-206 context</li>
+    </ul>
+
+    <h3 style="margin-top:1.5rem;">Denver Metro</h3>
+    <ul>
+      <li><a href="/denver/"><strong>Denver Radon Guide</strong></a> — Front Range radon risk, Denver housing stock, testing and mitigation decision flow, real estate and quote scenarios</li>
     </ul>
   </div>
 </section>

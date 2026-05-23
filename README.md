@@ -148,7 +148,7 @@ Every numeric or legal claim is linked to its primary source:
 - CDPHE — <https://cdphe.colorado.gov/radon>
 - EPA — <https://www.epa.gov/radon>
 - El Paso County Public Health — <https://www.elpasocountyhealth.org/radon>
-- Colorado DORA Office of Radon Professionals — <https://dpo.colorado.gov/Radon>
+- Colorado DORA Office of Radon Professionals — <https://dpo.colorado.gov/RadonProfessionals>
 - Colorado SB23-206 — <https://leg.colorado.gov/bills/sb23-206>
 
 ## License

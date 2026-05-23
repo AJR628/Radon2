@@ -8,9 +8,9 @@ SOURCES = {
     "epa_radon": "https://www.epa.gov/radon",
     "epa_action_level": "https://www.epa.gov/radon/health-risk-radon",
     "elpaso_radon": "https://www.elpasocountyhealth.org/radon",
-    "denver_radon": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Public-Health-Environment/Environmental-Quality/Air-Quality/Radon",
+    "denver_radon": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Public-Health-Environment/Public-Health-Investigations/Healthy-Families-Healthy-Homes/Radon",
     "sb23_206": "https://leg.colorado.gov/bills/sb23-206",
-    "dora_radon": "https://dpo.colorado.gov/Radon",
+    "dora_radon": "https://dpo.colorado.gov/RadonProfessionals",
     "nrpp": "https://nrpp.info/",
     "nrsb": "https://nrsb.org/",
 }
@@ -32,7 +32,7 @@ HOMEPAGE_HERO = f"""<section class="hero-photo">
         <h1>Radon is in roughly half of Colorado homes. Here's what to do about yours.</h1>
         <p class="lede">Colorado's geology means most homes here have elevated indoor radon. The good news: it's testable, fixable, and the state has clear rules to help you navigate it. This is the calm, sourced guide to understanding your situation and what it should cost.</p>
         <div class="hero-buttons">
-          <a href="/request-quote/" class="btn">Get a Colorado Springs quote</a>
+          <a href="/request-quote/" class="btn">Get a free Colorado quote</a>
           <a href="/colorado-radon-map/" class="btn btn-secondary">See the Colorado radon map</a>
         </div>
         <div class="hero-meta">
@@ -161,8 +161,8 @@ HOMEPAGE_BODY = f"""
 </section>
 
 <section>
-  <h2>Pick your city</h2>
-  <p style="max-width:42rem;color:var(--text-muted);">We're starting with Colorado Springs, where El Paso County's public-health data is the most pointed in the state. More Front Range cities are next.</p>
+  <h2>Pick your area</h2>
+  <p style="max-width:42rem;color:var(--text-muted);">Currently building local guides for Colorado Springs and Denver, with more Colorado areas coming. Outside these two? The statewide pillar pages (testing, mitigation, cost, contractor selection) apply everywhere in Colorado — and the quote form routes by ZIP, not city.</p>
   <div class="card-grid">
     <div class="card">
       <h3>Colorado Springs</h3>
@@ -170,9 +170,14 @@ HOMEPAGE_BODY = f"""
       <p><a href="/colorado-springs/" class="btn btn-secondary">Open the Colorado Springs hub</a></p>
     </div>
     <div class="card">
-      <h3>More cities coming</h3>
-      <p>We're expanding to Denver, Aurora, Boulder, and Fort Collins next. If you'd like to be notified when your city's guide is live, <a href="/contact/">drop us a line</a>.</p>
-      <p><span class="pill">Coming soon</span></p>
+      <h3>Denver</h3>
+      <p>Denver and every Denver Metro county sits in EPA Zone 1. Denver's housing mix — older bungalows, full basements, finished lower levels — directly shapes how testing and mitigation play out. Start here if you live in Denver or the metro.</p>
+      <p><a href="/denver/" class="btn btn-secondary">Open the Denver hub</a></p>
+    </div>
+    <div class="card">
+      <h3>Other Colorado area</h3>
+      <p>The site's pillar pages — <a href="/radon-testing/">testing</a>, <a href="/radon-mitigation-systems/">mitigation systems</a>, <a href="/radon-mitigation-cost/">cost</a>, <a href="/radon-contractors/">choosing a contractor</a> — apply statewide. <a href="/contact/">Tell us</a> what city you'd like covered next.</p>
+      <p><span class="pill">Statewide pillars</span></p>
     </div>
   </div>
 </section>
@@ -190,7 +195,7 @@ HOMEPAGE_BODY = f"""
     <li id="src-1">Colorado Department of Public Health and Environment. <em>Radon</em>. <a href="{s('cdphe_radon')}" rel="noopener" target="_blank">cdphe.colorado.gov/radon</a></li>
     <li id="src-2">U.S. Environmental Protection Agency. <em>Radon</em>. <a href="{s('epa_radon')}" rel="noopener" target="_blank">epa.gov/radon</a></li>
     <li id="src-3">U.S. Environmental Protection Agency. <em>Health Risk of Radon</em>. <a href="{s('epa_action_level')}" rel="noopener" target="_blank">epa.gov/radon/health-risk-radon</a></li>
-    <li id="src-4">Colorado Department of Regulatory Agencies. <em>Office of Radon Professionals</em>. <a href="{s('dora_radon')}" rel="noopener" target="_blank">dpo.colorado.gov/Radon</a></li>
+    <li id="src-4">Colorado Department of Regulatory Agencies. <em>Office of Radon Professionals</em>. <a href="{s('dora_radon')}" rel="noopener" target="_blank">dpo.colorado.gov/RadonProfessionals</a></li>
     <li id="src-5">El Paso County Public Health. <em>Radon</em>. <a href="{s('elpaso_radon')}" rel="noopener" target="_blank">elpasocountyhealth.org/radon</a></li>
     <li id="src-6">Colorado General Assembly. <em>SB23-206: Concerning measures to mitigate the effects of radon in residential properties</em>. <a href="{s('sb23_206')}" rel="noopener" target="_blank">leg.colorado.gov/bills/sb23-206</a></li>
   </ol>
@@ -383,7 +388,7 @@ CS_HUB_BODY = f"""
   <ol>
     <li id="src-1">El Paso County Public Health. <em>Radon</em>. <a href="{s('elpaso_radon')}" rel="noopener" target="_blank">elpasocountyhealth.org/radon</a></li>
     <li id="src-2">U.S. Environmental Protection Agency. <em>Radon</em>. <a href="{s('epa_radon')}" rel="noopener" target="_blank">epa.gov/radon</a></li>
-    <li id="src-3">Colorado DORA, Office of Radon Professionals. <a href="{s('dora_radon')}" rel="noopener" target="_blank">dpo.colorado.gov/Radon</a></li>
+    <li id="src-3">Colorado DORA, Office of Radon Professionals. <a href="{s('dora_radon')}" rel="noopener" target="_blank">dpo.colorado.gov/RadonProfessionals</a></li>
     <li id="src-4">U.S. Environmental Protection Agency. <em>Health Risk of Radon</em>. <a href="{s('epa_action_level')}" rel="noopener" target="_blank">epa.gov/radon/health-risk-radon</a></li>
     <li id="src-5">Colorado Department of Public Health and Environment. <em>Radon</em>. <a href="{s('cdphe_radon')}" rel="noopener" target="_blank">cdphe.colorado.gov/radon</a></li>
     <li id="src-6">Colorado General Assembly. <em>SB23-206</em>. <a href="{s('sb23_206')}" rel="noopener" target="_blank">leg.colorado.gov/bills/sb23-206</a></li>

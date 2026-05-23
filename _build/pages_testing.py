@@ -581,7 +581,7 @@ TESTING_REAL_ESTATE_BODY = f"""
   <ol>
     <li id="src-1">Colorado General Assembly. <em>SB23-206 (CRS § 38-35.7-112)</em>. <a href="{s('sb23_206')}" rel="noopener" target="_blank">leg.colorado.gov/bills/sb23-206</a></li>
     <li id="src-2">Colorado Division of Real Estate. <em>Real Estate Commission Forms</em>. <a href="{s('crec_spd')}" rel="noopener" target="_blank">dre.colorado.gov/division-real-estate-commission-forms</a></li>
-    <li id="src-3">Colorado DORA, Office of Radon Professionals. <a href="{s('dora_radon')}" rel="noopener" target="_blank">dpo.colorado.gov/Radon</a></li>
+    <li id="src-3">Colorado DORA, Office of Radon Professionals. <a href="{s('dora_radon')}" rel="noopener" target="_blank">dpo.colorado.gov/RadonProfessionals</a></li>
     <li id="src-4">National Radon Proficiency Program / National Radon Safety Board. <a href="{s('nrpp')}" rel="noopener" target="_blank">nrpp.info</a> · <a href="{s('nrsb')}" rel="noopener" target="_blank">nrsb.org</a></li>
   </ol>
 </aside>

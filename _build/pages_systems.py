@@ -129,7 +129,7 @@ SYSTEMS_HUB_BODY = f"""
     <li id="src-3">U.S. EPA. <em>Consumer's Guide to Radon Reduction</em>. <a href="{s('epa_consumer_guide')}" rel="noopener" target="_blank">epa.gov/radon/consumers-guide-radon-reduction</a></li>
     <li id="src-4">RadonAway. <em>Fan Specifications &amp; Altitude Correction</em>. <a href="{s('radonaway_specs')}" rel="noopener" target="_blank">radonaway.com</a></li>
     <li id="src-5">CDPHE. <em>Radon</em>. <a href="{s('cdphe_radon')}" rel="noopener" target="_blank">cdphe.colorado.gov/radon</a></li>
-    <li id="src-6">Colorado DORA, Office of Radon Professionals. <a href="{s('dora_radon')}" rel="noopener" target="_blank">dpo.colorado.gov/Radon</a></li>
+    <li id="src-6">Colorado DORA, Office of Radon Professionals. <a href="{s('dora_radon')}" rel="noopener" target="_blank">dpo.colorado.gov/RadonProfessionals</a></li>
   </ol>
 </aside>
 """
