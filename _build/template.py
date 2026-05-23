@@ -48,7 +48,7 @@ GOOGLE_SITE_VERIFICATION = ""
 #   2. Copy the provided snippet and paste below (replacing the GA4 form)
 #
 # GA4 example: GOOGLE_ANALYTICS_ID = "G-XXXXXXXXXX"
-GOOGLE_ANALYTICS_ID = ""
+GOOGLE_ANALYTICS_ID = "G-RCZF0S3BTN"
 
 # Plausible domain (only set if you use Plausible instead of GA4).
 PLAUSIBLE_DOMAIN = ""
