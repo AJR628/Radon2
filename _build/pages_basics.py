@@ -161,7 +161,7 @@ def basics_hub_faq_jsonld():
 WHY_COLORADO_BODY = f"""
 <section>
   <div class="prose-wide">
-    <p>Colorado has higher indoor radon than almost any state in the country. The EPA classifies <strong>all 64 Colorado counties</strong> as Zone 1 — the highest indoor radon potential category. CDPHE estimates roughly half of Colorado homes test above the EPA action level of 4.0 pCi/L. In El Paso County, more than 40% of homes tested between 2005 and 2023 came back elevated.<sup><a href="#src-1">[1]</a></sup><sup><a href="#src-2">[2]</a></sup></p>
+    <p>Colorado has higher indoor radon than almost any state in the country. The EPA classifies <strong>53 of Colorado's 64 counties</strong> as Zone 1 — the highest indoor radon potential category — and the other 11 as Zone 2 (moderate). Zero are Zone 3. CDPHE estimates roughly half of Colorado homes test above the EPA action level of 4.0 pCi/L. In El Paso County, more than 40% of homes tested between 2005 and 2023 came back elevated. (See the <a href="/colorado-radon-map/">Colorado Radon Map</a> for the full zone breakdown.)<sup><a href="#src-1">[1]</a></sup><sup><a href="#src-2">[2]</a></sup></p>
     <p>This isn't a fluke. It's geology, climate, and construction patterns combining to make Colorado one of the most radon-prone places to live in North America. Here's why.</p>
   </div>
 </section>
@@ -245,7 +245,7 @@ def why_colorado_faq_jsonld():
         "@type": "FAQPage",
         "mainEntity": [
             {"@type": "Question", "name": "Why is radon so common in Colorado?",
-             "acceptedAnswer": {"@type": "Answer", "text": "Two reasons working together. First, the geology — Colorado's Front Range sits on uranium-bearing granites (especially Pikes Peak granite) and Pierre Shale outcrops, both of which produce radon through natural uranium decay. Second, the housing stock — most Colorado homes have basements, which concentrate radon. All 64 Colorado counties are classified as EPA Zone 1, and CDPHE estimates roughly half of Colorado homes test above 4.0 pCi/L."}},
+             "acceptedAnswer": {"@type": "Answer", "text": "Two reasons working together. First, the geology — Colorado's Front Range sits on uranium-bearing granites (especially Pikes Peak granite) and Pierre Shale outcrops, both of which produce radon through natural uranium decay. Second, the housing stock — most Colorado homes have basements, which concentrate radon. The EPA classifies 53 of Colorado's 64 counties as Zone 1 (highest predicted indoor radon) and the remaining 11 as Zone 2 (moderate). CDPHE estimates roughly half of Colorado homes test above 4.0 pCi/L."}},
             {"@type": "Question", "name": "Does Colorado's high altitude make radon worse?",
              "acceptedAnswer": {"@type": "Answer", "text": "Not directly — radon comes from the soil under your home, not from the air above it. But altitude does affect mitigation. Radon fans lose roughly 4% of their airflow capacity per 1,000 feet of elevation, which means Colorado mitigation systems often need larger fans or additional suction points compared to sea-level designs."}},
             {"@type": "Question", "name": "Why is Colorado Springs / El Paso County on the higher end?",

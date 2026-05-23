@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Colorado Radon Map: What It Means for Homeowners (EPA Zones + CDPHE)</title>
+  <meta name="description" content="The EPA Radon Zone map for Colorado: 53 counties in Zone 1, 11 in Zone 2. What the map shows, what it does not tell you, and what every Colorado homeowner should do next. With CDPHE county-level data context.">
+  <link rel="canonical" href="https://coloradoradonguide.com/colorado-radon-map/">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <meta name="theme-color" content="#1c4a6e">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Colorado Radon Map: What It Means for Homeowners (EPA Zones + CDPHE)">
+  <meta property="og:description" content="The EPA Radon Zone map for Colorado: 53 counties in Zone 1, 11 in Zone 2. What the map shows, what it does not tell you, and what every Colorado homeowner should do next. With CDPHE county-level data context.">
+  <meta property="og:url" content="https://coloradoradonguide.com/colorado-radon-map/">
+  <meta property="og:site_name" content="Colorado Radon Guide">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Colorado Radon Map: What It Means for Homeowners (EPA Zones + CDPHE)">
+  <meta name="twitter:description" content="The EPA Radon Zone map for Colorado: 53 counties in Zone 1, 11 in Zone 2. What the map shows, what it does not tell you, and what every Colorado homeowner should do next. With CDPHE county-level data context.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+:root {
+  --bg: #ffffff;
+  --bg-cream: #f7f3ec;
+  --bg-cream-deep: #efe9dc;
+  --border: #e3dccc;
+  --border-strong: #cfc6b1;
+  --text: #14181c;
+  --text-muted: #5a6470;
+  --text-dim: #828a94;
+  --primary: #1c4a6e;
+  --primary-deep: #14385a;
+  --accent: #b35333;
+  --accent-deep: #8e3d22;
+  --success: #156845;
+  --warn: #8a6d1a;
+  --warn-bg: #fbf3dc;
+  --max: 72rem;
+  --prose: 38rem;
+  --radius: 6px;
+  --radius-lg: 10px;
+  --shadow-sm: 0 1px 2px rgba(20,24,28,.04), 0 1px 4px rgba(20,24,28,.04);
+  --shadow-md: 0 6px 18px rgba(20,24,28,.06), 0 2px 6px rgba(20,24,28,.04);
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+h1 { font-size: clamp(2rem, 4vw + 1rem, 3rem); margin: 0 0 1rem; }
+h2 { font-size: clamp(1.5rem, 2vw + 0.75rem, 2rem); margin: 2.5rem 0 1rem; }
+h3 { font-size: 1.25rem; margin: 2rem 0 0.75rem; }
+h4 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; font-family: 'Inter', sans-serif; font-weight: 600; }
+
+p { margin: 0 0 1.25rem; }
+a { color: var(--primary); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: var(--primary-deep); }
+
+ul, ol { margin: 0 0 1.25rem; padding-left: 1.5rem; }
+li { margin: 0.4rem 0; }
+
+strong { font-weight: 600; color: var(--text); }
+
+hr {
+  border: 0;
+  height: 1px;
+  background: var(--border);
+  margin: 2.5rem 0;
+}
+
+/* Layout */
+.container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
+.prose { max-width: var(--prose); }
+.prose-wide { max-width: 54rem; }
+
+/* Skip link */
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  padding: 0.5rem 1rem;
+  background: var(--primary);
+  color: #fff;
+  z-index: 100;
+  text-decoration: none;
+}
+.skip:focus { left: 0; }
+
+/* Header */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.92);
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+  gap: 1rem;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.brand-mark {
+  width: 26px; height: 26px;
+  background: var(--primary);
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+.nav { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+.nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+.nav a:hover { color: var(--text); }
+.nav .nav-cta {
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.95rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+}
+.nav .nav-cta:hover { background: var(--accent-deep); color: #fff; }
+
+/* Breadcrumbs */
+.crumbs {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding: 1rem 0 0;
+}
+.crumbs a { color: var(--text-muted); text-decoration: none; }
+.crumbs a:hover { color: var(--primary); text-decoration: underline; }
+.crumbs span[aria-current] { color: var(--text); }
+.crumbs .sep { margin: 0 0.4rem; color: var(--text-dim); }
+
+/* Hero */
+.hero {
+  padding: 3rem 0 2rem;
+  border-bottom: 1px solid var(--border);
+}
+.hero .lede {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 40rem;
+  margin: 0.5rem 0 1.5rem;
+}
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin-top: 1rem;
+}
+.hero-meta span { display: inline-flex; align-items: center; gap: 0.4rem; }
+
+/* Photo hero - editorial two-column on desktop, stacked on mobile */
+.hero-photo {
+  padding: 3rem 0 3rem;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-cream) 100%);
+}
+.hero-photo .hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.hero-photo .hero-text h1 {
+  font-size: clamp(2rem, 3.5vw + 0.5rem, 2.85rem);
+  margin: 0.75rem 0 1rem;
+}
+.hero-photo .hero-text .lede {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 1.75rem;
+  max-width: none;
+}
+.hero-photo .hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+.hero-photo .hero-meta {
+  margin-top: 1.5rem;
+  font-size: 0.82rem;
+}
+.hero-photo .hero-image {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  box-shadow: var(--shadow-md);
+  background: var(--bg-cream-deep);
+}
+.hero-photo .hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero-photo .img-credit {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.6rem;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.85);
+  background: rgba(20,24,28,0.45);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.hero-photo .img-credit:hover { color: #fff; background: rgba(20,24,28,0.65); }
+
+/* Inline illustration figure (e.g. radon entry diagram) */
+.figure {
+  margin: 2rem 0 2.5rem;
+  background: var(--bg-cream);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+}
+.figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+}
+.figure figcaption {
+  margin-top: 0.85rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.figure figcaption strong { color: var(--text); }
+
+/* Two-column explainer (text + diagram side by side) */
+.explainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  margin: 2rem 0;
+}
+.explainer .figure { margin: 0; }
+.explainer-text p:last-child { margin-bottom: 0; }
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+/* Main content */
+main { padding: 2rem 0 4rem; }
+main .container > section { margin-bottom: 2.5rem; }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.85rem 1.4rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  line-height: 1.2;
+  transition: background 0.15s ease;
+}
+.btn:hover { background: var(--accent-deep); color: #fff; }
+.btn-secondary {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--border-strong);
+}
+.btn-secondary:hover { background: var(--bg-cream); color: var(--primary-deep); }
+.btn-row { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+
+/* Cards & callouts */
+.card {
+  background: var(--bg-cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+.card-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  margin: 1.5rem 0;
+}
+.card h3 { margin-top: 0; }
+.card p:last-child { margin-bottom: 0; }
+
+.callout {
+  background: var(--warn-bg);
+  border-left: 3px solid var(--warn);
+  padding: 1.1rem 1.25rem;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin: 1.5rem 0;
+  font-size: 0.96rem;
+}
+.callout strong { display: block; margin-bottom: 0.3rem; }
+.callout p:last-child { margin-bottom: 0; }
+
+.factbox {
+  background: var(--bg-cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+}
+.factbox .label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 0.4rem;
+}
+.factbox .stat {
+  font-family: 'Fraunces', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+.factbox .source {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* CTA banner */
+.cta-banner {
+  background: var(--primary);
+  color: #fff;
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  margin: 3rem 0;
+  text-align: left;
+}
+.cta-banner h2 { color: #fff; margin-top: 0; }
+.cta-banner p { color: rgba(255,255,255,0.85); max-width: 36rem; }
+.cta-banner .btn {
+  background: #fff;
+  color: var(--primary-deep);
+  margin-top: 0.5rem;
+}
+.cta-banner .btn:hover { background: var(--bg-cream); color: var(--primary-deep); }
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+th, td {
+  text-align: left;
+  padding: 0.75rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+th {
+  font-weight: 600;
+  background: var(--bg-cream);
+  font-size: 0.88rem;
+  letter-spacing: 0.01em;
+}
+table.compact { font-size: 0.88rem; }
+table.compact th, table.compact td { padding: 0.5rem 0.75rem; }
+
+/* FAQ details */
+details {
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 0;
+}
+details:first-of-type { border-top: 1px solid var(--border); }
+details summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.02rem;
+  list-style: none;
+  position: relative;
+  padding-right: 2rem;
+  color: var(--text);
+}
+details summary::-webkit-details-marker { display: none; }
+details summary::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 1.4rem;
+  color: var(--text-muted);
+  font-weight: 400;
+  transition: transform 0.15s ease;
+}
+details[open] summary::after { content: '–'; }
+details > p, details > ul { margin-top: 0.75rem; }
+
+/* Source citations */
+.sources {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.sources h2 { font-size: 1.1rem; margin-top: 0; font-family: 'Inter', sans-serif; }
+.sources ol { padding-left: 1.2rem; }
+.sources li { margin: 0.5rem 0; }
+
+/* Internal link block */
+.related {
+  background: var(--bg-cream);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem 0;
+  margin: 3rem 0;
+}
+.related h2 { margin-top: 0; font-size: 1.3rem; }
+.related-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+.related-grid a {
+  display: block;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.related-grid a:hover {
+  border-color: var(--primary);
+  color: var(--primary-deep);
+}
+.related-grid .related-label {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.related-grid .related-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--bg-cream-deep);
+  border-top: 1px solid var(--border);
+  padding: 3rem 0 2rem;
+  margin-top: 4rem;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+.site-footer .footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+.site-footer h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  margin: 0 0 0.75rem;
+}
+.site-footer ul { list-style: none; padding: 0; margin: 0; }
+.site-footer ul li { margin: 0.4rem 0; }
+.site-footer ul a { color: var(--text-muted); text-decoration: none; }
+.site-footer ul a:hover { color: var(--primary); text-decoration: underline; }
+.site-footer .footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+.site-footer .disclaimer { max-width: 50rem; }
+
+/* Forms */
+.form { background: var(--bg-cream); padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--border); }
+.field { margin-bottom: 1.25rem; }
+.field label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+  color: var(--text);
+}
+.field .hint {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-family: inherit;
+  background: #fff;
+  color: var(--text);
+}
+.field textarea { resize: vertical; min-height: 5rem; }
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+  border-color: var(--primary);
+}
+.field-row { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); }
+.required { color: var(--accent-deep); }
+.consent {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+.consent input { width: auto; margin-top: 0.25rem; }
+
+/* Lists */
+.checklist { list-style: none; padding: 0; }
+.checklist li {
+  padding-left: 1.75rem;
+  position: relative;
+}
+.checklist li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--success);
+  font-weight: 700;
+}
+
+/* Tag pills */
+.pill {
+  display: inline-block;
+  background: var(--bg-cream);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.2rem 0.75rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-right: 0.4rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-photo .hero-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+  .hero-photo .hero-image { aspect-ratio: 16/10; max-width: 100%; }
+  .explainer { grid-template-columns: 1fr; gap: 1.75rem; }
+}
+@media (max-width: 720px) {
+  .hero { padding: 2rem 0 1.5rem; }
+  .hero-photo { padding: 1.75rem 0 2rem; }
+  .nav { gap: 0.85rem; }
+  .nav a:not(.nav-cta) { display: none; }
+  .nav .nav-cta { padding: 0.4rem 0.8rem; font-size: 0.88rem; }
+  .cta-banner { padding: 1.75rem; }
+  body { font-size: 16px; }
+  .factbox .stat { font-size: 1.5rem; }
+  table { font-size: 0.85rem; }
+  th, td { padding: 0.5rem 0.6rem; }
+}
+</style>
+
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Colorado Radon Guide", "url": "https://coloradoradonguide.com", "description": "Independent Colorado radon information and quote-connection resource.", "areaServed": {"@type": "AdministrativeArea", "name": "Colorado, USA"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Colorado Radon Guide", "url": "https://coloradoradonguide.com"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://coloradoradonguide.com/"}, {"@type": "ListItem", "position": 2, "name": "Colorado Radon Map", "item": "https://coloradoradonguide.com/colorado-radon-map/"}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is my Colorado county high-risk for radon according to the EPA map?", "acceptedAnswer": {"@type": "Answer", "text": "Probably. The EPA Map of Radon Zones classifies 53 of Colorado's 64 counties as Zone 1 (highest predicted indoor radon). The 11 Zone 2 counties are Alamosa, Archuleta, Conejos, Costilla, Eagle, Hinsdale, Mineral, Rio Grande, Routt, Saguache, and San Juan. There are no Zone 3 counties in Colorado. Even if your county is Zone 2, CDPHE still recommends testing because about one in two Colorado homes statewide test above the EPA action level."}}, {"@type": "Question", "name": "If my county is EPA Zone 2, is my home safe from radon?", "acceptedAnswer": {"@type": "Answer", "text": "No. Zone 2 means the predicted county average is between 2.0 and 4.0 pCi/L, not that homes there are safe. Individual homes in Zone 2 counties routinely test above 4.0 pCi/L. EPA's own guidance is that the zone map should not be used to decide whether to test an individual home. Every home should be tested."}}, {"@type": "Question", "name": "Why hasn't EPA updated the Colorado radon map since 1993?", "acceptedAnswer": {"@type": "Answer", "text": "The Map of Radon Zones was published in 1993 to help governments and code officials target radon programs. EPA's position is that the map served its purpose as a planning tool and that updated, finer-grained data is now better captured at the state and county level. For Colorado-specific results, the COEPHT dataset (county-level test results 2005-2017) and CDPHE's current statewide guidance are more accurate than re-running the EPA zone classification would be."}}, {"@type": "Question", "name": "Can I see Colorado radon test results by county?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The Colorado Environmental Public Health Tracking (COEPHT) program publishes county-level radon test summaries based on actual test results submitted from 2005-2017. Two measures are available: average indoor radon and percent of measurements over 4 pCi/L. The data is available as a downloadable file and as an interactive Tableau map visualization."}}, {"@type": "Question", "name": "What's the difference between EPA radon zones and CDPHE data?", "acceptedAnswer": {"@type": "Answer", "text": "The EPA Map of Radon Zones is a 1993 planning classification grouping U.S. counties into three zones based on geology, soil parameters, foundation types, and indoor measurements available at the time. CDPHE data and the COEPHT dataset are based on actual indoor radon test results submitted by Colorado homeowners, contractors, and labs from 2005 onward. The CDPHE data is more current and more granular but is also self-selected. Both point in the same direction: roughly half of Colorado homes test above the EPA action level."}}, {"@type": "Question", "name": "If Colorado has so much radon, should I be alarmed?", "acceptedAnswer": {"@type": "Answer", "text": "Concerned, not alarmed. Radon is real and is the second leading cause of lung cancer in the U.S. But it is also one of the most testable and most fixable indoor air-quality problems. A short-term test kit costs $15-$30, a typical Colorado mitigation system runs roughly $1,000-$2,000 per CDPHE, and a properly designed system reduces indoor radon by 80-99 percent."}}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Colorado Radon Map: What It Means for Homeowners", "description": "What the EPA Map of Radon Zones shows for Colorado (53 Zone 1 counties, 11 Zone 2 counties, 0 Zone 3), how to read it, what it does not tell you, plus CDPHE county-level test data.", "url": "https://coloradoradonguide.com/colorado-radon-map/", "publisher": {"@type": "Organization", "name": "Colorado Radon Guide"}, "dateModified": "2026-05-21", "author": {"@type": "Organization", "name": "Colorado Radon Guide"}}</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/" aria-label="Colorado Radon Guide home">
+      <span class="brand-mark" aria-hidden="true">CR</span>
+      <span>Colorado Radon Guide</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/colorado-springs/">Colorado Springs</a>
+      <a href="/colorado-springs/radon-mitigation-cost/">Mitigation Cost</a>
+      <a href="/colorado-springs/radon-testing/">Testing</a>
+      <a href="/colorado-springs/failed-radon-test/">Failed Test</a>
+      <a href="/about/">About</a>
+      <a href="/request-quote/" class="nav-cta">Get a Quote</a>
+    </nav>
+  </div>
+</header>
+  <section class="hero">
+    <div class="container">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep">›</span><span aria-current="page">Colorado Radon Map</span></nav>
+      <span class="eyebrow">Map · Colorado statewide</span>
+      <h1>Colorado Radon Map: What It Means for Homeowners</h1>
+      <p class="lede">Almost all of Colorado is classified as the EPA's highest indoor-radon zone, and CDPHE still says about one in two Colorado homes test above the action level. Here's what the map shows — and what it does not tell you about your specific home.</p>
+      
+    </div>
+  </section>
+  <main id="main">
+    <div class="container">
+      
+<section>
+  <div class="prose-wide">
+    <p>If you searched for a Colorado radon map, you probably want a quick visual answer to one of two questions: <em>is my area high risk?</em> or <em>how worried should I be about radon in Colorado?</em> The honest answer to both is the same: <strong>almost all of Colorado is classified as the EPA's highest indoor-radon zone</strong> — and even in the eleven counties that aren't, CDPHE still says about <strong>one in two Colorado homes</strong> tests above the EPA action level.<sup><a href="#src-1">[1]</a></sup><sup><a href="#src-2">[2]</a></sup></p>
+    <p>This page walks through what the EPA Map of Radon Zones actually shows, where to read Colorado-specific county data, and — most importantly — what the map <em>does not</em> tell you about your specific home.</p>
+  </div>
+</section>
+
+<section>
+  <h2>The Colorado radon zones map</h2>
+  <figure class="figure co-map-figure">
+    
+<svg viewBox="0 0 800 540" xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-labelledby="co-map-title co-map-desc" class="co-map">
+  <title id="co-map-title">Colorado radon zones map (stylized)</title>
+  <desc id="co-map-desc">A stylized map of Colorado showing the EPA Radon Zone classification. Fifty-three of Colorado's sixty-four counties are Zone 1 (highest predicted indoor radon). Eleven counties are Zone 2 (moderate). Zero are Zone 3. The eleven Zone 2 counties cluster in four geographic regions: Routt in the northwest, Eagle in the central mountains, Hinsdale Mineral and San Juan in the southwest San Juan Mountains, and Alamosa Conejos Costilla Rio Grande Saguache and Archuleta in the San Luis Valley and southern border region.</desc>
+
+  <!-- State background (Zone 1 default) -->
+  <rect x="40" y="60" width="720" height="420" rx="8" ry="8"
+        fill="#c97a52" fill-opacity="0.62" stroke="#8e3d22" stroke-width="2"/>
+
+  <!-- Zone 2 region: Routt (NW) -->
+  <ellipse cx="200" cy="155" rx="58" ry="42" fill="#e5b86f" fill-opacity="0.95" stroke="#8a6d1a" stroke-width="1.5"/>
+  <text x="200" y="159" text-anchor="middle" font-family="Inter, sans-serif"
+        font-size="12" font-weight="600" fill="#14181c">Routt</text>
+
+  <!-- Zone 2 region: Eagle (central mountains) -->
+  <ellipse cx="330" cy="230" rx="52" ry="38" fill="#e5b86f" fill-opacity="0.95" stroke="#8a6d1a" stroke-width="1.5"/>
+  <text x="330" y="234" text-anchor="middle" font-family="Inter, sans-serif"
+        font-size="12" font-weight="600" fill="#14181c">Eagle</text>
+
+  <!-- Zone 2 region: SW San Juan Mtns (Hinsdale, Mineral, San Juan) -->
+  <ellipse cx="245" cy="370" rx="74" ry="48" fill="#e5b86f" fill-opacity="0.95" stroke="#8a6d1a" stroke-width="1.5"/>
+  <text x="245" y="365" text-anchor="middle" font-family="Inter, sans-serif"
+        font-size="11" font-weight="600" fill="#14181c">Hinsdale · Mineral</text>
+  <text x="245" y="380" text-anchor="middle" font-family="Inter, sans-serif"
+        font-size="11" font-weight="600" fill="#14181c">San Juan</text>
+
+  <!-- Zone 2 region: San Luis Valley + Archuleta (south central) -->
+  <path d="M 200 440 Q 220 410 280 420 Q 350 415 410 430 Q 430 445 410 465 Q 380 470 330 467 Q 270 470 220 465 Q 195 460 200 440 Z"
+        fill="#e5b86f" fill-opacity="0.95" stroke="#8a6d1a" stroke-width="1.5"/>
+  <text x="305" y="442" text-anchor="middle" font-family="Inter, sans-serif"
+        font-size="11" font-weight="600" fill="#14181c">San Luis Valley + Archuleta</text>
+  <text x="305" y="457" text-anchor="middle" font-family="Inter, sans-serif"
+        font-size="10" fill="#14181c">Alamosa · Conejos · Costilla</text>
+  <text x="305" y="470" text-anchor="middle" font-family="Inter, sans-serif"
+        font-size="10" fill="#14181c">Rio Grande · Saguache · Archuleta</text>
+
+  <!-- Reference cities (orientation only) -->
+  <!-- Denver -->
+  <circle cx="540" cy="200" r="5" fill="#14385a" stroke="#fff" stroke-width="1.5"/>
+  <text x="552" y="204" font-family="Inter, sans-serif" font-size="12"
+        font-weight="600" fill="#14181c">Denver</text>
+
+  <!-- Colorado Springs -->
+  <circle cx="555" cy="265" r="5" fill="#14385a" stroke="#fff" stroke-width="1.5"/>
+  <text x="567" y="269" font-family="Inter, sans-serif" font-size="12"
+        font-weight="600" fill="#14181c">Colorado Springs</text>
+
+  <!-- Pueblo -->
+  <circle cx="565" cy="320" r="4" fill="#14385a" stroke="#fff" stroke-width="1.5"/>
+  <text x="577" y="324" font-family="Inter, sans-serif" font-size="11"
+        fill="#14181c">Pueblo</text>
+
+  <!-- Grand Junction -->
+  <circle cx="155" cy="240" r="4" fill="#14385a" stroke="#fff" stroke-width="1.5"/>
+  <text x="165" y="244" font-family="Inter, sans-serif" font-size="11"
+        fill="#14181c">Grand Junction</text>
+
+  <!-- Durango -->
+  <circle cx="190" cy="445" r="4" fill="#14385a" stroke="#fff" stroke-width="1.5"/>
+  <text x="120" y="449" font-family="Inter, sans-serif" font-size="11"
+        fill="#14181c">Durango</text>
+
+  <!-- N compass arrow -->
+  <g transform="translate(70, 90)">
+    <path d="M 0 0 L 5 12 L 0 9 L -5 12 Z" fill="#14181c"/>
+    <text x="0" y="26" text-anchor="middle" font-family="Inter, sans-serif"
+          font-size="10" font-weight="600" fill="#14181c">N</text>
+  </g>
+
+  <!-- Title at top -->
+  <text x="400" y="38" text-anchor="middle" font-family="Fraunces, serif"
+        font-size="20" font-weight="600" fill="#14181c">EPA Radon Zones in Colorado</text>
+
+  <!-- Legend -->
+  <g transform="translate(40, 500)">
+    <rect x="0" y="0" width="22" height="14" fill="#c97a52" fill-opacity="0.62" stroke="#8e3d22"/>
+    <text x="30" y="11" font-family="Inter, sans-serif" font-size="12" fill="#14181c">
+      Zone 1 — highest predicted radon (53 counties)
+    </text>
+    <rect x="380" y="0" width="22" height="14" fill="#e5b86f" fill-opacity="0.95" stroke="#8a6d1a"/>
+    <text x="410" y="11" font-family="Inter, sans-serif" font-size="12" fill="#14181c">
+      Zone 2 — moderate (11 counties)
+    </text>
+  </g>
+</svg>
+
+    <figcaption>
+      <strong>Stylized Colorado radon zones.</strong> Out of Colorado's 64 counties, 53 are classified as Zone 1 (highest predicted indoor radon) and 11 are Zone 2 (moderate). Zero counties are Zone 3. The 11 Zone 2 counties cluster in four geographic regions: Routt in the northwest, Eagle in the central mountains, the southwest San Juan Mountains (Hinsdale, Mineral, San Juan), and the San Luis Valley plus Archuleta County in the south. This is a stylized visualization for orientation, not a literal cartographic rendering. Classification source: <a href="https://www.epa.gov/radon/epa-map-radon-zones" rel="noopener" target="_blank">EPA Map of Radon Zones</a>. <strong>This map is not a substitute for testing your specific home — EPA recommends every home be tested regardless of zone.</strong><sup><a href="#src-3">[3]</a></sup>
+    </figcaption>
+  </figure>
+  <div class="prose-wide">
+    <p>The Map of Radon Zones was developed by the U.S. Environmental Protection Agency in 1993 using indoor radon measurements, geology, aerial radioactivity, soil parameters, and foundation types. EPA's own description is unambiguous: the map "is intended to help governments and other organizations target risk-reduction activities and resources" and "should not be used to determine if individual homes need to be tested."<sup><a href="#src-3">[3]</a></sup> EPA recommends every home be tested for radon, no matter where it is.</p>
+  </div>
+</section>
+
+<section>
+  <h2>How to read EPA radon zones</h2>
+  <div class="prose-wide">
+    <p>EPA divides U.S. counties into three zones based on predicted average indoor radon levels:</p>
+    <table class="compact">
+      <thead>
+        <tr><th>Zone</th><th>Predicted average indoor radon</th><th>What it means</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Zone 1</strong></td>
+          <td>Greater than 4.0 pCi/L</td>
+          <td>Highest predicted potential. Building codes in Zone 1 counties commonly require new construction radon-resistant features.</td>
+        </tr>
+        <tr>
+          <td><strong>Zone 2</strong></td>
+          <td>Between 2.0 and 4.0 pCi/L</td>
+          <td>Moderate predicted potential. Still requires testing — many homes here come back above 4.0 pCi/L.</td>
+        </tr>
+        <tr>
+          <td><strong>Zone 3</strong></td>
+          <td>Less than 2.0 pCi/L</td>
+          <td>Lowest predicted potential. EPA still recommends testing every home.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Two things to keep in mind when reading the map:</p>
+    <ul>
+      <li><strong>The zone is an average across an entire county</strong> — not a verdict on any one home. Homes within a single county can vary from below 1 pCi/L to above 40 pCi/L depending on geology under the lot, foundation type, and construction.</li>
+      <li><strong>The map is from 1993</strong> and has not been updated. EPA itself recommends pairing it with local data. For Colorado, that local data comes from the Colorado Department of Public Health and Environment (CDPHE) and from county-level testing results published by the Colorado Environmental Public Health Tracking program (COEPHT).<sup><a href="#src-2">[2]</a></sup><sup><a href="#src-4">[4]</a></sup></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Why most of Colorado is Zone 1</h2>
+  <div class="prose-wide">
+    <p>Colorado's geology is the short answer. The Rocky Mountain uplift produced uranium-bearing granites — particularly the Pikes Peak granite that underlies much of the Front Range — and Cretaceous-era sediments like the Pierre Shale that contain trace uranium. Uranium decays slowly through a chain of radioactive elements, eventually producing radon-222, the gas we test for. Where uranium is concentrated in bedrock, radon is concentrated in soil gas above it.</p>
+    <p>That's why 53 of Colorado's 64 counties — the Front Range corridor, the eastern plains, and most of the western slope — sit in EPA Zone 1. It's not just elevation; it's the specific rock chemistry under those counties. The deeper geological story is on our <a href="/radon-basics/why-common-in-colorado/">Why radon is common in Colorado</a> page.</p>
+  </div>
+</section>
+
+<section>
+  <h2>The 11 Colorado counties classified as Zone 2</h2>
+  <div class="prose-wide">
+    <p>The eleven Zone 2 counties are not "safer" — they're just <em>less consistently elevated on average</em>. CDPHE's statement that <strong>radon is found at elevated levels in one out of every two Colorado homes</strong> applies statewide, including Zone 2 counties.<sup><a href="#src-2">[2]</a></sup></p>
+    <p>The 11 Zone 2 counties cluster geographically in four regions:</p>
+    <table class="compact">
+      <thead>
+        <tr><th>Region</th><th>Counties</th><th>What's there</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Northwest Colorado</td>
+          <td>Routt</td>
+          <td>Steamboat Springs and the Yampa Valley.</td>
+        </tr>
+        <tr>
+          <td>Central Mountains</td>
+          <td>Eagle</td>
+          <td>Vail, Eagle, the upper Eagle River valley.</td>
+        </tr>
+        <tr>
+          <td>Southwest San Juan Mountains</td>
+          <td>Hinsdale, Mineral, San Juan</td>
+          <td>Silverton, Lake City, Creede — high-elevation mountain counties.</td>
+        </tr>
+        <tr>
+          <td>San Luis Valley + Archuleta</td>
+          <td>Alamosa, Conejos, Costilla, Rio Grande, Saguache, Archuleta</td>
+          <td>The San Luis Valley basin and Pagosa Springs area along the southern border.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Why are these counties lower-average on the EPA's classification? The underlying geology differs from the Front Range uranium-bearing granites. The San Luis Valley sits on layered sediments deposited by the Rio Grande Rift; the high-elevation mountain counties have different bedrock chemistry; some of these counties also have very low population density and small testing-volume samples, which can influence the classification. Important: even with that, individual homes in Zone 2 counties absolutely can — and routinely do — test above 4.0 pCi/L. The map is a planning tool, not a per-home result.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Beyond EPA zones: Colorado county-level test results</h2>
+  <div class="prose-wide">
+    <p>EPA zones are a 30-year-old planning classification. If you want a sharper signal about actual radon levels in a specific Colorado county, the Colorado Environmental Public Health Tracking program (COEPHT) publishes county-level summaries of <strong>real radon test results</strong> submitted to the state. The COEPHT dataset covers tests from 2005-2017 and includes two measures by county: average indoor radon value and percent of measurements over 4 pCi/L.<sup><a href="#src-4">[4]</a></sup></p>
+    <p>Two caveats to read alongside the COEPHT data:</p>
+    <ul>
+      <li><strong>Sample sizes vary widely.</strong> Front Range counties with high population (El Paso, Denver, Jefferson, Larimer, Weld, Arapahoe, Boulder) have thousands of test results. Some rural counties have only dozens, which makes the percentages less reliable for those counties.</li>
+      <li><strong>The data is self-selected.</strong> Test results were submitted voluntarily by homeowners, contractors, and labs. Homes that tested low and never followed up are still counted; homes that were never tested are not represented at all. The actual statewide rate is likely close to CDPHE's "one in two" headline, but per-county percentages should be read as one data point, not gospel.</li>
+    </ul>
+    <p>You can browse the COEPHT data two ways:</p>
+    <ul>
+      <li><a href="https://coepht.colorado.gov/radon-data" rel="noopener" target="_blank">COEPHT radon data hub</a> — methodology page with downloadable county-level dataset.</li>
+      <li><a href="https://cohealthviz.dphe.state.co.us/t/EnvironmentalEpidemiologyPublic/views/Radon/RadonMeasures" rel="noopener" target="_blank">COEPHT interactive radon map (Tableau)</a> — the official Colorado map visualization with county-level average and percent-elevated overlays.</li>
+    </ul>
+    <p>For El Paso County specifically — the Colorado Springs region — El Paso County Public Health reports that <strong>over 40 percent of all homes tested between 2005 and 2023 in El Paso County had high levels of radon</strong>.<sup><a href="#src-5">[5]</a></sup> That's more recent than the 2005-2017 COEPHT cutoff, and it's tracked at the county level rather than the EPA zone level. If you live in El Paso County, that 40%+ number is the more accurate signal than the EPA Zone 1 classification.</p>
+  </div>
+</section>
+
+<section>
+  <h2>What the map does not tell you</h2>
+  <div class="callout">
+    <strong>Important.</strong> The EPA Radon Zone map is a <em>planning tool</em>. It tells governments and code officials where to focus radon programs. It does not tell you whether your individual home has elevated radon. That requires a test.<sup><a href="#src-3">[3]</a></sup>
+  </div>
+  <div class="prose-wide">
+    <p>Specifically, the map cannot tell you:</p>
+    <ul>
+      <li><strong>Your specific home's radon level.</strong> Homes a block apart routinely test differently. Two adjacent lots can have different bedrock chemistry, different foundation construction, and different stack-effect pressure profiles.</li>
+      <li><strong>Whether your neighborhood differs from the county average.</strong> Some neighborhoods built on different sediments have systematically different averages. Some new-construction subdivisions have passive radon-resistant systems built in (IRC Appendix BE) that can be activated cheaply if needed. <a href="/radon-mitigation-systems/passive-vs-active/">Passive vs active systems &rarr;</a></li>
+      <li><strong>How your home's foundation type affects entry.</strong> A walk-out basement on a slope behaves differently from a fully buried basement; a crawlspace behaves differently again. <a href="/radon-basics/by-foundation-type/">Radon by foundation type &rarr;</a></li>
+      <li><strong>Whether seasonal patterns matter.</strong> Colorado's winter heating season concentrates radon indoors via the stack effect — a long-term test (90+ days) catches that variability that a short-term snapshot will miss. <a href="/radon-testing/short-term-vs-long-term/">Short-term vs long-term tests &rarr;</a></li>
+    </ul>
+    <p>EPA's recommendation has not changed in 30 years: <strong>test every home, regardless of zone</strong>. CDPHE's recommendation matches it. The map is useful for understanding why Colorado has a radon problem in the first place. It's not useful as a substitute for testing your specific house.</p>
+  </div>
+</section>
+
+<section>
+  <h2>What to do next</h2>
+  <div class="prose-wide">
+    <p>Use the table below to pick the right starting point for your situation:</p>
+    <table>
+      <thead>
+        <tr><th>Your situation</th><th>Start here</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>I haven't tested my home yet</td>
+          <td><a href="/radon-testing/">How to test for radon in Colorado</a></td>
+        </tr>
+        <tr>
+          <td>I want to understand what a high result means before testing</td>
+          <td><a href="/radon-basics/levels-explained/">Radon levels explained (2, 4, 10, 20 pCi/L)</a></td>
+        </tr>
+        <tr>
+          <td>I got a high test result</td>
+          <td><a href="/colorado-springs/failed-radon-test/">Failed radon test next steps (Colorado Springs)</a></td>
+        </tr>
+        <tr>
+          <td>I have a mitigation quote and want to evaluate it</td>
+          <td><a href="/radon-mitigation-cost/quote-too-high/">Is my radon mitigation quote too high?</a></td>
+        </tr>
+        <tr>
+          <td>I'm buying or selling a home in Colorado</td>
+          <td><a href="/radon-testing/during-real-estate-transactions/">Radon testing during a real estate transaction (SB23-206)</a></td>
+        </tr>
+        <tr>
+          <td>I want a quote from a licensed Colorado contractor</td>
+          <td><a href="/request-quote/">Request a quote</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Colorado Springs and El Paso County</h2>
+  <div class="prose-wide">
+    <p>If you're in or around Colorado Springs, El Paso County is in <strong>EPA Zone 1</strong> and has the most pointed county-level data in Colorado: over 40 percent of homes tested between 2005 and 2023 had elevated radon, per El Paso County Public Health.<sup><a href="#src-5">[5]</a></sup> Our local pages cover testing kits, mitigation cost ranges by foundation scenario, and what to do after a failed test:</p>
+    <ul>
+      <li><a href="/colorado-springs/"><strong>Colorado Springs radon hub</strong></a> — local prevalence, EPCPH lab kits, contractor verification, SB23-206 real estate context.</li>
+      <li><a href="/colorado-springs/radon-testing/"><strong>Radon testing in Colorado Springs</strong></a> — where to get a kit, where to place it, what to do with the result.</li>
+      <li><a href="/colorado-springs/radon-mitigation-cost/"><strong>Mitigation cost in Colorado Springs</strong></a> — local quote ranges by scenario ($900-$4,800 depending on foundation).</li>
+      <li><a href="/colorado-springs/failed-radon-test/"><strong>Failed radon test next steps</strong></a> — step-by-step playbook for elevated results.</li>
+    </ul>
+    <p>The Front Range north and west of Colorado Springs — Denver, Jefferson, Boulder, Larimer, Weld counties — all sit in EPA Zone 1 as well. We'll add city-specific hubs for these regions as the site expands.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Frequently asked questions</h2>
+
+  <details>
+    <summary>Is my Colorado county high-risk for radon according to the EPA map?</summary>
+    <p>Probably. The EPA Map of Radon Zones classifies 53 of Colorado's 64 counties as Zone 1 (highest predicted indoor radon). The 11 Zone 2 counties are Alamosa, Archuleta, Conejos, Costilla, Eagle, Hinsdale, Mineral, Rio Grande, Routt, Saguache, and San Juan. There are no Zone 3 counties in Colorado. Even if your county is Zone 2, CDPHE still recommends testing because about one in two Colorado homes statewide test above the EPA action level.</p>
+  </details>
+
+  <details>
+    <summary>If my county is EPA Zone 2, is my home safe from radon?</summary>
+    <p>No. Zone 2 means the predicted county average is between 2.0 and 4.0 pCi/L, not that homes there are safe. Individual homes in Zone 2 counties routinely test above 4.0 pCi/L — sometimes well above. EPA's own guidance is that the zone map should not be used to decide whether to test an individual home. Every home should be tested.</p>
+  </details>
+
+  <details>
+    <summary>Why hasn't EPA updated the Colorado radon map since 1993?</summary>
+    <p>The Map of Radon Zones was published in 1993 to help governments and code officials target radon programs. EPA's position is that the map served its purpose as a planning tool and that updated, finer-grained data is now better captured at the state and county level. For Colorado-specific results, the COEPHT dataset (county-level test results 2005-2017) and CDPHE's current statewide guidance are more accurate than re-running the EPA zone classification would be.</p>
+  </details>
+
+  <details>
+    <summary>Can I see Colorado radon test results by county?</summary>
+    <p>Yes. The Colorado Environmental Public Health Tracking (COEPHT) program publishes county-level radon test summaries based on actual test results submitted from 2005-2017. Two measures are available: average indoor radon and percent of measurements over 4 pCi/L. The data is available as a downloadable file and as an interactive Tableau map visualization. Note that some rural counties have small sample sizes; the data is most reliable for Front Range counties with high test volume.</p>
+  </details>
+
+  <details>
+    <summary>What's the difference between the EPA radon zones and CDPHE data?</summary>
+    <p>The EPA Map of Radon Zones is a 1993 planning classification — it grouped U.S. counties into three zones based on geology, soil parameters, foundation types, and indoor measurements available at the time. CDPHE data (and the COEPHT dataset) is based on actual indoor radon test results submitted by Colorado homeowners, contractors, and labs from 2005 onward. The CDPHE data is more current and more granular but is also self-selected (only includes homes that were tested). Both data sources point in the same direction: roughly half of Colorado homes test above the EPA action level of 4.0 pCi/L.</p>
+  </details>
+
+  <details>
+    <summary>If Colorado has so much radon, should I be alarmed?</summary>
+    <p>Concerned, not alarmed. Radon is real — it's the second leading cause of lung cancer in the U.S. and the leading cause among non-smokers. But it's also one of the most testable and most fixable indoor air-quality problems. A short-term test kit costs $15-$30 from the El Paso County Public Health lab or CDPHE. If your result comes back above 4.0 pCi/L, a typical Colorado mitigation system runs roughly $1,000-$2,000 per CDPHE, and a properly designed system reduces indoor radon by 80-99 percent. The right framing is: test, find out where you are, and then make a decision with real data instead of a 30-year-old zone classification.</p>
+  </details>
+
+  <details>
+    <summary>Where does the EPA radon zone map come from?</summary>
+    <p>The map was developed by the EPA in 1993 using a combination of indoor radon measurements available at the time, regional geology surveys, aerial radioactivity data (radiation surveys flown by aircraft for the U.S. Department of Energy), soil parameter data, and foundation-type distribution by region. It's intended as a planning tool for governments and code officials targeting radon resources. The full methodology and the underlying state-level supporting documents are available on the <a href="https://www.epa.gov/radon/epa-map-radon-zones" rel="noopener" target="_blank">EPA Map of Radon Zones page</a>.</p>
+  </details>
+</section>
+
+<section>
+  <div class="callout">
+    <strong>One more time, because it matters.</strong> The Colorado Radon Map on this page is a stylized visualization of the EPA's 1993 Map of Radon Zones. <strong>It is not a substitute for testing your specific home.</strong> EPA, CDPHE, and El Paso County Public Health all recommend the same thing: test your home for radon, no matter what your county's zone is. A short-term test kit costs about $15 from the El Paso County Public Health lab. <a href="/radon-testing/">How to test for radon in Colorado &rarr;</a>
+  </div>
+</section>
+
+<aside class="sources" aria-label="Sources">
+  <h2>Sources</h2>
+  <ol>
+    <li id="src-1">U.S. EPA. <em>EPA Map of Radon Zones</em>. <a href="https://www.epa.gov/radon/epa-map-radon-zones" rel="noopener" target="_blank">epa.gov/radon/epa-map-radon-zones</a></li>
+    <li id="src-2">Colorado Department of Public Health and Environment. <em>Testing your home for radon</em>. <a href="https://cdphe.colorado.gov/hm/testing-your-home-radon" rel="noopener" target="_blank">cdphe.colorado.gov/hm/testing-your-home-radon</a></li>
+    <li id="src-3">U.S. EPA. <em>What is EPA's action level for radon and what does it mean?</em> <a href="https://www.epa.gov/radon/what-epas-action-level-radon-and-what-does-it-mean" rel="noopener" target="_blank">epa.gov/radon/what-epas-action-level-radon-and-what-does-it-mean</a></li>
+    <li id="src-4">Colorado Environmental Public Health Tracking. <em>Radon data: county-level test results 2005-2017</em>. <a href="https://coepht.colorado.gov/radon-data" rel="noopener" target="_blank">coepht.colorado.gov/radon-data</a></li>
+    <li id="src-5">El Paso County Public Health. <em>Radon</em>. <a href="https://www.elpasocountyhealth.org/radon" rel="noopener" target="_blank">elpasocountyhealth.org/radon</a></li>
+    <li id="src-6">U.S. EPA. <em>Health risk of radon</em>. <a href="https://www.epa.gov/radon/health-risk-radon" rel="noopener" target="_blank">epa.gov/radon/health-risk-radon</a></li>
+  </ol>
+</aside>
+
+    </div>
+    <section class="container">
+      <div class="cta-banner">
+        <h2>Get a Colorado Springs Radon Quote</h2>
+        <p>Tell us about your home and test result and we'll connect you with a licensed Colorado mitigation partner. No high-pressure sales calls, no contracts to start.</p>
+        <a href="/request-quote/" class="btn">Request a Quote</a>
+      </div>
+    </section>
+  </main>
+  <section class="related">
+    <div class="container">
+      <h2>Keep reading</h2>
+      <div class="related-grid"><a href="/radon-basics/why-common-in-colorado/"><span class="related-label">Why Colorado Has Radon</span><span class="related-title">Geology, uranium decay, and the Front Range story</span></a><a href="/radon-testing/"><span class="related-label">How to Test</span><span class="related-title">Three test types, where to get a kit, what your number means</span></a><a href="/colorado-springs/"><span class="related-label">Colorado Springs Hub</span><span class="related-title">Local El Paso County prevalence and next steps</span></a></div>
+    </div>
+  </section>
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Colorado Radon Guide</h4>
+        <p>An independent Colorado radon information and quote-connection resource. We do not install mitigation systems.</p>
+      </div>
+      <div>
+        <h4>Colorado Springs</h4>
+        <ul>
+          <li><a href="/colorado-springs/">Colorado Springs Hub</a></li>
+          <li><a href="/colorado-springs/radon-mitigation-cost/">Mitigation Cost</a></li>
+          <li><a href="/colorado-springs/radon-testing/">Radon Testing</a></li>
+          <li><a href="/colorado-springs/failed-radon-test/">After a Failed Test</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Content Library</h4>
+        <ul>
+          <li><a href="/library/">Full Library</a></li>
+          <li><a href="/radon-basics/">Radon Basics</a></li>
+          <li><a href="/radon-testing/">Radon Testing</a></li>
+          <li><a href="/radon-mitigation-systems/">Mitigation Systems</a></li>
+          <li><a href="/radon-mitigation-cost/">Cost &amp; Quotes</a></li>
+          <li><a href="/radon-contractors/">Choosing a Contractor</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About the Site</h4>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/disclosure/">Editorial &amp; Lead Disclosure</a></li>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Authoritative Sources</h4>
+        <ul>
+          <li><a href="https://cdphe.colorado.gov/radon" rel="noopener" target="_blank">CDPHE Radon Program</a></li>
+          <li><a href="https://www.epa.gov/radon" rel="noopener" target="_blank">EPA Radon</a></li>
+          <li><a href="https://www.elpasocountyhealth.org/radon" rel="noopener" target="_blank">El Paso County Public Health</a></li>
+          <li><a href="https://dpo.colorado.gov/Radon" rel="noopener" target="_blank">Colorado DORA Office of Radon Professionals</a></li>
+          <li><a href="https://leg.colorado.gov/bills/sb23-206" rel="noopener" target="_blank">Colorado SB23-206</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="disclaimer">
+        <strong>Disclaimer.</strong> Colorado Radon Guide is an independent educational resource. We are not a radon mitigation contractor, do not perform radon testing or installation, and do not provide medical advice. Information is drawn from public Colorado and federal health sources and may change. Cost ranges are estimates only and do not represent a contractor quote. Quote requests submitted through this site are routed to a licensed Colorado mitigation partner. See our <a href="/disclosure/">disclosure</a> and <a href="/privacy/">privacy</a> pages.
+      </p>
+      <p>&copy; 2026 Colorado Radon Guide. Page last updated May 2026.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

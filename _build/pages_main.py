@@ -54,7 +54,7 @@ HOMEPAGE_BODY = f"""
   <h2>How radon gets into a Colorado home</h2>
   <div class="explainer">
     <div class="explainer-text">
-      <p>Radon is an invisible, odorless gas produced by the natural decay of uranium in soil and rock. Colorado's Rocky Mountain geology is uranium-rich, so radon levels under homes here are higher than in most of the U.S. — and the EPA places most of the Front Range, including El Paso County, in <strong>Zone 1</strong>: the highest indoor radon potential.<sup><a href="#src-2">[2]</a></sup></p>
+      <p>Radon is an invisible, odorless gas produced by the natural decay of uranium in soil and rock. Colorado's Rocky Mountain geology is uranium-rich, so radon levels under homes here are higher than in most of the U.S. — the EPA places most of the Front Range, including El Paso County, in <strong>Zone 1</strong>: the highest indoor radon potential. (53 of Colorado's 64 counties are Zone 1; <a href="/colorado-radon-map/">see the Colorado radon map for full context</a>.)<sup><a href="#src-2">[2]</a></sup></p>
       <p>The gas rises out of the soil and finds its way indoors through small openings in the foundation: hairline slab cracks, the gap where the floor meets the wall, plumbing penetrations, sump pits, and unsealed crawl spaces. Once inside, it accumulates in lower levels — basements first, then living areas above.</p>
       <p>Two things matter: <strong>most Colorado homes have some radon</strong>, and <strong>you can't tell by sight or smell whether yours is above the action level</strong>. The only way to know is a test.</p>
     </div>

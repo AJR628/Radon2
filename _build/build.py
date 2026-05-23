@@ -65,6 +65,9 @@ from pages_cs_v2 import (  # noqa: E402
 from pages_library import (  # noqa: E402
     LIBRARY_BODY,
 )
+from pages_map import (  # noqa: E402
+    COLORADO_MAP_BODY, colorado_map_faq_jsonld,
+)
 from pages_misc import (  # noqa: E402
     QUOTE_BODY, QUOTE_THANKYOU_BODY,
     ABOUT_BODY, DISCLOSURE_BODY,
@@ -962,6 +965,30 @@ write("colorado-springs/home-buyers-and-sellers/index.html", render_page(
 # PHASE 7 — Content library hub
 # =========================================================================
 
+# 30. COLORADO RADON MAP (NEW Phase 8 — top-level reference page)
+write("colorado-radon-map/index.html", render_page(
+    url_path="/colorado-radon-map/",
+    title="Colorado Radon Map: What It Means for Homeowners (EPA Zones + CDPHE)",
+    description="The EPA Radon Zone map for Colorado: 53 counties in Zone 1, 11 in Zone 2. What the map shows, what it does not tell you, and what every Colorado homeowner should do next. With CDPHE county-level data context.",
+    h1="Colorado Radon Map: What It Means for Homeowners",
+    hero_eyebrow="Map · Colorado statewide",
+    hero_lede="Almost all of Colorado is classified as the EPA's highest indoor-radon zone, and CDPHE still says about one in two Colorado homes test above the action level. Here's what the map shows — and what it does not tell you about your specific home.",
+    body_html=COLORADO_MAP_BODY,
+    breadcrumbs=[
+        ("Home", "/"),
+        ("Colorado Radon Map", "/colorado-radon-map/"),
+    ],
+    extra_jsonld=[
+        colorado_map_faq_jsonld(),
+        article_schema("/colorado-radon-map/", "Colorado Radon Map: What It Means for Homeowners", "What the EPA Map of Radon Zones shows for Colorado (53 Zone 1 counties, 11 Zone 2 counties, 0 Zone 3), how to read it, what it does not tell you, plus CDPHE county-level test data."),
+    ],
+    related=[
+        ("Why Colorado Has Radon", "Geology, uranium decay, and the Front Range story", "/radon-basics/why-common-in-colorado/"),
+        ("How to Test", "Three test types, where to get a kit, what your number means", "/radon-testing/"),
+        ("Colorado Springs Hub", "Local El Paso County prevalence and next steps", "/colorado-springs/"),
+    ],
+))
+
 # 29. CONTENT LIBRARY HUB (NEW Phase 7)
 write("library/index.html", render_page(
     url_path="/library/",
@@ -1221,6 +1248,8 @@ SITEMAP_URLS = [
     ("/colorado-springs/home-buyers-and-sellers/", "0.8"),
     # Content library (Phase 7)
     ("/library/", "0.7"),
+    # Colorado Radon Map (Phase 8 — top-level reference page)
+    ("/colorado-radon-map/", "0.9"),
     ("/request-quote/", "0.8"),
     ("/about/", "0.4"),
     ("/disclosure/", "0.4"),

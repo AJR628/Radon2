@@ -27,6 +27,10 @@ LIBRARY_BODY = f"""
       </thead>
       <tbody>
         <tr>
+          <td>I want a visual sense of radon risk across Colorado</td>
+          <td><a href="/colorado-radon-map/">Colorado Radon Map</a></td>
+        </tr>
+        <tr>
           <td>I haven't tested my home yet</td>
           <td><a href="/radon-testing/">How to Test for Radon in Colorado</a></td>
         </tr>
@@ -44,6 +48,16 @@ LIBRARY_BODY = f"""
         </tr>
       </tbody>
     </table>
+  </div>
+</section>
+
+<section>
+  <h2>Statewide reference</h2>
+  <div class="prose-wide">
+    <p>Big-picture Colorado context — useful before or after testing your own home.</p>
+    <ul>
+      <li><a href="/colorado-radon-map/"><strong>Colorado Radon Map</strong></a> — what the EPA Radon Zone map shows for Colorado (53 Zone 1 counties, 11 Zone 2, 0 Zone 3), CDPHE county-level test data, and what the map does not tell you about your home</li>
+    </ul>
   </div>
 </section>
 
