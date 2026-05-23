@@ -80,18 +80,31 @@ print(f"Building site into {ROOT}")
 
 
 def article_schema(url_path, headline, description):
+    canonical = SITE_URL + url_path
     obj = {
         "@context": "https://schema.org",
         "@type": "Article",
         "headline": headline,
         "description": description,
-        "url": SITE_URL + url_path,
+        "url": canonical,
+        "mainEntityOfPage": {"@type": "WebPage", "@id": canonical},
+        "image": [SITE_URL + "/assets/images/hero-colorado-homes.jpg"],
         "publisher": {
             "@type": "Organization",
+            "@id": SITE_URL + "/#organization",
             "name": SITE_NAME,
+            "url": SITE_URL,
         },
-        "dateModified": "2026-05-21",
-        "author": {"@type": "Organization", "name": SITE_NAME},
+        "author": {
+            "@type": "Organization",
+            "@id": SITE_URL + "/#organization",
+            "name": SITE_NAME,
+            "url": SITE_URL,
+        },
+        "datePublished": "2026-05-22",
+        "dateModified": "2026-05-22",
+        "inLanguage": "en-US",
+        "isAccessibleForFree": True,
     }
     return f'<script type="application/ld+json">{json.dumps(obj)}</script>'
 

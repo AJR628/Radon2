@@ -16,6 +16,66 @@ SITE_NAME = "Colorado Radon Guide"
 SITE_URL = "https://coloradoradonguide.com"
 LAST_UPDATED = "May 2026"
 
+# Default image used for Open Graph / Twitter card / Article schema.
+# Should be at least 1200x630 for good preview rendering.
+DEFAULT_OG_IMAGE = "/assets/images/hero-colorado-homes.jpg"
+DEFAULT_OG_IMAGE_WIDTH = "1600"
+DEFAULT_OG_IMAGE_HEIGHT = "1067"
+
+# ---------------------------------------------------------------------------
+# Analytics + Search Console configuration.
+# Both are read at render time. Leave empty until the user provides values.
+# ---------------------------------------------------------------------------
+#
+# Google Search Console verification:
+#   1. Go to https://search.google.com/search-console
+#   2. Add coloradoradonguide.com as a URL prefix property
+#   3. Choose the "HTML tag" verification method
+#   4. Paste the content="..." value from the meta tag below
+#
+# Example: GOOGLE_SITE_VERIFICATION = "abc123def456ghi789..."
+GOOGLE_SITE_VERIFICATION = ""
+
+# Analytics snippet. Two supported options:
+#
+# Google Analytics 4 (recommended if you want Search Console integration):
+#   1. Go to https://analytics.google.com -> Admin -> Create property
+#   2. Add a Web data stream for coloradoradonguide.com
+#   3. Copy the measurement ID (format: G-XXXXXXXXXX) and paste below
+#
+# Plausible (recommended if you prefer privacy-friendly, no cookie banner):
+#   1. Sign up at https://plausible.io and add coloradoradonguide.com
+#   2. Copy the provided snippet and paste below (replacing the GA4 form)
+#
+# GA4 example: GOOGLE_ANALYTICS_ID = "G-XXXXXXXXXX"
+GOOGLE_ANALYTICS_ID = ""
+
+# Plausible domain (only set if you use Plausible instead of GA4).
+PLAUSIBLE_DOMAIN = ""
+
+
+def analytics_snippet() -> str:
+    """Return the head-injection HTML for whichever analytics provider is configured."""
+    if GOOGLE_ANALYTICS_ID:
+        return f"""<!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={GOOGLE_ANALYTICS_ID}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){{dataLayer.push(arguments);}}
+    gtag('js', new Date());
+    gtag('config', '{GOOGLE_ANALYTICS_ID}', {{ anonymize_ip: true }});
+  </script>"""
+    if PLAUSIBLE_DOMAIN:
+        return f'<script defer data-domain="{PLAUSIBLE_DOMAIN}" src="https://plausible.io/js/script.js"></script>'
+    return ""
+
+
+def search_console_meta() -> str:
+    """Return the Google Search Console verification meta tag (or empty string)."""
+    if GOOGLE_SITE_VERIFICATION:
+        return f'<meta name="google-site-verification" content="{GOOGLE_SITE_VERIFICATION}">'
+    return ""
+
 # ---------------------------------------------------------------------------
 # Shared CSS (kept inline on every page so the site works as flat HTML and
 # also renders inside sandboxed preview iframes).
@@ -922,10 +982,25 @@ def org_schema() -> str:
     obj = {
         "@context": "https://schema.org",
         "@type": "Organization",
+        "@id": SITE_URL + "/#organization",
         "name": SITE_NAME,
         "url": SITE_URL,
-        "description": "Independent Colorado radon information and quote-connection resource.",
-        "areaServed": {"@type": "AdministrativeArea", "name": "Colorado, USA"},
+        "description": "Independent Colorado radon information and quote-connection resource. We are not a radon contractor; we route quote requests to a DORA-licensed Colorado mitigation partner.",
+        "areaServed": [
+            {"@type": "AdministrativeArea", "name": "Colorado, USA"},
+            {"@type": "City", "name": "Colorado Springs"},
+        ],
+        "knowsAbout": [
+            "Radon testing",
+            "Radon mitigation",
+            "EPA radon zones",
+            "Colorado SB23-206 radon disclosure",
+            "DORA Office of Radon Professionals",
+        ],
+        "sameAs": [
+            "https://www.epa.gov/radon",
+            "https://cdphe.colorado.gov/radon",
+        ],
     }
     return f'<script type="application/ld+json">{json.dumps(obj)}</script>'
 
@@ -1038,6 +1113,7 @@ def render_page(*, url_path, title, description, h1, body_html,
       </div>
     </section>"""
 
+    og_image_url = SITE_URL + DEFAULT_OG_IMAGE
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1048,6 +1124,11 @@ def render_page(*, url_path, title, description, h1, body_html,
   <link rel="canonical" href="{canonical}">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
   <meta name="theme-color" content="#1c4a6e">
+  {search_console_meta()}
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -1055,11 +1136,17 @@ def render_page(*, url_path, title, description, h1, body_html,
   <meta property="og:description" content="{description}">
   <meta property="og:url" content="{canonical}">
   <meta property="og:site_name" content="{SITE_NAME}">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="{og_image_url}">
+  <meta property="og:image:width" content="{DEFAULT_OG_IMAGE_WIDTH}">
+  <meta property="og:image:height" content="{DEFAULT_OG_IMAGE_HEIGHT}">
+  <meta property="og:image:alt" content="A Colorado home against the Rocky Mountain foothills.">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{title}">
   <meta name="twitter:description" content="{description}">
+  <meta name="twitter:image" content="{og_image_url}">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1071,6 +1158,7 @@ def render_page(*, url_path, title, description, h1, body_html,
   {website_schema()}
   {crumbs_schema_html}
   {extra}
+  {analytics_snippet()}
 </head>
 <body>
   {header_html(url_path)}
